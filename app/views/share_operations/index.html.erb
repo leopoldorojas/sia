@@ -1,0 +1,35 @@
+<h1>Listing share_operations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation date</th>
+      <th>Share holder</th>
+      <th>Shares number</th>
+      <th>Cash</th>
+      <th>Dividends</th>
+      <th>Adjustment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @share_operations.each do |share_operation| %>
+      <tr>
+        <td><%= share_operation.operation_date %></td>
+        <td><%= share_operation.share_holder %></td>
+        <td><%= share_operation.shares_number %></td>
+        <td><%= share_operation.cash %></td>
+        <td><%= share_operation.dividends %></td>
+        <td><%= share_operation.adjustment %></td>
+        <td><%= link_to 'Show', share_operation %></td>
+        <td><%= link_to 'Edit', edit_share_operation_path(share_operation) %></td>
+        <td><%= link_to 'Destroy', share_operation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Share operation', new_share_operation_path %>

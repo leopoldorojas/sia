@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Operation date:</strong>
+  <%= @share_operation.operation_date %>
+</p>
+
+<p>
+  <strong>Share holder:</strong>
+  <%= @share_operation.share_holder %>
+</p>
+
+<p>
+  <strong>Shares number:</strong>
+  <%= @share_operation.shares_number %>
+</p>
+
+<p>
+  <strong>Cash:</strong>
+  <%= @share_operation.cash %>
+</p>
+
+<p>
+  <strong>Dividends:</strong>
+  <%= @share_operation.dividends %>
+</p>
+
+<p>
+  <strong>Adjustment:</strong>
+  <%= @share_operation.adjustment %>
+</p>
+
+<%= link_to 'Edit', edit_share_operation_path(@share_operation) %> |
+<%= link_to 'Back', share_operations_path %>
