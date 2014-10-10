@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @share_type.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @share_type.value %>
+</p>
+
+<%= link_to 'Edit', edit_share_type_path(@share_type) %> |
+<%= link_to 'Back', share_types_path %>

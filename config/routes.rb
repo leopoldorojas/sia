@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :companies
+
+  resources :share_issues
+
+  resources :share_types
+
+  resources :receipts
+
   resources :shares
 
   resources :share_operations

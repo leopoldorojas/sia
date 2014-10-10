@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Issue date:</strong>
+  <%= @share_issue.issue_date %>
+</p>
+
+<p>
+  <strong>Initial share:</strong>
+  <%= @share_issue.initial_share %>
+</p>
+
+<p>
+  <strong>Final share:</strong>
+  <%= @share_issue.final_share %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @share_issue.company %>
+</p>
+
+<%= link_to 'Edit', edit_share_issue_path(@share_issue) %> |
+<%= link_to 'Back', share_issues_path %>

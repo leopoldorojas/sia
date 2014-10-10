@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @receipt.number %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @receipt.type %>
+</p>
+
+<p>
+  <strong>Receipt date:</strong>
+  <%= @receipt.receipt_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @receipt.description %>
+</p>
+
+<p>
+  <strong>Share operation:</strong>
+  <%= @receipt.share_operation %>
+</p>
+
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back', receipts_path %>
