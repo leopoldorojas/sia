@@ -1,7 +1,7 @@
 class CreateShareOperations < ActiveRecord::Migration
   def change
     create_table :share_operations do |t|
-      t.Date :operation_date
+      t.date :operation_date
       t.references :share_holder, index: true
       t.integer :shares_number
       t.decimal :cash
