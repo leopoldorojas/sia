@@ -19,15 +19,15 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  are_you_sure: Are you sure?
-  back: Back
-  destroy: Destroy
-  edit: Edit
-  show: Show
-  system_title: Shares Information System
+es:
+  are_you_sure: ¿Está seguro?
+  back: Regresar
+  destroy: Borrar
+  edit: Editar
+  show: Mostrar
+  system_title: 'SIA: Sistema de Información de Acciones'
 
   menu:
-    about: About
-    home: Home
-    issuance: Share Issuance
+    about: Acerca de
+    home: Inicio
+    issuance: Emisión de Acciones

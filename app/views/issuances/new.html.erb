@@ -1,0 +1,35 @@
+<h1><%= t('issuance.new') %></h1>
+
+<%= form_for @share_issue do |f| %>
+  <div class="row">
+    <fieldset class="small-12 columns">
+      <legend><%= t('issuance.information') %></legend>
+      <div class="small-6 columns">
+        <%= f.label :issue_date %>
+        <%= f.date_field :issue_date %>
+      </div>
+
+      <div class="small-2 columns">
+        <%= f.label :initial_share %>
+        <%= f.number_field :initial_share %>
+      </div>
+
+      <div class="small-2 columns">
+        <%= f.label :final_share %>
+        <%= f.number_field :final_share %>
+      </div>
+
+      <div class="small-2 columns">
+        <%= f.label :company_id %>
+        <%= f.number_field :company_id %>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to t('back'), root_path %>

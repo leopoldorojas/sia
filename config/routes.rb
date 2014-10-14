@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'issuances/new', to: 'issuances#new', as: :new_issuance
+
   resources :companies
 
   resources :share_issues
