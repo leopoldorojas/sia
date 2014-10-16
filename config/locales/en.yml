@@ -27,7 +27,23 @@ en:
   show: Show
   system_title: Shares Information System
 
+  activerecord:
+    models:
+      share_issue: Shares Issuance
+    attributes:
+      share_issue:
+        company: Credit Company
+        final_share: Last share number
+        initial_share: First share number
+        issue_date: Date
+
   menu:
     about: About
     home: Home
     issuance: Share Issuance
+    receipts: Receipts
+    shares: Shares
+
+  issuance:
+    information: Information on new Shares Issuance
+    new: Shares Issuance

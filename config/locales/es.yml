@@ -27,7 +27,23 @@ es:
   show: Mostrar
   system_title: 'SIA: Sistema de Información de Acciones'
 
+  activerecord:
+    models:
+      share_issue: Emisión de Acciones
+    attributes:
+      share_issue:
+        company: Empresa de Crédito
+        final_share: Número Final de Acción
+        initial_share: Número Inicial de Acción
+        issue_date: Fecha
+
   menu:
     about: Acerca de
     home: Inicio
     issuance: Emisión de Acciones
+    receipts: Recibos
+    shares: Acciones
+
+  issuance:
+    information: Información de la nueva Emisión de Acciones
+    new: Emisión de Acciones

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +9,8 @@
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-
-</html>
-
  <div class="row">
     <div class="large-3 columns">
       <h1><%= image_tag "Logo_Edesa.png" %></h1>
@@ -28,16 +27,15 @@
    
   <div class="row">       
     <div class="large-9 push-3 columns">
-      <h3>SIA <small>Sistema de Información de Acciones</small></h3>
-      <p><%= yield %></p>
+      <%= yield %>
     </div>
      
     <div class="large-3 pull-9 columns">    
       <ul class="side-nav">
         <li><a href="#">Venta de Acciones</a></li>
         <li><a href="#">Socios</a></li>
-        <li><a href="#">Acciones</a></li>
-        <li><a href="#">Recibos</a></li>
+        <li><%= link_to t('menu.shares'), root_path %></li>
+        <li><%= link_to t('menu.receipts'), root_path %></li>
         <li><%= link_to t('menu.issuance'), new_issuance_path %></li>
         <li><a href="#">Información de Referencia</a></li>
         <li><a href="#">Empresa</a></li>
@@ -69,3 +67,5 @@
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
+
+</html>
