@@ -1,6 +1,6 @@
 <h4><%= t('issuance.new') %></h4>
 
-<%= form_for @share_issue do |f| %>
+<%= form_for @share_issue, url: issuances_path do |f| %>
   <fieldset class="small-12 columns">
     <legend><%= t('issuance.information') %></legend>
     <div class="row">

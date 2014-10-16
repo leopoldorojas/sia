@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'issuances/new', to: 'issuances#new', as: :new_issuance
+  resources :issuances, only: [:new, :create]
 
   resources :companies
 
