@@ -29,21 +29,45 @@ en:
 
   activerecord:
     models:
+      company: Credit Company
       share_issue: Shares Issuance
+      share_operation: Shares Operation
     attributes:
+      company:
+        name: Name 
+        last_share_issued: Last share issued
       share_issue:
         company: Credit Company
         final_share: Last share number
         initial_share: First share number
         issue_date: Date
+      share_operation:
+        adjustment: Adjustment
+        cash: Cash
+        dividends: Dividends
+        operation_date: Operation Date
+        share_holder: Share Holder
+        shares_number: Shares Number
+
+  company:
+    editing: Editing Credit Company
+    listing: Listing Credit Companies
+    save_failed: 'prohibited this credit company from being saved:'
+    updated: Credit Company was successfully updated.
 
   menu:
     about: About
+    company: Company
     home: Home
     issuance: Share Issuance
     receipts: Receipts
+    sale: Sale of Shares
     shares: Shares
 
   issuance:
     information: Information on new Shares Issuance
     new: Shares Issuance
+
+  sale:
+    information: Information for the Sale of Shares
+    new: New Sale of Shares

@@ -1,0 +1,51 @@
+<h4><%= t('sale.new') %></h4>
+
+<%= form_for @share_operation, url: sales_path do |f| %>
+  <fieldset class="small-12 columns">
+    <legend><%= t('sale.information') %></legend>
+    <div class="row">
+
+      <div class="small-4 columns">
+        <%= f.label :operation_date %>
+        <%= f.date_field :operation_date %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :share_holder %>
+        <%= f.number_field :share_holder_id %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :shares_number %>
+        <%= f.number_field :shares_number %>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="small-4 columns">
+        <%= f.label :cash %>
+        <%= f.text_field :cash %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :dividends %>
+        <%= f.text_field :dividends %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :adjustment %>
+         <%= f.text_field :adjustment %>
+      </div>
+
+    </div>
+
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit class: "button small radius" %>
+  </div>
+<% end %>
+
+<%= link_to t('back'), root_path %>

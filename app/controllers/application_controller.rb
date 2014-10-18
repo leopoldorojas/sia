@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -6,14 +7,10 @@ class ApplicationController < ActionController::Base
 
   I18n.locale = :es
 
-  def current_company
-  	@company
-  end
-
   private 
 
 	  def set_current_company
-	  	@company = Company.new(last_share_issued: 0)
+	  	@company = Company.first
 	  end
 
 end

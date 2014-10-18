@@ -32,13 +32,13 @@
      
     <div class="large-3 pull-9 columns">    
       <ul class="side-nav">
-        <li><a href="#">Venta de Acciones</a></li>
+        <li><a href="#"><%= link_to t('menu.sale'), new_sale_path %></a></li>
         <li><a href="#">Socios</a></li>
         <li><%= link_to t('menu.shares'), root_path %></li>
         <li><%= link_to t('menu.receipts'), root_path %></li>
         <li><%= link_to t('menu.issuance'), new_issuance_path %></li>
         <li><a href="#">Información de Referencia</a></li>
-        <li><a href="#">Empresa</a></li>
+        <li><%= link_to t('menu.company'), edit_company_path(current_company) %></li>
       </ul>
       
       <p>&nbsp;</p><p>EDESA es parte del<br/><%= image_tag "Logo_grupo_finca.png" %></p>

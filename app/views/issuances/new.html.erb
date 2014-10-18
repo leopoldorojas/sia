@@ -12,7 +12,7 @@
 
       <div class="small-4 columns">
         <%= f.label :initial_share %>
-        <%= f.number_field :initial_share %>
+        <%= @share_issue.initial_share %>
       </div>
 
       <div class="small-4 columns">
@@ -22,14 +22,6 @@
 
     </div>
 
-    <div class="row">
-
-      <div class="small-4 columns">
-        <%= f.label :company %>
-        <%= f.number_field :company_id %>
-      </div>
-
-    </div>
   </fieldset>
 
   <div class="actions">

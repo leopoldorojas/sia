@@ -1,6 +1,37 @@
-<h1>Editing company</h1>
+<h3><%= t('company.editing') %></h3>
 
-<%= render 'form' %>
+<%= form_for(@company) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{pluralize(@company.errors.count, 'error')} #{t('company.save_failed')}" %></h2>
 
-<%= link_to 'Show', @company %> |
-<%= link_to 'Back', companies_path %>
+      <ul>
+      <% @company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :last_share_issued %>
+        <%= f.number_field :last_share_issued %>
+      </div>
+
+      <div class="small-4 columns">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "button small radius" %>
+  </div>
+<% end %>
