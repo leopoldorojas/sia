@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private 
 
 	  def set_current_company
-	  	@company = Company.first
+	  	@company = Company.first_or_create(name: "EDESA")
 	  end
 
 end

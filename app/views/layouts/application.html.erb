@@ -38,8 +38,7 @@
         <li><%= link_to t('menu.receipts'), root_path %></li>
         <li><%= link_to t('menu.issuance'), new_issuance_path %></li>
         <li><a href="#">Información de Referencia</a></li>
-        <% safe_company_path = current_company ? edit_company_path(current_company) : "#" %>
-        <li><%= link_to t('menu.company'), safe_company_path %></li>
+        <li><%= link_to t('menu.company'), edit_company_path(current_company) %></li>
       </ul>
       
       <p>&nbsp;</p><p>EDESA es parte del<br/><%= image_tag "Logo_grupo_finca.png" %></p>
