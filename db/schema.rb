@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010213832) do
+ActiveRecord::Schema.define(version: 20141020184459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20141010213832) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   add_index "share_issues", ["company_id"], name: "index_share_issues_on_company_id", using: :btree
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 20141010213832) do
     t.integer  "share_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "value"
   end
 
   add_index "shares", ["share_issue_id"], name: "index_shares_on_share_issue_id", using: :btree

@@ -32,6 +32,7 @@ es:
       company: Empresa de Crédito
       share_issue: Emisión de Acciones
       share_operation: Operación de Acciones
+      share_type: Tipo de Acción
     attributes:
       company:
         name: Nombre
@@ -41,6 +42,7 @@ es:
         final_share: Número Final de Acción
         initial_share: Número Inicial de Acción
         issue_date: Fecha
+        type: Tipo
       share_operation:
         adjustment: Ajuste
         cash: Efectivo
@@ -48,11 +50,17 @@ es:
         operation_date: Fecha de Operación
         share_holder: Socio
         shares_number: Número de Acciones
+      share_type:
+        name: Nombre del Tipo de Acción
+        value: Valor
 
   company:
     editing: Editando Empresa de Crédito
     save_failed: 'evitó que esta empresa de crédito sea grabada:'
     updated: La Empresa de Crédito fue actualizada exitosamente.
+
+  location:
+    index: Ubicaciones
 
   menu:
     about: Acerca de
@@ -60,6 +68,7 @@ es:
     home: Inicio
     issuance: Emisión de Acciones
     receipts: Recibos
+    reference_entities: Información de Referencia
     sale: Venta de Acciones
     shares: Acciones
 
@@ -70,3 +79,13 @@ es:
   sale:
     information: Información de la Venta de Acciones
     new: Venta de Acciones
+
+  share_type:
+    created: El Tipo de Acción fue creado exitosamente.
+    destroyed: El Tipo de Acción fue borrado exitosamente.
+    editing: Editando Tipo de Acción
+    index: Tipos de Acciones
+    listing: Listado de los Tipos de Acciones
+    new: Nuevo Tipo de Acción
+    save_failed: 'evitó que este tipo de acción sea grabado:'
+    updated: El Tipo de Acción fue actualizado exitosamente.

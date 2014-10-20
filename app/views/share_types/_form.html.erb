@@ -2,6 +2,7 @@
   <% if @share_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@share_type.errors.count, "error") %> prohibited this share_type from being saved:</h2>
+      <h2><%= "#{pluralize(@share_type.errors.count, 'error')} #{t('share_type.save_failed')}" %></h2>
 
       <ul>
       <% @share_type.errors.full_messages.each do |message| %>
@@ -11,15 +12,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <fieldset class="small-12 columns">
+      <legend><%= t('share_type.new') %></legend>
+
+      <div class="small-4 columns"
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="small-4 columns"
+        <%= f.label :value %><br>
+        <%= f.text_field :value %>
+      </div>
+
+      <div class="small-4 columns">
+      </div>
+    </fieldset>
   </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button small radius" %>
   </div>
 <% end %>

@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= ShareType.human_attribute_name('name') %>:</strong>
   <%= @share_type.name %>
 </p>
 
 <p>
-  <strong>Value:</strong>
+  <strong><%= ShareType.human_attribute_name('value') %>:</strong>
   <%= @share_type.value %>
 </p>
 
-<%= link_to 'Edit', edit_share_type_path(@share_type) %> |
-<%= link_to 'Back', share_types_path %>
+<%= link_to t('edit'), edit_share_type_path(@share_type) %> |
+<%= link_to t('back'), share_types_path %>

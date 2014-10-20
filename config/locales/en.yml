@@ -32,6 +32,7 @@ en:
       company: Credit Company
       share_issue: Shares Issuance
       share_operation: Shares Operation
+      share_type: Share Type
     attributes:
       company:
         name: Name 
@@ -41,6 +42,7 @@ en:
         final_share: Last share number
         initial_share: First share number
         issue_date: Date
+        type: Type
       share_operation:
         adjustment: Adjustment
         cash: Cash
@@ -48,12 +50,17 @@ en:
         operation_date: Operation Date
         share_holder: Share Holder
         shares_number: Shares Number
+      share_type:
+        name: Type
+        value: Value
 
   company:
     editing: Editing Credit Company
-    listing: Listing Credit Companies
     save_failed: 'prohibited this credit company from being saved:'
     updated: Credit Company was successfully updated.
+
+  location:
+    index: Locations
 
   menu:
     about: About
@@ -61,6 +68,7 @@ en:
     home: Home
     issuance: Share Issuance
     receipts: Receipts
+    reference_entities: Reference Entities
     sale: Sale of Shares
     shares: Shares
 
@@ -71,3 +79,13 @@ en:
   sale:
     information: Information for the Sale of Shares
     new: New Sale of Shares
+
+  share_type:
+    created: Share Type was successfully created.
+    destroyed: Share Type was successfully destroyed.
+    editing: Editing Share Type
+    index: Share Types
+    listing: Listing Share Types
+    new: New Share Type
+    save_failed: 'prohibited this share type from being saved:'
+    updated: Share Type was successfully updated.

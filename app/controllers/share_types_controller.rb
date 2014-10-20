@@ -5,6 +5,7 @@ class ShareTypesController < ApplicationController
   # GET /share_types.json
   def index
     @share_types = ShareType.all
+    @reference = "ShareType"
   end
 
   # GET /share_types/1
