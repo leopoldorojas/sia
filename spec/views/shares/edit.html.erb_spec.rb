@@ -4,7 +4,6 @@ RSpec.describe "shares/edit", :type => :view do
   before(:each) do
     @share = assign(:share, Share.create!(
       :number => 1,
-      :type => "",
       :share_holder => nil,
       :share_issue => nil
     ))

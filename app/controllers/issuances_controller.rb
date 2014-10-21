@@ -8,6 +8,7 @@ class IssuancesController < ApplicationController
   def create
     @share_issue = ShareIssue.new(share_issue_params)
     @share_issue.initial_share = initial_share
+    @share_issue.company = current_company
     @share_issue.initial_share.upto(@share_issue.final_share) { |number| @share_issue.shares.build(number: number) }
 
     respond_to do |format|
@@ -35,7 +36,7 @@ class IssuancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_issue_params
-      params.require(:share_issue).permit(:issue_date, :final_share, :company_id)
+      params.require(:share_issue).permit(:issue_date, :final_share, :share_type)
     end
 
 end

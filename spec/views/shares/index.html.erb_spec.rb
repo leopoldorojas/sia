@@ -5,13 +5,11 @@ RSpec.describe "shares/index", :type => :view do
     assign(:shares, [
       Share.create!(
         :number => 1,
-        :type => "Type",
         :share_holder => nil,
         :share_issue => nil
       ),
       Share.create!(
         :number => 1,
-        :type => "Type",
         :share_holder => nil,
         :share_issue => nil
       )
@@ -21,7 +19,6 @@ RSpec.describe "shares/index", :type => :view do
   it "renders a list of shares" do
     render
     assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => "Type".to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
   end

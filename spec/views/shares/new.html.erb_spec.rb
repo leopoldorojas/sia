@@ -4,7 +4,6 @@ RSpec.describe "shares/new", :type => :view do
   before(:each) do
     assign(:share, Share.new(
       :number => 1,
-      :type => "",
       :share_holder => nil,
       :share_issue => nil
     ))

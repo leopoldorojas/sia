@@ -29,7 +29,7 @@ class ShareTypesController < ApplicationController
 
     respond_to do |format|
       if @share_type.save
-        format.html { redirect_to @share_type, notice: 'Share type was successfully created.' }
+        format.html { redirect_to @share_type, notice: t('share_type.created') }
         format.json { render :show, status: :created, location: @share_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ShareTypesController < ApplicationController
   def update
     respond_to do |format|
       if @share_type.update(share_type_params)
-        format.html { redirect_to @share_type, notice: 'Share type was successfully updated.' }
+        format.html { redirect_to @share_type, notice: t('share_type.updated') }
         format.json { render :show, status: :ok, location: @share_type }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ShareTypesController < ApplicationController
   def destroy
     @share_type.destroy
     respond_to do |format|
-      format.html { redirect_to share_types_url, notice: 'Share type was successfully destroyed.' }
+      format.html { redirect_to share_types_url, notice: t('share_type.destroyed') }
       format.json { head :no_content }
     end
   end

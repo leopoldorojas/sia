@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Issue date</th>
+      <th>Type</th>
       <th>Initial share</th>
       <th>Final share</th>
       <th>Company</th>
@@ -15,9 +16,10 @@
     <% @share_issues.each do |share_issue| %>
       <tr>
         <td><%= share_issue.issue_date %></td>
+        <td><%= share_issue.share_type %></td>
         <td><%= share_issue.initial_share %></td>
         <td><%= share_issue.final_share %></td>
-        <td><%= share_issue.company %></td>
+        <td><%= share_issue.company.try(:name) %></td>
         <td><%= link_to 'Show', share_issue %></td>
         <td><%= link_to 'Edit', edit_share_issue_path(share_issue) %></td>
         <td><%= link_to 'Destroy', share_issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>

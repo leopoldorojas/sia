@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020184459) do
+ActiveRecord::Schema.define(version: 20141021154656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20141020184459) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+    t.string   "share_type"
   end
 
   add_index "share_issues", ["company_id"], name: "index_share_issues_on_company_id", using: :btree
@@ -90,10 +90,8 @@ ActiveRecord::Schema.define(version: 20141020184459) do
 
   create_table "shares", force: true do |t|
     t.integer  "number"
-    t.string   "type"
     t.integer  "share_operation_id"
     t.integer  "share_issue_id"
-    t.integer  "share_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "value"
@@ -101,6 +99,5 @@ ActiveRecord::Schema.define(version: 20141020184459) do
 
   add_index "shares", ["share_issue_id"], name: "index_shares_on_share_issue_id", using: :btree
   add_index "shares", ["share_operation_id"], name: "index_shares_on_share_operation_id", using: :btree
-  add_index "shares", ["share_type_id"], name: "index_shares_on_share_type_id", using: :btree
 
 end
