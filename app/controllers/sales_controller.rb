@@ -9,7 +9,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @share_operation.save
-        format.html { redirect_to @share_operation, notice: 'Share operation was successfully created.' }
+        format.html { redirect_to @share_operation, notice: t('sale.created') }
         format.json { render :show, status: :created, location: @share_operation }
       else
         format.html { render :new }

@@ -91,6 +91,7 @@ en:
     new: Shares Issuance
 
   sale:
+    created: Sale Operation was successfully created.
     information: Information for the Sale of Shares
     new: New Sale of Shares
     prompt_share_holder: Select the Share Holder

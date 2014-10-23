@@ -91,6 +91,7 @@ es:
     new: Emisión de Acciones
 
   sale:
+    created: Operación de Venta de Acciones fue realizada exitosamente.
     information: Información de la Venta de Acciones
     new: Venta de Acciones
     prompt_share_holder: Seleccione el Socio
