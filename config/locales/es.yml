@@ -42,7 +42,7 @@ es:
         final_share: Número Final de Acción
         initial_share: Número Inicial de Acción
         issue_date: Fecha
-        type: Tipo
+        share_type: Tipo de Acción
       share_operation:
         adjustment: Ajuste
         cash: Efectivo
@@ -50,8 +50,12 @@ es:
         operation_date: Fecha de Operación
         share_holder: Socio
         shares_number: Número de Acciones
+      share:
+        number: Número
+        share_operation: Operación
+        share_issue: Número de Emisión
       share_type:
-        name: Nombre del Tipo de Acción
+        name: Tipo de Acción
         value: Valor
 
   company:
@@ -71,6 +75,7 @@ es:
     reference_entities: Información de Referencia
     sale: Venta de Acciones
     shares: Acciones
+    share_holders: Socios
 
   issuance:
     information: Información de la nueva Emisión de Acciones
@@ -79,6 +84,9 @@ es:
   sale:
     information: Información de la Venta de Acciones
     new: Venta de Acciones
+
+  share:
+    listing: Listando Acciones
 
   share_type:
     created: El Tipo de Acción fue creado exitosamente.

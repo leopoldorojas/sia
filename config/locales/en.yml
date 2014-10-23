@@ -42,7 +42,7 @@ en:
         final_share: Last share number
         initial_share: First share number
         issue_date: Date
-        type: Type
+        share_type: Type
       share_operation:
         adjustment: Adjustment
         cash: Cash
@@ -50,6 +50,10 @@ en:
         operation_date: Operation Date
         share_holder: Share Holder
         shares_number: Shares Number
+      share:
+        number: Número
+        share_operation: Operación
+        share_issue: Número de Emisión
       share_type:
         name: Type
         value: Value
@@ -71,6 +75,7 @@ en:
     reference_entities: Reference Entities
     sale: Sale of Shares
     shares: Shares
+    share_holders: Share Holders
 
   issuance:
     information: Information on new Shares Issuance
@@ -79,6 +84,9 @@ en:
   sale:
     information: Information for the Sale of Shares
     new: New Sale of Shares
+
+  share:
+    listing: Listing Shares
 
   share_type:
     created: Share Type was successfully created.
