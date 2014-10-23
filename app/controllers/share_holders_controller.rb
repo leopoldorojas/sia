@@ -28,7 +28,7 @@ class ShareHoldersController < ApplicationController
 
     respond_to do |format|
       if @share_holder.save
-        format.html { redirect_to @share_holder, notice: 'Share holder was successfully created.' }
+        format.html { redirect_to @share_holder, notice: t('share_holder.created') }
         format.json { render :show, status: :created, location: @share_holder }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ShareHoldersController < ApplicationController
   def update
     respond_to do |format|
       if @share_holder.update(share_holder_params)
-        format.html { redirect_to @share_holder, notice: 'Share holder was successfully updated.' }
+        format.html { redirect_to @share_holder, notice: t('share_holder.updated') }
         format.json { render :show, status: :ok, location: @share_holder }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ShareHoldersController < ApplicationController
   def destroy
     @share_holder.destroy
     respond_to do |format|
-      format.html { redirect_to share_holders_url, notice: 'Share holder was successfully destroyed.' }
+      format.html { redirect_to share_holders_url, notice: t('share_holder.destroyed') }
       format.json { head :no_content }
     end
   end

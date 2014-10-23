@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= ShareHolder.human_attribute_name('name') %>:</strong>
   <%= @share_holder.name %>
 </p>
 
 <p>
-  <strong>Identifier:</strong>
+  <strong><%= ShareHolder.human_attribute_name('identifier') %>:</strong>
   <%= @share_holder.identifier %>
 </p>
 
 <p>
-  <strong>Contact:</strong>
+  <strong><%= ShareHolder.human_attribute_name('contact') %>:</strong>
   <%= @share_holder.contact %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= ShareHolder.human_attribute_name('phone') %>:</strong>
   <%= @share_holder.phone %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= ShareHolder.human_attribute_name('email') %>:</strong>
   <%= @share_holder.email %>
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @share_holder.location %>
+  <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
+  <%= @share_holder.location.try(:name) %>
 </p>
 
-<%= link_to 'Edit', edit_share_holder_path(@share_holder) %> |
-<%= link_to 'Back', share_holders_path %>
+<%= link_to t('edit'), edit_share_holder_path(@share_holder) %> |
+<%= link_to t('back'), share_holders_path %>

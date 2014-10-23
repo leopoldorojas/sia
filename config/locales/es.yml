@@ -30,6 +30,8 @@ es:
   activerecord:
     models:
       company: Empresa de Crédito
+      share: Acción
+      share_holder: Socio
       share_issue: Emisión de Acciones
       share_operation: Operación de Acciones
       share_type: Tipo de Acción
@@ -37,6 +39,13 @@ es:
       company:
         name: Nombre
         last_share_issued: Última acción emitida
+      share_holder:
+        contact: Contacto
+        email: Correo Electrónico
+        identifier: Cédula
+        location: Ubicación
+        name: Nombre
+        phone: Teléfono
       share_issue:
         company: Empresa de Crédito
         final_share: Número Final de Acción
@@ -84,9 +93,21 @@ es:
   sale:
     information: Información de la Venta de Acciones
     new: Venta de Acciones
+    prompt_share_holder: Seleccione el Socio
 
   share:
     listing: Listando Acciones
+
+  share_holder:
+    created: El Socio fue creado exitosamente.
+    destroyed: El Socio fue borrado exitosamente.
+    editing: Editando Socio
+    index: Socios
+    listing: Listado de Socios
+    new: Nuevo Socio
+    prompt_location: Seleccione la Ubicación
+    save_failed: 'evitó que este socio sea grabado:'
+    updated: El Socio fue actualizado exitosamente.
 
   share_type:
     created: El Tipo de Acción fue creado exitosamente.

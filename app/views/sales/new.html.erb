@@ -12,7 +12,7 @@
 
       <div class="small-4 columns">
         <%= f.label :share_holder %>
-        <%= f.number_field :share_holder_id %>
+        <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('sale.prompt_share_holder') %>
       </div>
 
       <div class="small-4 columns">

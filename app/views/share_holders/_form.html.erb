@@ -1,7 +1,7 @@
 <%= form_for(@share_holder) do |f| %>
   <% if @share_holder.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@share_holder.errors.count, "error") %> prohibited this share_holder from being saved:</h2>
+      <h2><%= "#{pluralize(@share_holder.errors.count, 'error')} #{t('share_holder.save_failed')}" %></h2>
 
       <ul>
       <% @share_holder.errors.full_messages.each do |message| %>
@@ -11,31 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <fieldset class="small-12 columns">
+      <div class="row">
+        <div class="small-4 columns"
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="small-4 columns"
+          <%= f.label :identifier %>
+          <%= f.text_field :identifier %>
+        </div>
+
+        <div class="small-4 columns">
+          <%= f.label :contact %>
+          <%= f.text_field :contact %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 columns"
+          <%= f.label :phone %>
+          <%= f.phone_field :phone %>
+        </div>
+
+        <div class="small-4 columns"
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+
+        <div class="small-4 columns">
+          <%= f.label :location %>
+          <%= f.collection_select :location_id, Location.all, :id, :name, prompt: t('share_holder.prompt_location') %>
+        </div>
+      </div>
+    </fieldset>
   </div>
-  <div class="field">
-    <%= f.label :identifier %><br>
-    <%= f.text_field :identifier %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :location_id %><br>
-    <%= f.text_field :location_id %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button small radius" %>
   </div>
+
 <% end %>

@@ -30,6 +30,8 @@ en:
   activerecord:
     models:
       company: Credit Company
+      share: Share
+      share_holder: Share Holder
       share_issue: Shares Issuance
       share_operation: Shares Operation
       share_type: Share Type
@@ -37,6 +39,13 @@ en:
       company:
         name: Name 
         last_share_issued: Last share issued
+      share_holder:
+        contact: Contact
+        email: Email
+        identifier: Identifier
+        location: Location
+        name: Name
+        phone: Phone
       share_issue:
         company: Credit Company
         final_share: Last share number
@@ -84,9 +93,21 @@ en:
   sale:
     information: Information for the Sale of Shares
     new: New Sale of Shares
+    prompt_share_holder: Select the Share Holder
 
   share:
     listing: Listing Shares
+
+  share_holder:
+    created: Share Holder was successfully created.
+    destroyed: Share Holder was successfully destroyed.
+    editing: Editing Share Holder
+    index: Share Holders
+    listing: Listing Share Holders
+    new: New Share Holder
+    prompt_location: Select the Location
+    save_failed: 'prohibited this share holder from being saved:'
+    updated: Share Holder was successfully updated.
 
   share_type:
     created: Share Type was successfully created.

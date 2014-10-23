@@ -1,7 +1,6 @@
 <%= form_for(@share_type) do |f| %>
   <% if @share_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@share_type.errors.count, "error") %> prohibited this share_type from being saved:</h2>
       <h2><%= "#{pluralize(@share_type.errors.count, 'error')} #{t('share_type.save_failed')}" %></h2>
 
       <ul>
