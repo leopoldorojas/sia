@@ -26,6 +26,8 @@
       </div>
 
       <div class="small-4 columns">
+        <%= f.label :share_type %>
+        <%= f.collection_select :share_type_id, ShareType.all, :id, :name, prompt: t('company.prompt_share_type') %>
       </div>
 
     </div>

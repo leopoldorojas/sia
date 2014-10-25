@@ -39,6 +39,7 @@ es:
       company:
         name: Nombre
         last_share_issued: Última acción emitida
+        share_type: Tipo de Acción de Default
       share_holder:
         contact: Contacto
         email: Correo Electrónico
@@ -69,6 +70,7 @@ es:
 
   company:
     editing: Editando Empresa de Crédito
+    prompt_share_type: Seleccion Tipo de Acción
     save_failed: 'evitó que esta empresa de crédito sea grabada:'
     updated: La Empresa de Crédito fue actualizada exitosamente.
 
@@ -95,6 +97,7 @@ es:
     information: Información de la Venta de Acciones
     new: Venta de Acciones
     prompt_share_holder: Seleccione el Socio
+    share_value: Valor de la Acción
 
   share:
     listing: Listando Acciones

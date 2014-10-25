@@ -2,7 +2,8 @@ class IssuancesController < ApplicationController
   before_action :set_initial_share
 
   def new
-  	@share_issue = ShareIssue.new(issue_date: Time.zone.now, initial_share: initial_share)
+  	@share_issue = ShareIssue.new(issue_date: Time.zone.now, initial_share: initial_share, final_share: initial_share)
+    @share_type_name = current_company.share_type.name
   end
 
   def create
@@ -36,7 +37,7 @@ class IssuancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_issue_params
-      params.require(:share_issue).permit(:issue_date, :final_share, :share_type)
+      params.require(:share_issue).permit(:issue_date, :initial_share, :final_share, :share_type)
     end
 
 end

@@ -39,6 +39,7 @@ en:
       company:
         name: Name 
         last_share_issued: Last share issued
+        share_type: Default Share Type
       share_holder:
         contact: Contact
         email: Email
@@ -69,6 +70,7 @@ en:
 
   company:
     editing: Editing Credit Company
+    prompt_share_type: Select Default Share Type
     save_failed: 'prohibited this credit company from being saved:'
     updated: Credit Company was successfully updated.
 
@@ -95,6 +97,7 @@ en:
     information: Information for the Sale of Shares
     new: New Sale of Shares
     prompt_share_holder: Select the Share Holder
+    share_value: Share Value
 
   share:
     listing: Listing Shares

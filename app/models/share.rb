@@ -4,8 +4,7 @@ class Share < ActiveRecord::Base
   delegate :share_type, to: :share_issue
 
   def self.get_next_shares shares_number
-  	where(share_operation: nil).limit(shares_number)
-  	#where(share_operation_id: [0, nil]).first(shares_number)
+  	where(share_operation_id: [0, nil]).order(:number).first(shares_number)
   end
 
 end

@@ -2,6 +2,7 @@ class SalesController < ApplicationController
 
   def new
   	@share_operation = ShareOperation.new(operation_date: Time.zone.now)
+    @share_value = current_company.share_type.value
   end
 
   def create

@@ -12,7 +12,7 @@
 
       <div class="small-4 columns">
         <%= f.label :initial_share %>
-        <%= @share_issue.initial_share %>
+         <%= f.number_field :initial_share, readonly: true %>
       </div>
 
       <div class="small-4 columns">
@@ -26,7 +26,7 @@
 
       <div class="small-4 columns">
         <%= f.label :share_type %>
-        <%= f.text_field :share_type %>
+        <%= f.text_field :share_type, value: @share_type_name, readonly: true %>
       </div>
 
       <div class="small-8 columns">
