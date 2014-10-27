@@ -113,6 +113,11 @@ en:
     save_failed: 'prohibited this share holder from being saved:'
     updated: Share Holder was successfully updated.
 
+  share_operation:
+    invalid_amounts: Invalid Amounts
+    not_enough_shares: There are not enough shares issued to sell
+    save_failed: 'prohibited this share operation from being saved:'
+
   share_type:
     created: Share Type was successfully created.
     destroyed: Share Type was successfully destroyed.

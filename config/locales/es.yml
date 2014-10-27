@@ -113,6 +113,11 @@ es:
     save_failed: 'evitó que este socio sea grabado:'
     updated: El Socio fue actualizado exitosamente.
 
+  share_operation:
+    invalid_amounts: Montos Inválidos. Verifique que la suma de las cantidades sea igual al valor de la acción por el número de acciones.
+    not_enough_shares: No hay suficientes acciones emitidas en stock para realizar la operación
+    save_failed: 'evitó que este operación de acciones sea grabada:'
+
   share_type:
     created: El Tipo de Acción fue creado exitosamente.
     destroyed: El Tipo de Acción fue borrado exitosamente.
