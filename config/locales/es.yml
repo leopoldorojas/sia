@@ -97,6 +97,7 @@ es:
     information: Información de la Venta de Acciones
     new: Venta de Acciones
     prompt_share_holder: Seleccione el Socio
+    receipt: Número de Recibo
     share_value: Valor de la Acción
 
   share:

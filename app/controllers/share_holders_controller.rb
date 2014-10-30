@@ -10,6 +10,11 @@ class ShareHoldersController < ApplicationController
   # GET /share_holders/1
   # GET /share_holders/1.json
   def show
+    share_operations = @share_holder.share_operations
+    @shares = []
+    share_operations.each do | share_operation |
+      @shares += share_operation.shares
+    end
   end
 
   # GET /share_holders/new

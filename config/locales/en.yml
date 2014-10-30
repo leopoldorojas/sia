@@ -97,6 +97,7 @@ en:
     information: Information for the Sale of Shares
     new: New Sale of Shares
     prompt_share_holder: Select the Share Holder
+    receipt: Receipt
     share_value: Share Value
 
   share:

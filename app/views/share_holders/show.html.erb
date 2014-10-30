@@ -30,5 +30,27 @@
   <%= @share_holder.location.try(:name) %>
 </p>
 
+<% unless @shares.empty? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= Share.human_attribute_name('number') %></th>
+        <th><%= ShareType.human_attribute_name('name') %></th>
+        <th><%= Share.human_attribute_name('share_issue') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @shares.each do |share| %>
+        <tr>
+          <td><%= share.number %></td>
+          <td><%= share.share_type %></td>
+          <td><%= share.share_issue.id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <%= link_to t('edit'), edit_share_holder_path(@share_holder) %> |
 <%= link_to t('back'), share_holders_path %>

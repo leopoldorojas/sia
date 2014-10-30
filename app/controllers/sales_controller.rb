@@ -7,6 +7,7 @@ class SalesController < ApplicationController
 
   def create
     @share_operation = ShareOperation.new(share_operation_params)
+    @share_operation.receipts.build(number: params[:share_operation][:receipt], receipt_date: @share_operation.operation_date)
 
     respond_to do |format|
       if @share_operation.save

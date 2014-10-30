@@ -10,4 +10,8 @@ class Share < ActiveRecord::Base
   	[ share_scope, shares_number_assigned ]
   end
 
+  def holder_name
+  	share_operation.try(:share_holder).try(:name) || ""
+  end
+
 end

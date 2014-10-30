@@ -60,7 +60,12 @@
         <%= text_field_tag :share_value, @share_value, readonly: true  %>
       </div>
 
-      <div class="small-8 columns">
+      <div class="small-4 columns">
+        <%= label_tag :receipt, t('sale.receipt') %>
+        <%= text_field_tag "share_operation[receipt]" %>
+      </div>
+
+      <div class="small-4 columns">
       </div>
 
     </div>
