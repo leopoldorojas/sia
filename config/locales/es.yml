@@ -30,6 +30,7 @@ es:
   activerecord:
     models:
       company: Empresa de Crédito
+      receipt: Recibo
       share: Acción
       share_holder: Socio
       share_issue: Emisión de Acciones
@@ -40,6 +41,12 @@ es:
         name: Nombre
         last_share_issued: Última acción emitida
         share_type: Tipo de Acción de Default
+      receipt:
+        number: Número
+        type: Tipo
+        receipt_date: Fecha
+        description: Descripción
+        share_operation: Operación
       share_holder:
         contact: Contacto
         email: Correo Electrónico
@@ -85,6 +92,7 @@ es:
     receipts: Recibos
     reference_entities: Información de Referencia
     sale: Venta de Acciones
+    sales_done: Ventas realizadas
     shares: Acciones
     share_holders: Socios
 
@@ -92,9 +100,15 @@ es:
     information: Información de la nueva Emisión de Acciones
     new: Emisión de Acciones
 
+  receipt:
+    listing: Listado de Recibos
+
   sale:
     created: Operación de Venta de Acciones fue realizada exitosamente.
-    information: Información de la Venta de Acciones
+    do_sale: Realizar operación
+    header_info: 'Mediante esta pantalla, usted puede realizar la transacción de venta de acciones a socios.'
+    information: Información de la Operación de Venta
+    listing: Operaciones de venta de acciones realizadas
     new: Venta de Acciones
     prompt_share_holder: Seleccione el Socio
     receipt: Número de Recibo

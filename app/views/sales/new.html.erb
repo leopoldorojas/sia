@@ -1,4 +1,5 @@
 <h4><%= t('sale.new') %></h4>
+<p><%= t('sale.header_info') %></p>
 
 <%= form_for @share_operation, url: sales_path do |f| %>
   <% if @share_operation.errors.any? %>
@@ -73,8 +74,6 @@
   </fieldset>
 
   <div class="actions">
-    <%= f.submit class: "button small radius" %>
+    <%= f.submit t('sale.do_sale'), class: "button small radius" %>
   </div>
 <% end %>
-
-<%= link_to t('back'), root_path %>

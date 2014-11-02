@@ -1,5 +1,9 @@
 class SalesController < ApplicationController
 
+  def index
+    @share_operations = ShareOperation.all
+  end
+
   def new
   	@share_operation = ShareOperation.new(operation_date: Time.zone.now, shares_number: 0, cash: 0, dividends: 0, adjustment: 0 )
     @share_value = current_company.share_type.value

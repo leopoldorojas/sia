@@ -1,0 +1,27 @@
+<h4><%= t('sale.listing') %></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= ShareOperation.human_attribute_name('operation_date') %></th>
+      <th><%= ShareOperation.human_attribute_name('share_holder') %></th>
+      <th><%= ShareOperation.human_attribute_name('shares_number') %></th>
+      <th><%= ShareOperation.human_attribute_name('cash') %></th>
+      <th><%= ShareOperation.human_attribute_name('dividends') %></th>
+      <th><%= ShareOperation.human_attribute_name('adjustment') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @share_operations.each do |share_operation| %>
+      <tr>
+        <td><%= share_operation.operation_date %></td>
+        <td><%= share_operation.share_holder %></td>
+        <td><%= share_operation.shares_number %></td>
+        <td><%= share_operation.cash %></td>
+        <td><%= share_operation.dividends %></td>
+        <td><%= share_operation.adjustment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -5,6 +5,7 @@ class ShareOperation < ActiveRecord::Base
   has_many :shares
 
   before_validation :assign_shares
+  validates :share_holder, presence: true
   validates :shares_number, presence: true
   validates :shares_number, :numericality => { :greater_than => 0 }
   validate :shares_to_sell?, :operation_consistency
