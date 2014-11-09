@@ -15,6 +15,4 @@
 /log/*.log
 /tmp
 
-/vendor/assets/components
-
 .DS_Store
