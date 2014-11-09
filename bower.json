@@ -2,7 +2,7 @@
   "name": "sia",
   "dependencies": {
     "angular": "~1.3.2",
-    "angular-ui-grid": "3.0.0-rc.14"
+    "angular-ui-grid": ""
   },
   "resolutions": {
     "angular": "~1.3.2"
