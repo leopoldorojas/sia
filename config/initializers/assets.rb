@@ -3,8 +3,10 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-
-Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+Rails.application.config.assets.precompile += %w( ui-grid.ttf ui-grid.woff )
+#Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
