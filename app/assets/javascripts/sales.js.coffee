@@ -4,36 +4,21 @@
 
 app = angular.module('app', ['ui.grid'])
  
-app.controller('MainCtrl', ['$scope', ($scope) ->
-
-  $scope.gridOptions1 = {
-    enableSorting: true,
+app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter', ($scope, $http, uiGridConstants, dateFilter) ->
+  termValue = dateFilter(new Date(), 'yyyy-MM')
+  $scope.gridOptions = {
+    enableFiltering: true,
     columnDefs: [
-      { field: 'firstName' },
-      { field: 'lastName' },
-      { field: 'company', enableSorting: false },
-      { field: 'employed'}
+      { field: 'operation_date', displayName: "Fecha", filter: {term: termValue, condition: uiGridConstants.filter.CONTAINS} },
+      { field: 'share_holder.name', displayName: "Socio" },
+      { field: 'shares_number', displayName: "# de Acciones", cellFilter: 'number' },
+      { field: 'cash', displayName: "Efectivo", cellFilter: 'number' },
+      { field: 'dividends', displayName: "Dividendos", cellFilter: 'number' },
+      { field: 'adjustment', displayName: "Ajustes", cellFilter: 'number'}
     ]
   }
- 
-  $scope.gridOptions1.data = [
-    {
-        "firstName": "Cox",
-        "lastName": "Carney",
-        "company": "Enormo",
-        "employed": true
-    },
-    {
-        "firstName": "Lorraine",
-        "lastName": "Wise",
-        "company": "Comveyer",
-        "employed": false
-    },
-    {
-        "firstName": "Nancy",
-        "lastName": "Waters",
-        "company": "Fuelton",
-        "employed": false
-    }
-  ]
+  
+  $http.get('/sales.json')
+    .success (data) ->
+      $scope.gridOptions.data = data
 ])

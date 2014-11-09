@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
- *= require ui-grid/ui-grid-unstable
+ *= require angular-ui-grid/ui-grid
 
  */

@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require angular/angular
-//= require ui-grid/ui-grid-unstable
+//= require angular-ui-grid/ui-grid
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
