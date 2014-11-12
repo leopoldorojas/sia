@@ -30,6 +30,16 @@
   <%= @share_holder.location.try(:name) %>
 </p>
 
+<p>
+  <strong><%= "Numero de Acciones" %>:</strong>
+  <%= @number_of_shares_by_this_share_holder %>
+</p>
+
+<p>
+  <strong><%= "Valor de las Acciones" %>:</strong>
+  <%= @total_amount_owned_by_this_share_holder %>
+</p>
+
 <% unless @shares.empty? %>
   <table>
     <thead>
