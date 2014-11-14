@@ -68,11 +68,11 @@ es:
         share_holder: Socio
         shares_number: Número de Acciones
       share:
-        number: Número
+        identifier: Número
         share_operation: Operación
         share_issue: Número de Emisión
       share_type:
-        name: Tipo de Acción
+        identifier: Tipo de Acción
         value: Valor
 
   company:

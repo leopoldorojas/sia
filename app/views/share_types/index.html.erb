@@ -9,7 +9,7 @@
 <table>
   <thead>
     <tr>
-      <th><%= ShareType.human_attribute_name('name') %></th>
+      <th><%= ShareType.human_attribute_name('identifier') %></th>
       <th><%= ShareType.human_attribute_name('value') %></th>
       <th colspan="2"></th>
     </tr>
@@ -18,7 +18,7 @@
   <tbody>
     <% @share_types.each do |share_type| %>
       <tr>
-        <td><%= share_type.name %></td>
+        <td><%= share_type.identifier %></td>
         <td><%= share_type.value %></td>
         <td><%= link_to t('edit'), edit_share_type_path(share_type) %></td>
         <td><%= link_to t('destroy'), share_type, method: :delete, data: { confirm: t('are_you_sure') } %></td>

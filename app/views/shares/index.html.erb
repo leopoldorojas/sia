@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th><%= Share.human_attribute_name('number') %></th>
+      <th><%= Share.human_attribute_name('identifier') %></th>
       <th><%= ShareType.human_attribute_name('name') %></th>
       <th><%= ShareHolder.human_attribute_name('name') %></th>
       <th><%= Share.human_attribute_name('share_issue') %></th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @shares.each do |share| %>
       <tr>
-        <td><%= share.number %></td>
+        <td><%= share.identifier %></td>
         <td><%= share.share_type %></td>
         <td><%= share.holder_name %></td>
         <td><%= share.share_issue.id %></td>

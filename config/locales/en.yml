@@ -68,11 +68,11 @@ en:
         share_holder: Share Holder
         shares_number: Shares Number
       share:
-        number: Número
+        identifier: Número
         share_operation: Operación
         share_issue: Número de Emisión
       share_type:
-        name: Type
+        identifier: Type
         value: Value
 
   company:

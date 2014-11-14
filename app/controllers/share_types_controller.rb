@@ -70,6 +70,6 @@ class ShareTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_type_params
-      params.require(:share_type).permit(:name, :value)
+      params.require(:share_type).permit(:identifier, :value)
     end
 end

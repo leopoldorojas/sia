@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024231452) do
+ActiveRecord::Schema.define(version: 20141114184506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,7 @@ ActiveRecord::Schema.define(version: 20141024231452) do
     t.integer  "last_share_issued"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "share_type_id"
   end
-
-  add_index "companies", ["share_type_id"], name: "index_companies_on_share_type_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -66,15 +63,15 @@ ActiveRecord::Schema.define(version: 20141024231452) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "share_type"
+    t.integer  "share_type_id"
   end
 
   add_index "share_issues", ["company_id"], name: "index_share_issues_on_company_id", using: :btree
+  add_index "share_issues", ["share_type_id"], name: "index_share_issues_on_share_type_id", using: :btree
 
   create_table "share_operations", force: true do |t|
     t.date     "operation_date"
     t.integer  "share_holder_id"
-    t.integer  "shares_number"
     t.decimal  "cash"
     t.decimal  "dividends"
     t.decimal  "adjustment"
@@ -85,19 +82,23 @@ ActiveRecord::Schema.define(version: 20141024231452) do
   add_index "share_operations", ["share_holder_id"], name: "index_share_operations_on_share_holder_id", using: :btree
 
   create_table "share_types", force: true do |t|
-    t.string   "name"
+    t.string   "identifier"
     t.decimal  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
 
+  add_index "share_types", ["company_id"], name: "index_share_types_on_company_id", using: :btree
+
   create_table "shares", force: true do |t|
-    t.integer  "number"
+    t.integer  "identifier"
     t.integer  "share_operation_id"
     t.integer  "share_issue_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "value"
+    t.integer  "share_holder_id"
   end
 
   add_index "shares", ["share_issue_id"], name: "index_shares_on_share_issue_id", using: :btree
