@@ -6,7 +6,6 @@ class SalesController < ApplicationController
 
   def new
   	@share_operation = ShareOperation.new(operation_date: Time.zone.now, shares_required: 0, cash: 0, dividends: 0, adjustment: 0 )
-    @share_value = ShareType.where(company: current_company).first.value
   end
 
   def create
@@ -18,7 +17,6 @@ class SalesController < ApplicationController
         format.html { redirect_to @share_operation, notice: t('sale.created') }
         format.json { render :show, status: :created, location: @share_operation }
       else
-        @share_value = ShareType.where(company: current_company).first.value
         format.html { render :new }
         format.json { render json: @share_operation.errors, status: :unprocessable_entity }
       end

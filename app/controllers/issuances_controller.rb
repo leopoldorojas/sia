@@ -3,14 +3,14 @@ class IssuancesController < ApplicationController
 
   def new
   	@share_issue = ShareIssue.new(issue_date: Time.zone.now, initial_share: initial_share, final_share: initial_share)
-    @share_type_identifier = ShareType.where(company: current_company).first.identifier
   end
 
   def create
     @share_issue = ShareIssue.new(share_issue_params)
     @share_issue.initial_share = initial_share
     @share_issue.company = current_company
-    @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier) }
+    share_value = ShareType.where(id: @share_issue.share_type_id).take.value if @share_issue.share_type_id
+    @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier, value: share_value) }
 
     respond_to do |format|
       if @share_issue.save

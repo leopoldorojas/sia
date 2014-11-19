@@ -115,6 +115,7 @@ en:
     listing: Listing Sales
     new: New Sale of Shares
     prompt_share_holder: Select the Share Holder
+    prompt_share_type: Select the Share Type
     receipt: Receipt
     share_value: Share Value
 
