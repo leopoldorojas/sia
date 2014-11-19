@@ -14,7 +14,7 @@ class ShareOperation < ActiveRecord::Base
     def shares_to_sell?
     	return unless errors.blank?
     	self.shares, self.shares_assigned = Share.get_next_shares(shares_required.to_i)
-    	errors[:base].push(I18n.t('share_operation.not_enough_shares')) unless shares_assigned == shares_required
+    	errors[:base].push(I18n.t('share_operation.not_enough_shares')) unless shares_assigned == shares_required.to_i
     end
 
 	  def operation_consistency
@@ -25,10 +25,6 @@ class ShareOperation < ActiveRecord::Base
 	  	self.dividends ||= 0
 	  	self.adjustment ||= 0
 	    errors[:base] << I18n.t('share_operation.invalid_amounts') unless shares_assigned * share_value == cash + dividends + adjustment
-	  end
-
-	  def share_assigned
-	  	@shares_assigned ||= shares.count
 	  end
 
 end

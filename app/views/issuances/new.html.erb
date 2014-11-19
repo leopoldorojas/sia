@@ -1,6 +1,18 @@
 <h4><%= t('issuance.new') %></h4>
 
 <%= form_for @share_issue, url: issuances_path do |f| %>
+  <% if @share_issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{pluralize(@share_issue.errors.count, 'error')} #{t('issuance.save_failed')}" %></h2>
+
+      <ul>
+      <% @share_issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <fieldset class="small-12 columns">
     <legend><%= t('issuance.information') %></legend>
     <div class="row">

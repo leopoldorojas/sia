@@ -60,6 +60,7 @@ en:
         initial_share: First share number
         issue_date: Date
         share_type: Type
+        share_type_id: Type
       share_operation:
         adjustment: Adjustment
         cash: Cash
@@ -101,6 +102,7 @@ en:
     information: Information on new Shares Issuance
     new: Shares Issuance
     prompt_share_type: Select the Share Type
+    save_failed: 'prohibited this shares issuance from being saved:'
 
   receipt:
     listing: Listing Receipts

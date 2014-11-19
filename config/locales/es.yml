@@ -60,6 +60,7 @@ es:
         initial_share: Número Inicial de Acción
         issue_date: Fecha
         share_type: Tipo de Acción
+        share_type_id: Tipo de Acción
       share_operation:
         adjustment: Ajuste
         cash: Efectivo
@@ -101,6 +102,7 @@ es:
     information: Información de la nueva Emisión de Acciones
     new: Emisión de Acciones
     prompt_share_type: Seleccione Tipo de Acción
+    save_failed: 'evitó que esta emisión de acciones sea grabada:'
 
   receipt:
     listing: Listado de Recibos
