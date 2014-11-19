@@ -69,6 +69,6 @@ class ShareOperationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_operation_params
-      params.require(:share_operation).permit(:operation_date, :share_holder_id, :shares_number, :cash, :dividends, :adjustment)
+      params.require(:share_operation).permit(:operation_date, :share_holder_id, :shares_required, :cash, :dividends, :adjustment)
     end
 end

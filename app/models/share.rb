@@ -5,15 +5,11 @@ class Share < ActiveRecord::Base
   delegate :share_type, to: :share_issue
   validates :identifier, uniqueness: true
 
-  def self.get_next_shares shares_number
-  	shares_number ||= 0
-  	share_scope = shares_number > 0 ? where(share_operation_id: [0, nil]).order(:identifier).first(shares_number) : none
-	  shares_number_assigned = share_scope.count
-  	[ share_scope, shares_number_assigned ]
-  end
-
-  def holder_name
-  	share_operation.try(:share_holder).try(:name) || ""
+  def self.get_next_shares shares_required
+  	shares_required ||= 0
+  	share_scope = shares_required > 0 ? where(share_operation_id: [0, nil]).order(:identifier).first(shares_required) : none
+	  shares_assigned = share_scope.count
+  	[ share_scope, shares_assigned ]
   end
 
 end

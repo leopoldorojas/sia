@@ -26,6 +26,7 @@ class ShareTypesController < ApplicationController
   # POST /share_types.json
   def create
     @share_type = ShareType.new(share_type_params)
+    @share_type.company = current_company
 
     respond_to do |format|
       if @share_type.save
@@ -41,6 +42,7 @@ class ShareTypesController < ApplicationController
   # PATCH/PUT /share_types/1
   # PATCH/PUT /share_types/1.json
   def update
+    @share_type.company = current_company
     respond_to do |format|
       if @share_type.update(share_type_params)
         format.html { redirect_to @share_type, notice: t('share_type.updated') }

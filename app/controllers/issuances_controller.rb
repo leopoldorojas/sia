@@ -3,14 +3,14 @@ class IssuancesController < ApplicationController
 
   def new
   	@share_issue = ShareIssue.new(issue_date: Time.zone.now, initial_share: initial_share, final_share: initial_share)
-    @share_type_name = current_company.share_type.name
+    @share_type_identifier = ShareType.where(company: current_company).first.identifier
   end
 
   def create
     @share_issue = ShareIssue.new(share_issue_params)
     @share_issue.initial_share = initial_share
     @share_issue.company = current_company
-    @share_issue.initial_share.upto(@share_issue.final_share) { |number| @share_issue.shares.build(number: number) }
+    @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier) }
 
     respond_to do |format|
       if @share_issue.save
@@ -37,7 +37,7 @@ class IssuancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_issue_params
-      params.require(:share_issue).permit(:issue_date, :initial_share, :final_share, :share_type)
+      params.require(:share_issue).permit(:issue_date, :initial_share, :final_share, :share_type_id)
     end
 
 end
