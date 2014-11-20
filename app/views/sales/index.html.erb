@@ -14,6 +14,7 @@
       <th><%= ShareOperation.human_attribute_name('cash') %></th>
       <th><%= ShareOperation.human_attribute_name('dividends') %></th>
       <th><%= ShareOperation.human_attribute_name('adjustment') %></th>
+      <th><%= ShareOperation.human_attribute_name('share_type') %></th>
     </tr>
   </thead>
 
@@ -26,6 +27,7 @@
         <td><%= share_operation.cash %></td>
         <td><%= share_operation.dividends %></td>
         <td><%= share_operation.adjustment %></td>
+        <td><%= share_operation.share_type %></td>
       </tr>
     <% end %>
   </tbody>

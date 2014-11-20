@@ -3,6 +3,7 @@ class Share < ActiveRecord::Base
   belongs_to :share_issue
   belongs_to :share_holder
   delegate :share_type, to: :share_issue
+  delegate :value, to: :share_type
   validates :identifier, uniqueness: true
 
   def self.get_next_shares shares_required

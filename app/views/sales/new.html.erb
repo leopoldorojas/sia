@@ -4,7 +4,7 @@
 <%= form_for @share_operation, url: sales_path do |f| %>
   <% if @share_operation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= "#{pluralize(@share_operation.errors.count, 'error')} #{t('share_operation.save_failed')}" %></h2>
+      <h2><%= "#{@share_operation.errors.count} #{t('error', count: @share_operation.errors.count)} #{t('share_operation.save_failed', count: @share_operation.errors.count)}" %></h2>
 
       <ul>
       <% @share_operation.errors.full_messages.each do |message| %>
@@ -58,7 +58,7 @@
 
       <div class="small-4 columns">
         <%= f.label :share_type %>
-        <%= text_field_tag :share_type_id %>
+        <%= f.collection_select :share_type_id, ShareType.all, :id, :identifier, prompt: t('sale.prompt_share_type') %>
       </div>
 
       <div class="small-4 columns">

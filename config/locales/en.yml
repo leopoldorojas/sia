@@ -24,6 +24,9 @@ en:
   back: Back
   destroy: Destroy
   edit: Edit
+  error:
+    one: error
+    other: errors
   show: Show
   system_title: Shares Information System
 
@@ -69,6 +72,8 @@ en:
         share_holder: Share Holder
         shares_assigned: Shares Assigned
         shares_required: Shares Required
+        share_type: Share Type
+        share_type_id: Share Type
       share:
         identifier: Número
         share_operation: Operación
@@ -136,7 +141,9 @@ en:
   share_operation:
     invalid_amounts: Invalid Amounts
     not_enough_shares: There are not enough shares issued to sell
-    save_failed: 'prohibited this share operation from being saved:'
+    save_failed:
+      one: 'prohibited this share operation from being saved:'
+      other: 'prohibited this share operation from being saved:'
 
   share_type:
     created: Share Type was successfully created.
