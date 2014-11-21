@@ -1,7 +1,7 @@
 class ShareIssue < ActiveRecord::Base
-  belongs_to :company
+  has_many :shares 
   belongs_to :share_type
-  has_many :shares
+  delegate :company, to: :share_type
 
   validates :share_type_id, presence: true
 end

@@ -1,7 +1,6 @@
 class ShareOperation < ActiveRecord::Base
-	attr_accessor :shares_required, :shares_assigned
+	attr_accessor :shares_required, :shares_assigned, :share_type_id
   belongs_to :share_holder
-  belongs_to :share_type
   has_one :receipt
   has_many :shares
 
@@ -10,9 +9,13 @@ class ShareOperation < ActiveRecord::Base
   validate :shares_to_sell?, :operation_consistency
 
   def shares_assigned
-    @shares_assigned ||= shares.count
+    @shares_assigned || shares.count
   end
-    
+
+  def share_type
+    shares.try(:first).try(:share_type)
+  end
+
   private
 
     def shares_to_sell?

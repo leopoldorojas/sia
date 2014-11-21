@@ -8,7 +8,6 @@ class IssuancesController < ApplicationController
   def create
     @share_issue = ShareIssue.new(share_issue_params)
     @share_issue.initial_share = initial_share
-    @share_issue.company = current_company
     @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier) }
 
     respond_to do |format|
