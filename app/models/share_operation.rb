@@ -6,10 +6,10 @@ class ShareOperation < ActiveRecord::Base
 
   validates :share_holder, :shares_required, :share_type_id, presence: true
   validates :shares_required, :numericality => { :greater_than => 0 }
-  validate :shares_to_sell?, :operation_consistency
+  validate :enough_shares_in_stock?, :operation_consistent?
 
   def shares_assigned
-    @shares_assigned || shares.count
+    @shares_assigned || (self.shares_assigned = shares.size)
   end
 
   def share_type
@@ -18,14 +18,14 @@ class ShareOperation < ActiveRecord::Base
 
   private
 
-    def shares_to_sell?
-    	return unless errors.blank?
-    	self.shares, self.shares_assigned = Share.get_next_shares(shares_required.to_i)
+    def enough_shares_in_stock?
+    	return if errors.any?
+    	self.shares = Share.get_next_shares shares_required.to_i
     	errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required.to_i
     end
 
-	  def operation_consistency
-	  	return unless errors.blank?
+	  def operation_consistent?
+	  	return if errors.any?
 	  	self.shares_assigned ||= 0
 	  	self.cash ||= 0
 	  	self.dividends ||= 0

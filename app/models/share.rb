@@ -7,10 +7,7 @@ class Share < ActiveRecord::Base
   validates :identifier, uniqueness: true
 
   def self.get_next_shares shares_required
-  	shares_required ||= 0
-  	share_scope = shares_required > 0 ? where(share_operation_id: [0, nil]).order(:identifier).first(shares_required) : none
-	  shares_assigned = share_scope.count
-  	[ share_scope, shares_assigned ]
+  	shares_required && shares_required > 0 ? where(share_operation_id: [0, nil]).order(:identifier).first(shares_required) : none
   end
 
 end
