@@ -1,5 +1,4 @@
 class ShareType < ActiveRecord::Base
-	has_many :shares
-	has_many :share_operations
+	has_many :share_issues
 	belongs_to :company
 end

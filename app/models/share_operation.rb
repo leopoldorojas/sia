@@ -16,12 +16,20 @@ class ShareOperation < ActiveRecord::Base
     shares.try(:first).try(:share_type)
   end
 
+  def shares_required
+     @shares_required.blank? || @shares_required.is_a?(Integer) ? @shares_required : (shares_required = @shares_required.to_i)
+  end
+
+  def share_type_id
+     @share_type_id.blank? || @share_type_id.is_a?(Integer) ? @share_type_id : (share_type_id = @share_type_id.to_i)
+  end
+
   private
 
     def enough_shares_in_stock?
     	return if errors.any?
-    	self.shares = Share.get_next_shares shares_required.to_i
-    	errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required.to_i
+    	self.shares = Share.get_next_shares shares_required, share_type_id
+    	errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required
     end
 
 	  def operation_consistent?
