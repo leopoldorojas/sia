@@ -53,8 +53,8 @@
     <tbody>
       <% @shares.each do |share| %>
         <tr>
-          <td><%= share.number %></td>
-          <td><%= share.share_type %></td>
+          <td><%= share.identifier %></td>
+          <td><%= share.share_type.identifier %></td>
           <td><%= share.share_issue.id %></td>
         </tr>
       <% end %>

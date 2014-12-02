@@ -123,6 +123,7 @@ es:
     prompt_share_type: Seleccione Tipo de Acción
     receipt: Número de Recibo
     share_value: Valor de la Acción
+    share_type: Tipo de Acción (valor)
 
   share:
     listing: Listando Acciones

@@ -123,6 +123,7 @@ en:
     prompt_share_type: Select the Share Type
     receipt: Receipt
     share_value: Share Value
+    share_type: Share Type (value)
 
   share:
     listing: Listing Shares
