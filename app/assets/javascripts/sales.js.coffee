@@ -4,7 +4,7 @@
 
 app = angular.module('app', ['ui.grid'])
  
-app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter', ($scope, $http, uiGridConstants, dateFilter) ->
+app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter', ($scope, $http, uiGridConstants, dateFilter) ->
   termValue = dateFilter(new Date(), 'yyyy-MM')
   $scope.gridOptions = {
     enableFiltering: true,

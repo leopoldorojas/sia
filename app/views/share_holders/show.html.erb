@@ -32,12 +32,12 @@
 
 <p>
   <strong><%= "Numero de Acciones" %>:</strong>
-  <%= @number_of_shares_by_this_share_holder %>
+  <%= @shares.size %>
 </p>
 
 <p>
   <strong><%= "Valor de las Acciones" %>:</strong>
-  <%= @total_amount_owned_by_this_share_holder %>
+  <%= @total_owned %>
 </p>
 
 <% unless @shares.empty? %>

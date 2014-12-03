@@ -8,6 +8,8 @@ class ShareOperation < ActiveRecord::Base
   validates :shares_required, :numericality => { :greater_than => 0 }
   validate :enough_shares_in_stock?, :operation_consistent?
 
+  before_save :assign_shares_to_share_holder
+
   def shares_assigned
     @shares_assigned || (self.shares_assigned = shares.size)
   end
@@ -41,4 +43,7 @@ class ShareOperation < ActiveRecord::Base
 	    errors[:base] << I18n.t('share_operation.invalid_amounts') unless shares_assigned * share_type.value == cash + dividends + adjustment
 	  end
 
+    def assign_shares_to_share_holder
+      self.share_holder.shares += shares
+    end
 end

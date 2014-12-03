@@ -10,20 +10,8 @@ class ShareHoldersController < ApplicationController
   # GET /share_holders/1
   # GET /share_holders/1.json
   def show
-    share_operations = @share_holder.share_operations
-    @shares = []
-    @values_of_shares = []
-
-    share_operations.each do | share_operation |
-      shares_to_include = share_operation.shares
-      @shares += shares_to_include
-      shares_to_include.each do | share_to_calculate |
-        @values_of_shares << 50000
-      end
-    end
-
-    @number_of_shares_by_this_share_holder = @shares.size
-    @total_amount_owned_by_this_share_holder = @values_of_shares.inject(0, :+)
+    @shares = @share_holder.shares
+    @total_owned = @share_holder.total_owned
   end
 
   # GET /share_holders/new
