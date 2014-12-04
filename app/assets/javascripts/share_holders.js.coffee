@@ -10,10 +10,10 @@ app.controller('ShareHoldersCtrl', ['$scope', '$http', 'uiGridConstants', 'dateF
     columnDefs: [
       { field: 'name', displayName: "Nombre" },
       { field: 'identifier', displayName: "Cédula" },
-      { field: 'contact', displayName: "Contacto o Representante" },
+      { field: 'contact', displayName: "Contacto" },
       { field: 'phone', displayName: "Teléfono" },
-      { field: 'email', displayName: "Correo Electrónic" },
-      { field: 'location_id', displayName: "Código de Localización", cellFilter: 'number' }
+      { field: 'email', displayName: "Email" },
+      { field: 'location_id', displayName: "Ubicación", cellFilter: 'number' }
     ]
   }
   

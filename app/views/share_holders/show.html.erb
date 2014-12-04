@@ -1,66 +1,111 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= ShareHolder.human_attribute_name('name') %>:</strong>
-  <%= @share_holder.name %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= ShareHolder.human_attribute_name('name') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.name %>
+  </div>
+</div>
 
-<p>
-  <strong><%= ShareHolder.human_attribute_name('identifier') %>:</strong>
-  <%= @share_holder.identifier %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= ShareHolder.human_attribute_name('identifier') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.identifier %>
+  </div>
+</div>
 
-<p>
-  <strong><%= ShareHolder.human_attribute_name('contact') %>:</strong>
-  <%= @share_holder.contact %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= ShareHolder.human_attribute_name('contact') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.contact %>
+  </div>
+</div>
 
-<p>
-  <strong><%= ShareHolder.human_attribute_name('phone') %>:</strong>
-  <%= @share_holder.phone %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= ShareHolder.human_attribute_name('phone') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.phone %>
+  </div>
+</div>
 
-<p>
-  <strong><%= ShareHolder.human_attribute_name('email') %>:</strong>
-  <%= @share_holder.email %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= ShareHolder.human_attribute_name('email') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.email %>
+  </div>
+</div>
 
-<p>
-  <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
-  <%= @share_holder.location.try(:name) %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.location.try(:name) %>
+  </div>
+</div>
 
-<p>
-  <strong><%= "Numero de Acciones" %>:</strong>
-  <%= @shares.size %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= "Numero de Acciones" %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @shares.size %>
+  </div>
+</div>
 
-<p>
-  <strong><%= "Valor de las Acciones" %>:</strong>
-  <%= @total_owned %>
-</p>
+<div class="row info-row">
+  <div class="small-3 columns">
+    <strong><%= "Valor Total" %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @total_owned %>
+  </div>
+</div>
 
 <% unless @shares.empty? %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= Share.human_attribute_name('number') %></th>
-        <th><%= ShareType.human_attribute_name('name') %></th>
-        <th><%= Share.human_attribute_name('share_issue') %></th>
-      </tr>
-    </thead>
+  <div class="row">
+    <div class="small-9 small-centered columns">
+      Tabla de resultados
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-9 columns">
+        <table>
+          <thead>
+            <tr>
+              <th><%= Share.human_attribute_name('number') %></th>
+              <th><%= ShareType.human_attribute_name('name') %></th>
+              <th><%= Share.human_attribute_name('share_issue') %></th>
+            </tr>
+          </thead>
 
-    <tbody>
-      <% @shares.each do |share| %>
-        <tr>
-          <td><%= share.identifier %></td>
-          <td><%= share.share_type.identifier %></td>
-          <td><%= share.share_issue.id %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          <tbody>
+            <% @shares.each do |share| %>
+              <tr>
+                <td><%= share.identifier %></td>
+                <td><%= share.share_type.identifier %></td>
+                <td><%= share.share_issue.id %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
 <% end %>
 
-<%= link_to t('edit'), edit_share_holder_path(@share_holder) %> |
-<%= link_to t('back'), share_holders_path %>
+<div class="row">
+  <div class="small-9 columns">
+    <%= link_to t('edit'), edit_share_holder_path(@share_holder) %> |
+    <%= link_to t('back'), share_holders_path %>
+  </div>
+</div>

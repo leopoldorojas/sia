@@ -16,3 +16,7 @@
  *= require angular-ui-grid/ui-grid
 
  */
+
+.info-row {
+  padding: 0.25em;
+}
