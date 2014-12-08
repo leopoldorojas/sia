@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app = angular.module('app', ['ui.grid'])
+app = angular.module('app')
  
-app.controller('ShareHoldersCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter', ($scope, $http, uiGridConstants, dateFilter) ->
+app.controller('ShareHoldersCtrl', ['$scope', '$http', ($scope, $http) ->
   $scope.gridOptions = {
     enableFiltering: true,
     columnDefs: [
@@ -13,7 +13,8 @@ app.controller('ShareHoldersCtrl', ['$scope', '$http', 'uiGridConstants', 'dateF
       { field: 'contact', displayName: "Contacto" },
       { field: 'phone', displayName: "Teléfono" },
       { field: 'email', displayName: "Email" },
-      { field: 'location_id', displayName: "Ubicación", cellFilter: 'number' }
+      { field: 'location_id', displayName: "Ubicación", cellFilter: 'number' },
+      { field: 'detail', cellTemplate: '<a href="leo">Ver Detalle</a>' }
     ]
   }
   

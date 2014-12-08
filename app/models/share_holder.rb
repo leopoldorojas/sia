@@ -3,6 +3,8 @@ class ShareHolder < ActiveRecord::Base
   has_many :share_operations
   has_many :shares
 
+  validates :name, presence: true
+
   def total_owned
     self.shares.map{ |share| share.value }.inject(:+)
   end
