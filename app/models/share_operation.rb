@@ -10,6 +10,8 @@ class ShareOperation < ActiveRecord::Base
 
   before_save :assign_shares_to_share_holder
 
+  default_scope { order operation_date: :desc }
+
   def shares_assigned
     @shares_assigned || (self.shares_assigned = shares.size)
   end

@@ -52,11 +52,14 @@ en:
         share_operation: Share Operation
       share_holder:
         contact: Contact
+        earnings: Earnings
         email: Email
+        equity: Equity
         identifier: Identifier
         location: Location
         name: Name
         phone: Phone
+        stock_prepaid: Stock Prepaid
       share_issue:
         company: Credit Company
         final_share: Last share number

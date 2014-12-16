@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row info-row">
-  <div class="small-3 columns">
+  <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('name') %>:</strong>
   </div>
   <div class="small-3 columns end">
@@ -10,7 +10,7 @@
 </div>
 
 <div class="row info-row">
-  <div class="small-3 columns">
+  <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('identifier') %>:</strong>
   </div>
   <div class="small-3 columns end">
@@ -19,7 +19,7 @@
 </div>
 
 <div class="row info-row">
-  <div class="small-3 columns">
+  <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('contact') %>:</strong>
   </div>
   <div class="small-3 columns end">
@@ -28,7 +28,7 @@
 </div>
 
 <div class="row info-row">
-  <div class="small-3 columns">
+  <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('phone') %>:</strong>
   </div>
   <div class="small-3 columns end">
@@ -37,7 +37,7 @@
 </div>
 
 <div class="row info-row">
-  <div class="small-3 columns">
+  <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('email') %>:</strong>
   </div>
   <div class="small-3 columns end">
@@ -45,6 +45,36 @@
   </div>
 </div>
 
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareHolder.human_attribute_name('equity') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.equity %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareHolder.human_attribute_name('earnings') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.earnings %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareHolder.human_attribute_name('stock_prepaid') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.stock_prepaid %>
+  </div>
+</div>
+
+<br/>
+
+<!--
 <div class="row info-row">
   <div class="small-3 columns">
     <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
@@ -102,6 +132,7 @@
     </div>
   </div>
 <% end %>
+-->
 
 <div class="row">
   <div class="small-9 columns">

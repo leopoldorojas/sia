@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(version: 20141121222032) do
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "equity"
+    t.decimal  "earnings"
+    t.decimal  "stock_prepaid"
   end
 
   add_index "share_holders", ["location_id"], name: "index_share_holders_on_location_id", using: :btree

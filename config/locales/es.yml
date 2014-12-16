@@ -52,11 +52,14 @@ es:
         share_operation: Operación
       share_holder:
         contact: Contacto
+        earnings: Utilidad
         email: Correo Electrónico
+        equity: Capital Invertido
         identifier: Cédula
         location: Ubicación
         name: Nombre
         phone: Teléfono
+        stock_prepaid: Adelanto para Acciones
       share_issue:
         company: Empresa de Crédito
         final_share: Número Final de Acción

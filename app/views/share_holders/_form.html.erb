@@ -29,6 +29,7 @@
           <%= f.text_field :contact %>
         </div>
       </div>
+
       <div class="row">
         <div class="small-4 columns">
           <%= f.label :phone %>
@@ -43,6 +44,23 @@
         <div class="small-4 columns">
           <%= f.label :location %>
           <%= f.collection_select :location_id, Location.all, :id, :name, prompt: t('share_holder.prompt_location') %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-4 columns">
+          <%= f.label :equity %>
+          <%= f.text_field :equity %>
+        </div>
+
+        <div class="small-4 columns">
+          <%= f.label :earnings %>
+          <%= f.text_field :earnings %>
+        </div>
+
+        <div class="small-4 columns">
+          <%= f.label :stock_prepaid %>
+          <%= f.text_field :stock_prepaid %>
         </div>
       </div>
     </fieldset>

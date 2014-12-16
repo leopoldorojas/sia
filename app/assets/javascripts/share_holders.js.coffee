@@ -4,7 +4,7 @@
 
 app = angular.module('app')
  
-app.controller('ShareHoldersCtrl', ['$scope', '$http', '$log', ($scope, $http, $log) ->
+app.controller('ShareHoldersCtrl', ['$scope', '$http', '$window', ($scope, $http, $window) ->
   $scope.gridOptions = {
     enableFiltering: true,
     enableRowHeaderSelection: false,
@@ -13,10 +13,9 @@ app.controller('ShareHoldersCtrl', ['$scope', '$http', '$log', ($scope, $http, $
       { field: 'name', displayName: "Nombre" },
       { field: 'identifier', displayName: "Cédula" },
       { field: 'contact', displayName: "Contacto" },
-      { field: 'phone', displayName: "Teléfono" },
-      { field: 'email', displayName: "Email" },
-      { field: 'location_id', displayName: "Ubicación", cellFilter: 'number' },
-      { field: 'detail', displayName: "", cellTemplate: '<a ng-click="$event.stopPropagation(); deleteThisRow(row.entity);" href="#">Ver Detalle</a>', enableColumnMenu: false, enableFiltering: false }
+      { field: 'equity', displayName: "Capital Invertido", cellFilter: 'number'  },
+      { field: 'earnings', displayName: "Utilidad", cellFilter: 'number'  },
+      { field: 'stock_prepaid', displayName: "Adelanto", cellFilter: 'number' }
     ]
   }
   
@@ -27,11 +26,6 @@ app.controller('ShareHoldersCtrl', ['$scope', '$http', '$log', ($scope, $http, $
   $scope.gridOptions.onRegisterApi = (gridApi) ->
     $scope.gridApi = gridApi
     gridApi.selection.on.rowSelectionChanged($scope, (row) ->
-      msg = 'row selected ' + row.isSelected
-      $log.log(msg)
+      $window.location.href="share_holders/" + row.entity.id
     )
-
-  $scope.deleteThisRow = (entity) ->
-    console.log("holac")
-    alert("hola")
 ])

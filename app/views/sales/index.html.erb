@@ -1,7 +1,8 @@
 <h4><%= t('sale.listing') %></h4>
 
+<p>Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación</p>
 <div ng-controller="SalesCtrl">
-  <div id="sales_grid" class="grid" ui-grid="gridOptions"></div>
+  <div id="sales_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
 
 <!--
