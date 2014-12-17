@@ -12,12 +12,12 @@ app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter',
     multiSelect: false,
     columnDefs: [
       { field: 'operation_date', displayName: "Fecha" },
-      { field: 'share_holder.name', displayName: "Socio" },
+      { field: 'share_holder.name', displayName: "Socio", filter: {condition: uiGridConstants.filter.CONTAINS } },
       { field: 'shares_assigned', displayName: "# de Acciones", cellFilter: 'number' },
-      { field: 'cash', displayName: "Efectivo", cellFilter: 'number' },
-      { field: 'dividends', displayName: "Dividendos", cellFilter: 'number' },
-      { field: 'adjustment', displayName: "Ajustes", cellFilter: 'number'},
-      { field: 'receipt', displayName: "Recibo"}
+      { field: 'cash', displayName: "Efectivo", cellFilter: 'number', enableFiltering: false },
+      { field: 'dividends', displayName: "Dividendos", cellFilter: 'number', enableFiltering: false },
+      { field: 'adjustment', displayName: "Ajustes", cellFilter: 'number', enableFiltering: false},
+      { field: 'receipt', displayName: "Recibo", filter: {condition: uiGridConstants.filter.CONTAINS }}
     ]
   }
   

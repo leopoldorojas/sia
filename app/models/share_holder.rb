@@ -10,4 +10,8 @@ class ShareHolder < ActiveRecord::Base
   def total_owned
     self.shares.map{ |share| share.value }.inject(:+)
   end
+
+  def to_s
+  	name
+  end
 end

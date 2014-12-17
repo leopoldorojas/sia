@@ -1,34 +1,67 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Operation date:</strong>
-  <%= @share_operation.operation_date %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareOperation.human_attribute_name('operation_date') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @share_operation.operation_date %>
+  </div>
+</div>
 
-<p>
-  <strong>Share holder:</strong>
-  <%= @share_operation.share_holder %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareOperation.human_attribute_name('share_holder') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @share_operation.share_holder %>
+  </div>
+</div>
 
-<p>
-  <strong>Shares number:</strong>
-  <%= @share_operation.shares_assigned %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareOperation.human_attribute_name('shares_assigned') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @share_operation.shares_assigned %>
+  </div>
+</div>
 
-<p>
-  <strong>Cash:</strong>
-  <%= @share_operation.cash %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareOperation.human_attribute_name('cash') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @share_operation.cash %>
+  </div>
+</div>
 
-<p>
-  <strong>Dividends:</strong>
-  <%= @share_operation.dividends %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareOperation.human_attribute_name('dividends') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @share_operation.dividends %>
+  </div>
+</div>
 
-<p>
-  <strong>Adjustment:</strong>
-  <%= @share_operation.adjustment %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareOperation.human_attribute_name('adjustment') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @share_operation.adjustment %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_share_operation_path(@share_operation) %> |
-<%= link_to 'Back', share_operations_path %>
+<br/>
+
+<!--
+<div class="row">
+  <div class="small-9 columns">
+    <%= link_to t('edit'), edit_share_operation_path(@share_operation) %> |
+    <%= link_to t('back'), share_operations_path %>
+  </div>
+</div>
+-->

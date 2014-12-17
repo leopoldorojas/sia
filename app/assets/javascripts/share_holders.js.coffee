@@ -4,18 +4,16 @@
 
 app = angular.module('app')
  
-app.controller('ShareHoldersCtrl', ['$scope', '$http', '$window', ($scope, $http, $window) ->
+app.controller('ShareHoldersCtrl', ['$scope', '$http', '$window', 'uiGridConstants', ($scope, $http, $window, uiGridConstants) ->
   $scope.gridOptions = {
     enableFiltering: true,
     enableRowHeaderSelection: false,
     multiSelect: false,
     columnDefs: [
-      { field: 'name', displayName: "Nombre" },
-      { field: 'identifier', displayName: "Cédula" },
-      { field: 'contact', displayName: "Contacto" },
-      { field: 'equity', displayName: "Capital Invertido", cellFilter: 'number'  },
-      { field: 'earnings', displayName: "Utilidad", cellFilter: 'number'  },
-      { field: 'stock_prepaid', displayName: "Adelanto", cellFilter: 'number' }
+      { field: 'name', displayName: "Nombre", filter: {condition: uiGridConstants.filter.CONTAINS } },
+      { field: 'equity', displayName: "Capital Invertido", cellFilter: 'number', enableFiltering: false },
+      { field: 'earnings', displayName: "Utilidad", cellFilter: 'number', enableFiltering: false },
+      { field: 'stock_prepaid', displayName: "Adelanto", cellFilter: 'number', enableFiltering: false }
     ]
   }
   

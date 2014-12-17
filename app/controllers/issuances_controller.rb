@@ -26,7 +26,7 @@ class IssuancesController < ApplicationController
   private
 
     def set_initial_share
-      @initial_share = current_company.last_share_issued + 1
+      @initial_share = current_company.last_share_issued.to_i + 1
     end
 
     def initial_share

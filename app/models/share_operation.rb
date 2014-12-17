@@ -9,6 +9,7 @@ class ShareOperation < ActiveRecord::Base
   validate :enough_shares_in_stock?, :operation_consistent?
 
   before_save :assign_shares_to_share_holder
+  after_create :update_share_holder
 
   default_scope { order operation_date: :desc }
 
@@ -28,6 +29,10 @@ class ShareOperation < ActiveRecord::Base
      @share_type_id.blank? || @share_type_id.is_a?(Integer) ? @share_type_id : (share_type_id = @share_type_id.to_i)
   end
 
+  def total_value
+    shares_assigned * share_type.value
+  end
+
   private
 
     def enough_shares_in_stock?
@@ -42,10 +47,17 @@ class ShareOperation < ActiveRecord::Base
 	  	self.cash ||= 0
 	  	self.dividends ||= 0
 	  	self.adjustment ||= 0
-	    errors[:base] << I18n.t('share_operation.invalid_amounts') unless shares_assigned * share_type.value == cash + dividends + adjustment
+	    errors[:base] << I18n.t('share_operation.invalid_amounts') unless total_value == cash + dividends + adjustment
 	  end
 
     def assign_shares_to_share_holder
       self.share_holder.shares += shares
+    end
+
+    def update_share_holder
+      self.share_holder.equity += total_value
+      self.share_holder.earnings -= dividends
+      self.share_holder.stock_prepaid -= adjustment
+      self.share_holder.save
     end
 end
