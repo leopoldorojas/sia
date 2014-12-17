@@ -22,10 +22,8 @@ CSV.foreach(Rails.root.join("db/control_de_socios_seed.csv")) do |share_holder|
   name, equity, earnings, stock_prepaid = share_holder
   ShareHolder.create do |sh|
   	sh.name = name
-  	sh.equity = equity.gsub(',','').to_f if equity.is_a? String
-  	sh.earnings = earnings.gsub(',','').to_f if earnings.is_a? String
-  	sh.stock_prepaid = stock_prepaid.gsub(',','').to_f if stock_prepaid.is_a? String
-  	puts sh.to_json
+  	sh.equity = equity.is_a?(String) ? equity.gsub(',','').to_f : equity
+  	sh.earnings = earnings.is_a?(String) ? earnings.gsub(',','').to_f : earnings
+  	sh.stock_prepaid = stock_prepaid.is_a?(String) ? stock_prepaid.gsub(',','').to_f : stock_prepaid
   end
-  break
 end
