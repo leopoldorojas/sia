@@ -55,9 +55,9 @@ class ShareOperation < ActiveRecord::Base
     end
 
     def update_share_holder
-      self.share_holder.equity += total_value
-      self.share_holder.earnings -= dividends
-      self.share_holder.stock_prepaid -= adjustment
+      self.share_holder.equity = share_holder.equity.respond_to?(:+) ? share_holder.equity + total_value : total_value
+      self.share_holder.earnings = share_holder.earnings.respond_to?(:-) ? share_holder.earnings - dividends : -dividends
+      self.share_holder.stock_prepaid = share_holder.stock_prepaid.respond_to?(:-) ? share_holder.stock_prepaid - adjustment : -adjustment
       self.share_holder.save
     end
 end
