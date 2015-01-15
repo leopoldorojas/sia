@@ -4,7 +4,6 @@ class ShareHolder < ActiveRecord::Base
   has_many :shares
 
   validates :name, presence: true
-
   default_scope { order(:name) }
 
   def total_owned
