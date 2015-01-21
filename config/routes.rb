@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :sales, only: [:index, :new, :create]
 
   resources :issuances, only: [:new, :create]
