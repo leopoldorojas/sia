@@ -4,7 +4,7 @@ class Share < ActiveRecord::Base
   belongs_to :share_holder
   delegate :share_type, to: :share_issue
   delegate :value, to: :share_type
-  validates :identifier, uniqueness: true
+  validates :identifier, uniqueness: true, on: :create
 
   class << self
 	  def get_next_shares shares_required, share_type_id
