@@ -51,7 +51,8 @@ class ShareOperation < ActiveRecord::Base
 	  end
 
     def assign_shares_to_share_holder
-      self.share_holder.shares += shares
+      #self.share_holder.shares += shares
+      Share.assign_shares_to(share_holder, shares)
     end
 
     def update_share_holder
