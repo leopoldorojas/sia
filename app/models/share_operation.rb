@@ -37,7 +37,10 @@ class ShareOperation < ActiveRecord::Base
 
     def enough_shares_in_stock?
     	return if errors.any?
-    	self.shares = Share.get_next_shares shares_required, share_type_id
+
+      # This can be optimized the same way that assign shares to share holder (see below) using an update_all strategy
+    	self.shares = Share.get_next_shares shares_required, share_type_id 
+
     	errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required
     end
 
