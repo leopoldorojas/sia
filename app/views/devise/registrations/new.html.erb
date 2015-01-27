@@ -1,29 +1,31 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <fieldset>
+    <legend><%= t('devise_views.registration') %></legend>
+    <div>
+      <%= f.text_field :name, autofocus: true, placeholder: t('devise_views.name') %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div>
+      <%= f.email_field :email, placeholder: t('devise_views.email') %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div>
+      <% placeholder = @validatable ? t('placeholder.password_minimum', minimum_characters: "#{@minimum_password_length}") : t('devise_views.password') %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: placeholder %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <div>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise_views.password_confirmation') %>
+    </div>
+
+    <div>
+      <%= f.collection_select :company_id, Company.all, :id, :name, prompt: t('user.prompt_company') %>
+    </div>
+
+    <div>
+      <%= f.submit t('devise_views.sign_up'), class: "button tiny radius" %> <small>ó <%= link_to t('devise_views.login'), new_session_path(resource_name) %></small>
+    </div>
+  </fieldset>
 <% end %>
-
-<%= render "devise/shared/links" %>

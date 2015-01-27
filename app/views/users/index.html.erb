@@ -1,0 +1,35 @@
+
+<h4><%= t('user.listing') %></h4>
+
+<p>
+<%= link_to link_to t('all.masculine'), :action => "index" %>
+&nbsp; | &nbsp;
+<%= link_to t('user.waiting_for_approval'), :action => "index", :approved => "false" %>
+</p>
+
+<p>
+<table>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name('name') %></th>
+      <th><%= User.human_attribute_name('email') %></th>
+      <th><%= User.human_attribute_name('approved') %></th>
+      <th><%= User.human_attribute_name('company') %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user %></td>
+        <td><%= user.email %></td>
+        <td><%= t user.approved.class %></td>
+        <td><%= user.company.try(:name) %></td>
+        <td><%= link_to t('edit'), edit_user_path(user) %></td>
+        <td><%= link_to t('destroy'), user, method: :delete, data: { confirm: t('are_you_sure') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>

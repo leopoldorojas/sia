@@ -2,9 +2,11 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  #before_action :authenticate_user!
+  include Pundit
+  before_action :authenticate_user!
   protect_from_forgery with: :exception
   before_action :set_current_company
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   I18n.locale = :es
 
@@ -13,5 +15,9 @@ class ApplicationController < ActionController::Base
 	  def set_current_company
 	  	@company = Company.first_or_create(name: "EDESA")
 	  end
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) << [:name, :company_id]
+    end
 
 end

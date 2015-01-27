@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  all:
+    feminine: Todas
+    masculine: Todos
   are_you_sure: ¿Está seguro?
   back: Regresar
   destroy: Borrar
@@ -27,8 +30,12 @@ es:
   error:
     one: error
     other: errores
+  FalseClass: "No"
+  NilClass: "No"
   show: Mostrar
   system_title: 'SIA: Sistema de Información de Acciones'
+  sign_out: Salir
+  TrueClass: "Sí"
 
   activerecord:
     models:
@@ -39,6 +46,7 @@ es:
       share_issue: Emisión de Acciones
       share_operation: Operación de Acciones
       share_type: Tipo de Acción
+      user: Usuario
     attributes:
       company:
         name: Nombre
@@ -84,6 +92,13 @@ es:
       share_type:
         identifier: Tipo de Acción
         value: Valor
+      user:
+        approved: ¿Autorizado?
+        company: Empresa de Crédito
+        email: Correo Electrónico
+        name: Nombre
+        password: Contraseña
+        password_confirmation: Confirmación de Contraseña
 
   company:
     editing: Editando Empresa de Crédito
@@ -103,6 +118,12 @@ es:
     registration: Registrarse en el Sistema de Indicadores de Cartera
     sign_up: Registrarse
 
+  issuance:
+    information: Información de la nueva Emisión de Acciones
+    new: Emisión de Acciones
+    prompt_share_type: Seleccione Tipo de Acción
+    save_failed: 'evitó que esta emisión de acciones sea grabada:'
+
   location:
     index: Ubicaciones
 
@@ -117,12 +138,10 @@ es:
     sales_done: Ventas realizadas
     shares: Acciones
     share_holders: Socios
+    users: Usuarios
 
-  issuance:
-    information: Información de la nueva Emisión de Acciones
-    new: Emisión de Acciones
-    prompt_share_type: Seleccione Tipo de Acción
-    save_failed: 'evitó que esta emisión de acciones sea grabada:'
+  placeholder:
+    password_minimum: "Contraseña (mínimo %{minimum_characters} caracteres)"
 
   receipt:
     listing: Listado de Recibos
@@ -170,3 +189,21 @@ es:
     new: Nuevo Tipo de Acción
     save_failed: 'evitó que este tipo de acción sea grabado:'
     updated: El Tipo de Acción fue actualizado exitosamente.
+
+  user:
+    destroyed: El Usuario fue borrado exitosamente.
+    editing: Editando Usuario
+    listing: Listando Usuarios
+    prompt_company: Empresa de crédito
+    prompt_role: Seleccione el rol del usuario
+    roles:
+      admin: Administrador
+      analytic: Análisis de Cartera
+      analytic_executive: Ejecutivo y Análisis
+      company_admin: Administrador de Empresa
+      company_user: Usuario de Empresa
+      executive: Ejecutivo de Crédito
+      superadmin: Superadministador
+    save_failed: 'evitó que este usuario sea grabado:'
+    updated: El Usuario fue actualizado exitosamente.
+    waiting_for_approval: Solo los que esperan autorización

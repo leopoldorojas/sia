@@ -13,8 +13,10 @@
 <body>
  <div class="row">
     <div class="large-3 columns">
-      <h1><%= image_tag "Logo_Edesa.png" %></h1>
+      <%= image_tag "Logo_Edesa.png" %>
+      <small><%= current_user.name %> [ <%= link_to t('sign_out'), destroy_user_session_path, method: :delete %> ] </small>
     </div>
+
     <div class="large-9 columns">
       <ul class="inline-list right">
 	      <li><%= link_to t('menu.home'), root_path %></li>
@@ -35,13 +37,16 @@
         <li><%= link_to t('menu.sale'), new_sale_path %></a></li>
         <li><%= link_to t('menu.sales_done'), sales_path %></a></li>
         <li><%= link_to t('menu.share_holders'), share_holders_path %></li>
-        <!-- <li><%= link_to t('menu.shares'), shares_path %></li> -->
-        <!-- <li><%= link_to t('menu.receipts'), receipts_path %></li> -->
-        <!-- <li><%= link_to t('menu.issuance'), new_issuance_path %></li> -->
-        <!-- <li><%= link_to t('menu.reference_entities'), share_types_path %></li> -->
-        <!-- <li><%= link_to t('menu.company'), edit_company_path(current_company) %></li> -->
+        <% if policy(User).supermanage? %>
+          <li><%= link_to t('menu.shares'), shares_path %></li>
+          <li><%= link_to t('menu.receipts'), receipts_path %></li>
+          <li><%= link_to t('menu.issuance'), new_issuance_path %></li>
+          <li><%= link_to t('menu.reference_entities'), share_types_path %></li>
+          <li><%= link_to t('menu.company'), edit_company_path(current_company) %></li>
+        <% end %>
+        <li><%= link_to t('menu.users'), users_path if policy(User).manage? %></li>
       </ul>
-      
+ 
       <p>&nbsp;</p><p>EDESA es parte del<br/><%= image_tag "Logo_grupo_finca.png" %></p>
         
     </div>

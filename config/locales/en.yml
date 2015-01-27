@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  all:
+    feminine: All
+    masculine: All
   are_you_sure: Are you sure?
   back: Back
   destroy: Destroy
@@ -27,8 +30,12 @@ en:
   error:
     one: error
     other: errors
+  FalseClass: "No"
+  NilClass: "No"
   show: Show
   system_title: Shares Information System
+  sign_out: Sign Out
+  TrueClass: "Yes"
 
   activerecord:
     models:
@@ -39,6 +46,7 @@ en:
       share_issue: Shares Issuance
       share_operation: Shares Operation
       share_type: Share Type
+      user: User
     attributes:
       company:
         name: Name 
@@ -84,12 +92,37 @@ en:
       share_type:
         identifier: Type
         value: Value
+      user:
+        approved: Approved?
+        company: Credit Company
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
 
   company:
     editing: Editing Credit Company
     prompt_share_type: Select Default Share Type
     save_failed: 'prohibited this credit company from being saved:'
     updated: Credit Company was successfully updated.
+
+  devise_views:
+    email: Email
+    forgot_password: Forgot your password?
+    login: Login
+    minimum_chars: characters minimum
+    name: Name
+    password: Password
+    password_confirmation: Password confirmation
+    remember_me: Remember me
+    registration: Sign up in the system
+    sign_up: Sign up
+
+  issuance:
+    information: Information on new Shares Issuance
+    new: Shares Issuance
+    prompt_share_type: Select the Share Type
+    save_failed: 'prohibited this shares issuance from being saved:'
 
   location:
     index: Locations
@@ -105,12 +138,10 @@ en:
     sales_done: Sales done
     shares: Shares
     share_holders: Share Holders
+    users: Users
 
-  issuance:
-    information: Information on new Shares Issuance
-    new: Shares Issuance
-    prompt_share_type: Select the Share Type
-    save_failed: 'prohibited this shares issuance from being saved:'
+  placeholder:
+    password_minimum: "Password (minimum %{minimum_characters} characters)"
 
   receipt:
     listing: Listing Receipts
@@ -158,3 +189,21 @@ en:
     new: New Share Type
     save_failed: 'prohibited this share type from being saved:'
     updated: Share Type was successfully updated.
+
+  user:
+    destroyed: El Usuario fue borrado exitosamente.
+    editing: Editando Usuario
+    listing: Listando Usuarios
+    prompt_company: Empresa de crédito
+    prompt_role: Seleccione el rol del usuario
+    roles:
+      admin: Administrador
+      analytic: Análisis de Cartera
+      analytic_executive: Ejecutivo y Análisis
+      company_admin: Administrador de Empresa
+      company_user: Usuario de Empresa
+      executive: Ejecutivo de Crédito
+      superadmin: Superadministador
+    save_failed: 'evitó que este usuario sea grabado:'
+    updated: El Usuario fue actualizado exitosamente.
+    waiting_for_approval: Solo los que esperan autorización

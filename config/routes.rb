@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/edit'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   devise_for :users
+  resources :users, except: [:new, :create, :show]
   resources :sales, only: [:index, :new, :create]
 
   resources :issuances, only: [:new, :create]
