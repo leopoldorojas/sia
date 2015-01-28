@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def index
     if params[:approved] == "false"
-      @users = User.find_all_by_approved(false)
+      @users = policy_scope(User).find_all_by_approved(false)
     else
-      @users = User.all
+      @users = policy_scope(User)
     end
   end
 
