@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
 
   def index
-    @share_operations = ShareOperation.all
+    @share_operations = params[:query] ? ShareOperation.where("operation_date >= ? AND operation_date <= ?", :params[:query][:initial_date], params[:query][:final_date]) : ShareOperation.all
   end
 
   def new
