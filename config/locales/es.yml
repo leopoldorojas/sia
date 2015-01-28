@@ -36,6 +36,7 @@ es:
   system_title: 'SIA: Sistema de Información de Acciones'
   sign_out: Salir
   TrueClass: "Sí"
+  unauthorized: "Error de Autorización: Usted no tiene acceso a esta sección."
 
   activerecord:
     models:

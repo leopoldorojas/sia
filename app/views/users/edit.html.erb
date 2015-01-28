@@ -24,15 +24,25 @@
         <%= f.label :email %>
         <%= f.text_field :email, readonly: true %>
       </div>
+      
+      <div class="small-2 columns end">
+        <%= f.label :approved %>
+        <%= f.check_box :approved %>
+      </div>
 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
       <div class="small-3 columns">
         <%= f.label :company %>
         <%= f.collection_select :company_id, Company.all, :id, :name, prompt: t('user.prompt_company') %>
       </div>
-      
-      <div class="small-2 columns">
-        <%= f.label :approved %>
-        <%= f.check_box :approved %>
+
+      <div class="small-3 columns end">
+        <%= f.label :role %>
+        <%= f.select :role, @roles, prompt: t('user.prompt_role') %>
       </div>
 
     </div>

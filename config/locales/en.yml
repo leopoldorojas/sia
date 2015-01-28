@@ -36,6 +36,7 @@ en:
   system_title: Shares Information System
   sign_out: Sign Out
   TrueClass: "Yes"
+  unauthorized: "You don't have access to this section."
 
   activerecord:
     models:

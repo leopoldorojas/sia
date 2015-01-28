@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   before_action :set_current_company
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   I18n.locale = :es
 
   private 
@@ -18,6 +20,10 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << [:name, :company_id]
+    end
+
+    def user_not_authorized
+      render plain: t(:unauthorized), status: 401
     end
 
 end

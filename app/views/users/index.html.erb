@@ -15,6 +15,7 @@
       <th><%= User.human_attribute_name('email') %></th>
       <th><%= User.human_attribute_name('approved') %></th>
       <th><%= User.human_attribute_name('company') %></th>
+      <th><%= User.human_attribute_name('role') %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= user.email %></td>
         <td><%= t user.approved.class %></td>
         <td><%= user.company.try(:name) %></td>
+        <td><%= user.role.present? ? t("user.roles.#{user.role}") : '' %></td>
         <td><%= link_to t('edit'), edit_user_path(user) %></td>
         <td><%= link_to t('destroy'), user, method: :delete, data: { confirm: t('are_you_sure') } %></td>
       </tr>
