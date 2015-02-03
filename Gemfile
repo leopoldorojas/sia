@@ -44,3 +44,4 @@ gem 'rails_12factor', group: :production
 gem 'foundation-rails'
 gem 'devise'
 gem 'pundit'
+gem 'angular_rails_csrf'

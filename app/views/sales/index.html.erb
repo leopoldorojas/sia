@@ -1,7 +1,29 @@
 <h4><%= t('sale.listing') %></h4>
 
-<p>Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación</p>
 <div ng-controller="SalesCtrl">
+  <form ng-submit="doQuery()">
+    <fieldset class="small-12 columns">
+      <legend><%= t('sale.search') %></legend>
+      <div class="row">
+
+        <div class="small-4 columns">
+          <%= label_tag "Fecha de Inicio" %>
+          <input id="start_date" ng-model="start_date" type="date">
+        </div>
+
+        <div class="small-4 columns end">
+          <%= label_tag "Fecha Final" %>
+          <input id="end_date" ng-model="end_date" type="date">
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <%= submit_tag t('sale.do_sale'), class: "button small radius" %>
+    </div>
+  </form>
+
+  <p>Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación</p>
   <div id="sales_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
 

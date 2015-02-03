@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, except: [:new, :create, :show]
-  resources :sales, only: [:index, :new, :create]
+  resources :sales, only: [:index, :new, :create] do
+    post :search, :on => :collection
+  end
 
   resources :issuances, only: [:new, :create]
 

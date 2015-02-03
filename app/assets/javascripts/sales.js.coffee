@@ -20,15 +20,20 @@ app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter',
       { field: 'receipt', displayName: "Recibo", filter: {condition: uiGridConstants.filter.CONTAINS }}
     ]
   }
-  
-  $http.get('/sales.json')
-    .success (data) ->
-      $scope.gridOptions.data = data
 
   $scope.gridOptions.onRegisterApi = (gridApi) ->
     $scope.gridApi = gridApi
     gridApi.selection.on.rowSelectionChanged($scope, (row) ->
       $window.location.href="share_holders/" + row.entity.share_holder.id
     )
+
+  $scope.doQuery = ->
+    query = {
+      start_date: $scope.start_date,
+      end_date: $scope.end_date
+    }
+    $http.post('/sales/search.json', query)
+      .success (data) ->
+        $scope.gridOptions.data = data
 
 ])
