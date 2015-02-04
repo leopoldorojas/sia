@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
 
   def search
-    @share_operations = params[:start_date] ? ShareOperation.where("operation_date >= ? AND operation_date <= ?", params[:start_date], params[:end_date]) : ShareOperation.none
+    @share_operations = params[:start_date] ? ShareOperation.where("operation_date >= ? AND operation_date <= ? AND share_holder_id = ?", params[:start_date], params[:end_date], params[:share_holder_id]) : ShareOperation.none
     respond_to :json
   end
 

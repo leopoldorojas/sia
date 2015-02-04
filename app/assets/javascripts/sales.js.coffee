@@ -28,11 +28,7 @@ app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter',
     )
 
   $scope.doQuery = ->
-    query = {
-      start_date: $scope.start_date,
-      end_date: $scope.end_date
-    }
-    $http.post('/sales/search.json', query)
+    $http.post('/sales/search.json', $scope.query)
       .success (data) ->
         $scope.gridOptions.data = data
 

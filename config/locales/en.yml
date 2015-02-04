@@ -157,6 +157,7 @@ en:
     prompt_share_holder: Select the Share Holder
     prompt_share_type: Select the Share Type
     receipt: Receipt
+    search: Search for
     share_value: Share Value
     share_type: Share Type (value)
 

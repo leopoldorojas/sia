@@ -5,17 +5,29 @@
     <fieldset class="small-12 columns">
       <legend><%= t('sale.search') %></legend>
       <div class="row">
-
         <div class="small-4 columns">
           <%= label_tag "Fecha de Inicio" %>
-          <input id="start_date" ng-model="start_date" type="date">
+          <input id="start_date" ng-model="query.start_date" type="date">
         </div>
 
-        <div class="small-4 columns end">
+        <div class="small-4 columns">
           <%= label_tag "Fecha Final" %>
-          <input id="end_date" ng-model="end_date" type="date">
+          <input id="end_date" ng-model="query.end_date" type="date">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag "Recibo" %>
+          <input id="receipt" ng-model="query.receipt" type="text">
         </div>
       </div>
+
+      <div class="row">
+        <div class="small-4 columns end">
+          <%= label_tag "Socio" %>
+          <%= select_tag(:share_holder_id, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('sale.prompt_share_holder'), ng_model: "query.share_holder_id" ) %>
+        </div>
+      </div>
+
     </fieldset>
 
     <div class="actions">
