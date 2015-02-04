@@ -13,6 +13,24 @@ class ShareOperation < ActiveRecord::Base
 
   default_scope { order operation_date: :desc }
 
+  class << self
+    def since this_date
+      where("operation_date >= ?", this_date)
+    end
+
+    def until this_date
+      where("operation_date <= ?", this_date)
+    end
+
+    def receipt_like this_receipt
+      joins(:receipt).where("receipts.number LIKE ?", this_receipt)
+    end
+
+    def share_holder_is this_share_holder_id
+      joins(:share_holder).where(share_holders: {id: this_share_holder_id})
+    end
+  end
+
   def shares_assigned
     @shares_assigned || (self.shares_assigned = shares.size)
   end

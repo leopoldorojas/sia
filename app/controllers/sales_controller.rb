@@ -1,7 +1,16 @@
 class SalesController < ApplicationController
 
-  def search
+  def search_old
     @share_operations = params[:start_date] ? ShareOperation.where("operation_date >= ? AND operation_date <= ? AND share_holder_id = ?", params[:start_date], params[:end_date], params[:share_holder_id]) : ShareOperation.none
+    respond_to :json
+  end
+
+  def search
+    @share_operations = ShareOperation.all
+    @share_operations = @share_operations.since(params[:start_date]) if params[:start_date]
+    @share_operations = @share_operations.until(params[:end_date]) if params[:end_date]
+    @share_operations = @share_operations.receipt_like(params[:receipt]) if params[:receipt]
+    @share_operations = @share_operations.share_holder_is(params[:share_holder_id]) if params[:share_holder_id]
     respond_to :json
   end
 
