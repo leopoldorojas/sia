@@ -150,12 +150,17 @@ es:
   sale:
     created: Operación de Venta de Acciones fue realizada exitosamente.
     do_sale: Realizar operación
+    do_query: Buscar
     header_info: 'Mediante esta pantalla, usted puede realizar la transacción de venta de acciones a socios.'
     information: Información de la Operación de Venta
     listing: Operaciones de venta de acciones realizadas
     new: Venta de Acciones
     prompt_share_holder: Seleccione el Socio
     prompt_share_type: Seleccione Tipo de Acción
+    query:
+      receipt: Recibo
+      since: A partir de
+      until: Hasta
     receipt: Número de Recibo
     search: Buscar por
     share_value: Valor de la Acción

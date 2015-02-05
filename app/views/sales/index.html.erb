@@ -6,36 +6,36 @@
       <legend><%= t('sale.search') %></legend>
       <div class="row">
         <div class="small-4 columns">
-          <%= label_tag "A partir de" %>
+          <%= label_tag t('sale.query.since') %>
           <input id="start_date" ng-model="query.start_date" type="date">
         </div>
 
         <div class="small-4 columns">
-          <%= label_tag "Hasta" %>
+          <%= label_tag t('sale.query.until') %>
           <input id="end_date" ng-model="query.end_date" type="date">
         </div>
 
         <div class="small-4 columns">
-          <%= label_tag "Recibo" %>
+          <%= label_tag t('sale.query.receipt') %>
           <input id="receipt" ng-model="query.receipt" type="text">
         </div>
       </div>
 
       <div class="row">
-        <div class="small-4 columns end">
-          <%= label_tag "Socio" %>
+        <div class="small-4 columns">
           <%= select_tag(:share_holder_id, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('sale.prompt_share_holder'), ng_model: "query.share_holder_id" ) %>
         </div>
+
+        <div class="small-4 columns end">
+          <div class="actions">
+            <%= submit_tag t('sale.do_query'), class: "button small radius" %>
+          </div>
+        </div>
       </div>
-
     </fieldset>
-
-    <div class="actions">
-      <%= submit_tag t('sale.do_sale'), class: "button small radius" %>
-    </div>
   </form>
 
-  <p>Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación</p>
+  <p>Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación:</p>
   <div id="sales_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
 
