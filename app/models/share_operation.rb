@@ -23,7 +23,7 @@ class ShareOperation < ActiveRecord::Base
     end
 
     def receipt_like this_receipt
-      joins(:receipt).where("receipts.number LIKE ?", this_receipt)
+      joins(:receipt).where("upper(receipts.number) LIKE upper(?)", "%#{this_receipt}%")
     end
 
     def share_holder_is this_share_holder_id
