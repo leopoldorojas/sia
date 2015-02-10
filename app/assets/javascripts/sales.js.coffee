@@ -6,6 +6,7 @@ app = angular.module('app', ['ui.grid', 'ui.grid.selection'])
  
 app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter', '$window', ($scope, $http, uiGridConstants, dateFilter, $window) ->
   termValue = dateFilter(new Date(), 'yyyy-MM')
+  $scope.loading = false
   $scope.gridOptions = {
     enableFiltering: true,
     enableRowHeaderSelection: false,
@@ -28,8 +29,12 @@ app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter',
     )
 
   $scope.doQuery = ->
+    $scope.loading = true
     $http.post('/sales/search.json', $scope.query)
       .success (data) ->
+        $scope.loading = false
         $scope.gridOptions.data = data
+      .error (data) ->
+        $scope.loading = false
 
 ])

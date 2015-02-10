@@ -28,10 +28,13 @@
 
         <div class="small-4 columns end">
           <div class="actions">
-            <%= submit_tag t('sale.do_query'), class: "button small radius" %>
+            <%= submit_tag t('sale.do_query'), class: "button small radius", ng_disabled: "loading" %>
+            &nbsp;
+            <%= image_tag "spinner.gif", ng_show: "loading", width: "30px" %>
           </div>
         </div>
       </div>
+
     </fieldset>
   </form>
 
