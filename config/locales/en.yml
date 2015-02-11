@@ -152,6 +152,7 @@ en:
     do_sale: Sell shares
     do_query: Search
     header_info: 'Throughout this transaction, you can sale shares to a specific share holder.'
+    indications_use_grid: 'Click in any row to see share holder details:'
     information: Information for the Sale of Shares
     listing: Listing Sales
     new: New Sale of Shares

@@ -152,6 +152,7 @@ es:
     do_sale: Realizar operación
     do_query: Buscar
     header_info: 'Mediante esta pantalla, usted puede realizar la transacción de venta de acciones a socios.'
+    indications_use_grid: 'Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación:'
     information: Información de la Operación de Venta
     listing: Operaciones de venta de acciones realizadas
     new: Venta de Acciones
