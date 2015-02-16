@@ -173,12 +173,17 @@ en:
   share_holder:
     created: Share Holder was successfully created.
     destroyed: Share Holder was successfully destroyed.
+    do_query: Search
     editing: Editing Share Holder
     index: Share Holders
+    indications_use_grid: 'Click in any row to see share holder details:'
     listing: Listing Share Holders
     new: New Share Holder
     prompt_location: Select the Location
+    query:
+      name: Share Holder Name
     save_failed: 'prohibited this share holder from being saved:'
+    search: Search for
     updated: Share Holder was successfully updated.
 
   share_operation:

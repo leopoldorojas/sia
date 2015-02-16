@@ -1,7 +1,26 @@
 <h4><%= t('share_holder.listing') %></h4>
 
-<p>Dé click en cualquier línea para ver el detalle del socio o editar su información</p>
 <div ng-controller="ShareHoldersCtrl">
+  <form ng-submit="doQuery()">
+    <fieldset class="small-12 columns">
+      <legend><%= t('share_holder.search') %></legend>
+      <div class="row">
+        <div class="small-4 columns">
+          <input id="name" ng-model="query.name" type="text", placeholder="<%= t('share_holder.query.name') %>" >
+        </div>
+
+        <div class="small-4 columns end">
+          <div class="actions">
+            <%= submit_tag t('share_holder.do_query'), class: "button small radius", ng_disabled: "loading" %>
+            &nbsp;
+            <%= image_tag "spinner.gif", ng_show: "loading", width: "30px" %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <p><%=  t('share_holder.indications_use_grid') %></p>
   <div id="share_holders_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
 

@@ -5,6 +5,7 @@
 app = angular.module('app')
  
 app.controller('ShareHoldersCtrl', ['$scope', '$http', '$window', 'uiGridConstants', ($scope, $http, $window, uiGridConstants) ->
+  $scope.loading = false
   $scope.gridOptions = {
     enableFiltering: true,
     enableRowHeaderSelection: false,
@@ -17,13 +18,19 @@ app.controller('ShareHoldersCtrl', ['$scope', '$http', '$window', 'uiGridConstan
     ]
   }
   
-  $http.get('/share_holders.json')
-    .success (data) ->
-      $scope.gridOptions.data = data
-
   $scope.gridOptions.onRegisterApi = (gridApi) ->
     $scope.gridApi = gridApi
     gridApi.selection.on.rowSelectionChanged($scope, (row) ->
       $window.location.href="share_holders/" + row.entity.id
     )
+
+  $scope.doQuery = ->
+    $scope.loading = true
+    $http.post('/share_holders/search.json', $scope.query)
+      .success (data) ->
+        $scope.loading = false
+        $scope.gridOptions.data = data
+      .error (data) ->
+        $scope.loading = false
+
 ])

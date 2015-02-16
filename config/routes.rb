@@ -27,7 +27,9 @@ Rails.application.routes.draw do
 
   resources :share_operations
 
-  resources :share_holders
+  resources :share_holders do
+    post :search, :on => :collection
+  end
 
   resources :locations
 

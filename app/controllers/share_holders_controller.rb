@@ -1,6 +1,12 @@
 class ShareHoldersController < ApplicationController
   before_action :set_share_holder, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @share_holders = ShareHolder.all
+    @share_holders = @share_holders.where("name LIKE (?)", "%#{params[:name]}%" ) if params[:name].present?
+    respond_to :json
+  end
+
   # GET /share_holders
   # GET /share_holders.json
   def index
