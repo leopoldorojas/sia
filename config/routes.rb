@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   resources :receipts
 
-  resources :shares
+  resources :shares do
+    post :search, :on => :collection
+  end
 
   resources :share_operations
 

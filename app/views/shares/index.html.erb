@@ -1,5 +1,45 @@
 <h4><%= t('share.listing') %></h4>
 
+<div ng-controller="SharesCtrl">
+  <form ng-submit="doQuery()">
+    <fieldset class="small-12 columns">
+      <legend><%= t('share.search') %></legend>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= label_tag t('share.query.first_identifier') %>
+          <input id="first_identifier" ng-model="query.first_identifier" type="text">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag t('share.query.last_identifier') %>
+          <input id="last_identifier" ng-model="query.last_identifier" type="text">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag t('share.query.share_operation_id') %>
+          <input id="share_operation_id" ng-model="query.share_opertion_id" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-4 columns">
+          <%= label_tag t('share.query.since') %>
+          <input id="start_date" ng-model="query.start_date" type="date">
+        </div>
+
+        <div class="small-4 columns end">
+          <%= label_tag t('share.query.until') %>
+          <input id="end_date" ng-model="query.end_date" type="date">
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <div id="shares_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
+</div>
+
+<!--
 <table>
   <thead>
     <tr>
@@ -23,3 +63,4 @@
     <% end %>
   </tbody>
 </table>
+-->

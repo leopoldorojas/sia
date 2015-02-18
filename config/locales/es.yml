@@ -169,6 +169,13 @@ es:
 
   share:
     listing: Listando Acciones
+    query:
+      first_identifier: Número inicial
+      last_identifier: Número final
+      share_operation_id: Identificador de Operación
+      since: A partir de
+      until: Hasta
+    search: Buscar por
 
   share_holder:
     created: El Socio fue creado exitosamente.

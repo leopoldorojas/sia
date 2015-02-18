@@ -1,6 +1,16 @@
 class SharesController < ApplicationController
   before_action :set_share, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @shares = Share.all
+    @shares = @shares.where("identifier >= (?)", "%#{params[:first_identifier]}%" ) if params[:first_identifier].present?
+    @shares = @shares.where("identifier <= (?)", "%#{params[:last_identifier]}%" ) if params[:last_identifier].present?
+    @shares = @shares.where(share.share_operation.id: params[:share_operation_id]) if params[:share_operation_id].present?
+    @shares = @shares.operation_since(params[:start_date]) if params[:start_date].present?
+    @shares = @shares.operation_until(params[:end_date]) if params[:end_date].present?
+    respond_to :json
+  end
+
   # GET /shares
   # GET /shares.json
   def index

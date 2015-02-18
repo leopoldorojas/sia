@@ -19,6 +19,12 @@ class Share < ActiveRecord::Base
     def assign_shares_to(holder, these_shares)
       where(id: these_shares.map(&:id)).update_all(share_holder_id: holder.id)
     end
+
+    def operation_since
+    end
+
+    def operation_until
+    end
   end 
 
 end

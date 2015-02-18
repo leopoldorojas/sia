@@ -160,7 +160,7 @@ en:
     prompt_share_type: Select the Share Type
     query:
       receipt: Receipt
-      since: since
+      since: Since
       until: Until
     receipt: Receipt
     search: Search for
@@ -169,6 +169,13 @@ en:
 
   share:
     listing: Listing Shares
+    query:
+      first_identifier: First Identifier
+      last_identifier: Last Identifier
+      share_operation_id: Share Operation Identifier
+      since: Since
+      until: Until
+    search: Search for
 
   share_holder:
     created: Share Holder was successfully created.
