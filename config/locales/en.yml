@@ -168,6 +168,7 @@ en:
     share_type: Share Type (value)
 
   share:
+    do_query: Search
     listing: Listing Shares
     query:
       first_identifier: First Identifier

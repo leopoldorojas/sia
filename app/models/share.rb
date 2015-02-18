@@ -20,10 +20,12 @@ class Share < ActiveRecord::Base
       where(id: these_shares.map(&:id)).update_all(share_holder_id: holder.id)
     end
 
-    def operation_since
+    def operation_since this_date
+      includes(:share_operation).where("share_operations.operation_date >= (?)", this_date)
     end
 
-    def operation_until
+    def operation_until this_date
+      includes(:share_operation).where("share_operations.operation_date <= (?)", this_date)
     end
   end 
 

@@ -17,7 +17,7 @@
 
         <div class="small-4 columns">
           <%= label_tag t('share.query.share_operation_id') %>
-          <input id="share_operation_id" ng-model="query.share_opertion_id" type="text">
+          <input id="share_operation_id" ng-model="query.share_operation_id" type="text">
         </div>
       </div>
 
@@ -27,15 +27,25 @@
           <input id="start_date" ng-model="query.start_date" type="date">
         </div>
 
-        <div class="small-4 columns end">
+        <div class="small-4 columns">
           <%= label_tag t('share.query.until') %>
           <input id="end_date" ng-model="query.end_date" type="date">
+        </div>
+
+        <div class="small-4 columns">
+          <br/>
+          <div class="actions">
+            <%= submit_tag t('share.do_query'), class: "button small radius", ng_disabled: "loading" %>
+            &nbsp;
+            <%= image_tag "spinner.gif", ng_show: "loading", width: "30px" %>
+          </div>
         </div>
       </div>
 
     </fieldset>
   </form>
-
+  
+  <p>&nbsp;</p>
   <div id="shares_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
 

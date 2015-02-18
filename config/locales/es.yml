@@ -168,13 +168,14 @@ es:
     share_type: Tipo de Acción (valor)
 
   share:
+    do_query: Buscar
     listing: Listando Acciones
     query:
       first_identifier: Número inicial
       last_identifier: Número final
       share_operation_id: Identificador de Operación
-      since: A partir de
-      until: Hasta
+      since: Acciones vendidas partir de
+      until: Vendidas hasta
     search: Buscar por
 
   share_holder:
