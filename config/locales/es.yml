@@ -170,12 +170,15 @@ es:
   share:
     do_query: Buscar
     listing: Listando Acciones
+    prompt_operation: Seleccione en caso requerido
+    prompt_share_holder: Seleccione el Socio
     query:
       first_identifier: Número inicial
       last_identifier: Número final
-      share_operation_id: Identificador de Operación
+      share_holder: Socio
       since: Acciones vendidas partir de
       until: Vendidas hasta
+      with_operation_or_not: Vendidas o sin vender
     search: Buscar por
 
   share_holder:

@@ -170,12 +170,15 @@ en:
   share:
     do_query: Search
     listing: Listing Shares
+    prompt_operation: Choose if you wish
+    prompt_share_holder: Select the Share Holder
     query:
       first_identifier: First Identifier
       last_identifier: Last Identifier
-      share_operation_id: Share Operation Identifier
+      share_holder: Share Holder
       since: Since
       until: Until
+      with_operation_or_not: With or without operation
     search: Search for
 
   share_holder:
