@@ -16,8 +16,25 @@
 
 require 'csv'
 
-# First, load the Big Fleets assigning them the Source created above
-# Also, we need create the corresponding Companies. One company for each Big Fleet
+company = Company.create do |c|
+	c.name = "EDESA"
+end
+
+ShareType.create do |st|
+	st.identifier="A"
+	st.value = 50000.00
+	st.company = company
+end
+
+User.create do |u|
+	u.email = "leopoldo.rojas@arckanto.com"
+	u.password = "facil1234"
+  u.name = "Leopoldo Rojas Moguel"
+  u.approved = true
+  u.company = company
+  u.role = "superadmin"
+end
+
 CSV.foreach(Rails.root.join("db/control_de_socios_seed.csv")) do |share_holder|
   name, equity, earnings, stock_prepaid = share_holder
   ShareHolder.create do |sh|
