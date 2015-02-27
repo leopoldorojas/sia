@@ -180,6 +180,8 @@ es:
       until: Vendidas hasta
       with_operation_or_not: Vendidas o sin vender
     search: Buscar por
+    with: Vendidas
+    without: Sin Vender
 
   share_holder:
     created: El Socio fue creado exitosamente.

@@ -35,7 +35,7 @@
 
         <div class="small-4 columns">
           <%= label_tag t('share.query.with_operation_or_not') %>
-          <%= select_tag(:with_operation_or_not, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('share.prompt_operation'), ng_model: "query.with_operation_or_not" ) %>
+          <%= select_tag(:with_operation_or_not, options_for_select([[t('share.with'), "sold"], [t('share.without'), "no_sold"]]), prompt: t('share.prompt_operation'), ng_model: "query.with_operation_or_not" ) %>
         </div>
 
       </div>

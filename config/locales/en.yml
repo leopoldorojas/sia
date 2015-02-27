@@ -180,6 +180,8 @@ en:
       until: Until
       with_operation_or_not: With or without operation
     search: Search for
+    with: With operations
+    without: Without operations
 
   share_holder:
     created: Share Holder was successfully created.

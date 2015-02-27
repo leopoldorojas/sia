@@ -1,10 +1,11 @@
 class ReceiptsController < ApplicationController
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
 
+
   # GET /receipts
   # GET /receipts.json
   def index
-    @receipts = Receipt.all
+    @receipts = policy_scope(Receipt)
   end
 
   # GET /receipts/1
@@ -15,6 +16,7 @@ class ReceiptsController < ApplicationController
   # GET /receipts/new
   def new
     @receipt = Receipt.new
+    authorize @receipt
   end
 
   # GET /receipts/1/edit
@@ -25,6 +27,7 @@ class ReceiptsController < ApplicationController
   # POST /receipts.json
   def create
     @receipt = Receipt.new(receipt_params)
+    authorize @receipt
 
     respond_to do |format|
       if @receipt.save
@@ -65,6 +68,7 @@ class ReceiptsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_receipt
       @receipt = Receipt.find(params[:id])
+      authorize @receipt
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
