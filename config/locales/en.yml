@@ -32,6 +32,7 @@ en:
     other: errors
   FalseClass: "No"
   NilClass: "No"
+  or: or
   show: Show
   system_title: Shares Information System
   sign_out: Sign Out
@@ -120,10 +121,22 @@ en:
     sign_up: Sign up
 
   issuance:
+    do_query: Search
+    indications_use_grid: 'Click in any row to see issuance details:'
     information: Information on new Shares Issuance
+    invalid_share_range: Invalid Share Range
+    listing: Listing Share Issues
     new: Shares Issuance
     prompt_share_type: Select the Share Type
+    query:
+      final_share: Final Share
+      initial_share: Initial Share
+      share_type: Share Type
+      since: Since
+      until: Until
     save_failed: 'prohibited this shares issuance from being saved:'
+    see_all: See all issuances
+    search: Search for
 
   location:
     index: Locations

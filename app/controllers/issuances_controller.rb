@@ -8,17 +8,27 @@ class IssuancesController < ApplicationController
   def create
     @share_issue = ShareIssue.new(share_issue_params)
     @share_issue.initial_share = initial_share
-    @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier) }
 
-    respond_to do |format|
-      if @share_issue.save
-      	current_company.issued_shares_upto @share_issue.final_share
+    if @share_issue.initial_share > @share_issue.final_share
+      @share_issue.errors[:base] << t('issuance.invalid_share_range')
 
-        format.html { redirect_to @share_issue, notice: 'Share issue was successfully created.' }
-        format.json { render :show, status: :created, location: @share_issue }
-      else
+      respond_to do |format|
         format.html { render :new }
         format.json { render json: @share_issue.errors, status: :unprocessable_entity }
+      end
+    else
+      @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier) }
+
+      respond_to do |format|
+        if @share_issue.save
+        	current_company.issued_shares_upto @share_issue.final_share
+
+          format.html { redirect_to @share_issue, notice: 'Share issue was successfully created.' }
+          format.json { render :show, status: :created, location: @share_issue }
+        else
+          format.html { render :new }
+          format.json { render json: @share_issue.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

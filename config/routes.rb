@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     post :search, :on => :collection
   end
 
-  resources :issuances, only: [:new, :create]
+  resources :issuances, only: [:index, :new, :create] do
+    post :search, :on => :collection
+  end
 
   resources :companies
 

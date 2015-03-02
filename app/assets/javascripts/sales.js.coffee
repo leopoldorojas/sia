@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app = angular.module('app', ['ui.grid', 'ui.grid.selection'])
+app = angular.module('app')
  
 app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter', '$window', ($scope, $http, uiGridConstants, dateFilter, $window) ->
   termValue = dateFilter(new Date(), 'yyyy-MM')

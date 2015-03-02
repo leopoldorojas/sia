@@ -77,6 +77,6 @@ class ShareHoldersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_holder_params
-      params.require(:share_holder).permit(:name, :identifier, :contact, :phone, :email, :location_id)
+      params.require(:share_holder).permit(:name, :identifier, :contact, :phone, :email, :location_id, :equity, :earnings, :stock_prepaid)
     end
 end

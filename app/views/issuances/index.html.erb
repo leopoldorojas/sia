@@ -1,0 +1,50 @@
+<h4><%= t('issuance.listing') %></h4>
+
+<div ng-controller="IssuancesCtrl">
+  <form ng-submit="doQuery()">
+    <fieldset class="small-12 columns">
+      <legend><%= t('issuance.search') %></legend>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= label_tag t('issuance.query.since') %>
+          <input id="start_date" ng-model="query.start_date" type="date">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag t('issuance.query.until') %>
+          <input id="end_date" ng-model="query.end_date" type="date">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag t('issuance.query.share_type') %>
+          <input id="share_type" ng-model="query.share_type" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-4 columns">
+          <%= label_tag t('issuance.query.initial_share') %>
+          <input id="initial_share" ng-model="query.initial_share" type="text">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag t('issuance.query.final_share') %>
+          <input id="final_share" ng-model="query.final_share" type="text">
+        </div>
+
+        <div class="small-4 columns">
+          <div class="actions">
+            <br />
+            <%= submit_tag t('issuance.do_query'), class: "button small radius", ng_disabled: "loading" %>
+            &nbsp;
+            <%= image_tag "spinner.gif", ng_show: "loading", width: "30px" %>
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <p><%=  t('issuance.indications_use_grid') %></p>
+  <div id="issuances_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
+</div>

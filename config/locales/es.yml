@@ -32,6 +32,7 @@ es:
     other: errores
   FalseClass: "No"
   NilClass: "No"
+  or: ó
   show: Mostrar
   system_title: 'SIA: Sistema de Información de Acciones'
   sign_out: Salir
@@ -120,10 +121,22 @@ es:
     sign_up: Registrarse
 
   issuance:
+    do_query: Buscar
+    indications_use_grid: 'Dé click en cualquier línea para ver el detalle de la emisión:'
     information: Información de la nueva Emisión de Acciones
+    invalid_share_range: Número inicial de acción no puede ser mayor al número final de acción a emitir. Favor corregir.
+    listing: Emisiones de acciones realizadas
     new: Emisión de Acciones
     prompt_share_type: Seleccione Tipo de Acción
+    query:
+      final_share: Número de Acción Inicial
+      initial_share: Número de Acción Final
+      share_type: Tipo de Acción
+      since: A partir de
+      until: Hasta
     save_failed: 'evitó que esta emisión de acciones sea grabada:'
+    search: Buscar por
+    see_all: Ver Emisiones realizadas
 
   location:
     index: Ubicaciones
@@ -191,7 +204,7 @@ es:
     index: Socios
     indications_use_grid: 'Dé click en cualquier línea para ver el detalle y saldos del socio:'
     listing: Listado de Socios
-    new: Nuevo Socio
+    new: Crear Socio
     prompt_location: Seleccione la Ubicación
     query:
       name: Nombre del Socio

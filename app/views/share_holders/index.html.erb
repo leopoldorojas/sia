@@ -20,7 +20,15 @@
     </fieldset>
   </form>
 
-  <p><%=  t('share_holder.indications_use_grid') %></p>
+  <div class="row">
+    <div class="small-8 columns">
+      <%=  t('share_holder.indications_use_grid') %>
+    </div>
+    <div class="small-4 columns">
+      <%= link_to t('share_holder.new'), new_share_holder_path, class: "button tiny radius right" %>
+    </div>
+  </div>
+
   <div id="share_holders_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
 
