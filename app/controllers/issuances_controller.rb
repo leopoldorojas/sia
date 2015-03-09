@@ -1,6 +1,17 @@
 class IssuancesController < ApplicationController
   before_action :set_initial_share
 
+  def search
+    @share_issues = ShareIssue.all
+    puts "#{@share_issues.count}"
+    @share_issues = @share_issues.since(params[:start_date]) if params[:start_date].present?
+    @share_issues = @share_issues.until(params[:end_date]) if params[:end_date].present?
+    @share_issues = @share_issues.where(share_type: {identifier: params[:share_type]}) if params[:share_type].present?
+    @share_issues = @share_issues.between(params[:initial_share], params[:final_share]) if params[:initial_share].present? || params[:final_share].present?
+    puts "#{@share_issues.last.to_json}"
+    respond_to :json
+  end
+
   def new
   	@share_issue = ShareIssue.new(issue_date: Time.zone.now, initial_share: initial_share, final_share: initial_share)
   end

@@ -13,19 +13,14 @@ app.controller('IssuancesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilt
     multiSelect: false,
     columnDefs: [
       { field: 'issue_date', displayName: "Fecha de la Emisión" },
-      { field: 'initial_share', displayName: "Acción Inicial", cellFilter: 'number' },
-      { field: 'final_share', displayName: "Acción Final", cellFilter: 'number' },
       { field: 'share_type_identifier', displayName: "Tipo de Acción", filter: {condition: uiGridConstants.filter.CONTAINS } },
+      { field: 'initial_share', displayName: "Acción Inicial", cellFilter: 'number' },
+      { field: 'final_share', displayName: "Acción Final", cellFilter: 'number' }
     ]
   }
 
-
-
   $scope.gridOptions.onRegisterApi = (gridApi) ->
     $scope.gridApi = gridApi
-    gridApi.selection.on.rowSelectionChanged($scope, (row) ->
-      $window.location.href="share_holders/" + row.entity.share_holder.id
-    )
 
   $scope.doQuery = ->
     $scope.loading = true
