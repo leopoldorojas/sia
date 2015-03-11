@@ -129,8 +129,8 @@ es:
     new: Emisión de Acciones
     prompt_share_type: Seleccione Tipo de Acción
     query:
-      final_share: Número de Acción Inicial
-      initial_share: Número de Acción Final
+      final_share: Número de Acción Final
+      initial_share: Número de Acción Inicial
       share_type: Tipo de Acción
       since: A partir de
       until: Hasta
