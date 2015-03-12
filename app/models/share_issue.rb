@@ -18,7 +18,7 @@ class ShareIssue < ActiveRecord::Base
 
     	if start.present? && finish.present?
     		query_string = "(initial_share >= :start and initial_share <= :finish) or (final_share >= :start and final_share <= :finish)"
-    	elsif start_present? && finish.blank?
+    	elsif start.present? && finish.blank?
     		query_string = "final_share >= :start"
     	elsif start.blank? && finish.present?
     		query_string = "initial_share <= :finish"
