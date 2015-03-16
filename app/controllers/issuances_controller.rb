@@ -32,7 +32,7 @@ class IssuancesController < ApplicationController
         if @share_issue.save
         	current_company.issued_shares_upto @share_issue.final_share
 
-          format.html { redirect_to @share_issue, notice: 'Share issue was successfully created.' }
+          format.html { redirect_to @share_issue, notice: t('issuance.created') }
           format.json { render :show, status: :created, location: @share_issue }
         else
           format.html { render :new }

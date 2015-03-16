@@ -121,6 +121,7 @@ es:
     sign_up: Registrarse
 
   issuance:
+    created: Las Acciones fueron emitidas correctamente.
     do_query: Buscar
     indications_use_grid: 'Dé click en cualquier línea para ver el detalle de la emisión:'
     information: Información de la nueva Emisión de Acciones

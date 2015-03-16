@@ -121,6 +121,7 @@ en:
     sign_up: Sign up
 
   issuance:
+    created: Shares were issued correctly.
     do_query: Search
     indications_use_grid: 'Click in any row to see issuance details:'
     information: Information on new Shares Issuance

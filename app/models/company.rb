@@ -8,4 +8,7 @@ class Company < ActiveRecord::Base
   	save
   end
 
+  def to_s
+  	name
+  end
 end

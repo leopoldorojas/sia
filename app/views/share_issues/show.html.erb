@@ -1,24 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Issue date:</strong>
-  <%= @share_issue.issue_date %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareIssue.human_attribute_name('issue_date') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= l @share_issue.issue_date %>
+  </div>
+</div>
 
-<p>
-  <strong>Initial share:</strong>
-  <%= @share_issue.initial_share %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareIssue.human_attribute_name('initial_share') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_issue.initial_share %>
+  </div>
+</div>
 
-<p>
-  <strong>Final share:</strong>
-  <%= @share_issue.final_share %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareIssue.human_attribute_name('final_share') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_issue.final_share %>
+  </div>
+</div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @share_issue.company.name %>
-</p>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareIssue.human_attribute_name('share_type') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_issue.share_type %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_share_issue_path(@share_issue) %> |
-<%= link_to 'Back', share_issues_path %>
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareIssue.human_attribute_name('company') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_issue.company %>
+  </div>
+</div>
