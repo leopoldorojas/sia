@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Location.human_attribute_name('name') %>:</strong>
   <%= @location.name %>
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @location.type %>
+  <strong><%= Location.human_attribute_name('type') %>:</strong>
+  <%= @location.type.constantize.model_name.human %>
 </p>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @location.parent_id %>
-</p>
+<% if @location.parent_model %>
+	<p>
+	  <strong><%= Location.human_attribute_name('parent') %>:</strong>
+	  <%= @location.send("#{@location.parent_model.underscore}".to_sym).name %>
+	</p>
+<% end %>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<%= link_to t('edit'), sti_location_path(@location.type, @location, :edit) %> |
+<%= link_to t('back'), sti_location_path(@type) %>

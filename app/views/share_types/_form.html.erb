@@ -1,7 +1,7 @@
 <%= form_for(@share_type) do |f| %>
   <% if @share_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= "#{pluralize(@share_type.errors.count, 'error')} #{t('share_type.save_failed')}" %></h2>
+      <h2><%= "#{@share_type.errors.count} #{t('error', count: @share_type.errors.count)} #{t('share_type.save_failed', count: @share_type.errors.count)}" %></h2>
 
       <ul>
       <% @share_type.errors.full_messages.each do |message| %>
@@ -11,24 +11,21 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <fieldset class="small-12 columns">
-      <legend><%= t('share_type.new') %></legend>
+  <fieldset class="small-12 columns">
+    <legend><%= t('share_type.new') %></legend>
 
-      <div class="small-4 columns"
-        <%= f.label :identifier %><br>
+    <div class="row">
+      <div class="small-4 columns">
+        <%= f.label :identifier %>
         <%= f.text_field :identifier %>
       </div>
 
-      <div class="small-4 columns"
-        <%= f.label :value %><br>
+      <div class="small-4 columns end">
+        <%= f.label :value %>
         <%= f.text_field :value %>
       </div>
-
-      <div class="small-4 columns">
-      </div>
-    </fieldset>
-  </div>
+    </div>
+  </fieldset>
 
   <div class="actions">
     <%= f.submit class: "button small radius" %>

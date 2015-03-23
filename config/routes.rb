@@ -36,6 +36,11 @@ Rails.application.routes.draw do
   end
 
   resources :locations
+  resources :countries, controller: 'locations', type: 'Country' 
+  resources :provinces, controller: 'locations', type: 'Province'
+  resources :cities, controller: 'locations', type: 'City' 
+  resources :districts, controller: 'locations', type: 'District'
+  resources :communities, controller: 'locations', type: 'Community'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

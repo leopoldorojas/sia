@@ -1,7 +1,7 @@
 <%= form_for(@location) do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+      <h2><%= "#{@location.errors.count} #{t('error', count: @location.errors.count)} #{t(@type.downcase+'.save_failed', count: @location.errors.count)}" %></h2>
 
       <ul>
       <% @location.errors.full_messages.each do |message| %>
@@ -11,19 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <% if @type != "Location" %>
+        <%= f.hidden_field :type, { value: @type.camelcase } %>
+        <div class="small-4 columns">
+        </div>
+      <% else %>
+        <div class="small-4 columns">
+          <%= f.label :type %>
+          <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, prompt: t('location.prompt_type') %>
+        </div>
+      <% end %>
+
+      <% if @location.parent_model %>
+        <div class="small-4 columns">
+          <%= f.label "#{@location.parent_model.underscore}_id".to_sym %>
+          <%= f.collection_select :parent_id, "#{@location.parent_model}".constantize.all, :id, :name, prompt: t('location.prompt_parent') %>
+        </div>
+      <% else %>
+        <div class="small-4 columns">
+        </div>
+      <% end %>
+
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_id %><br>
-    <%= f.number_field :parent_id %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button small radius" %>
   </div>
 <% end %>

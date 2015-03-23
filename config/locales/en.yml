@@ -41,7 +41,25 @@ en:
 
   activerecord:
     models:
+      city:
+        one: City
+        other: Cities
+      community:
+        one: Community
+        other: Communities
       company: Credit Company
+      country:
+        one: Country
+        other: Countries
+      district:
+        one: District
+        other: Districts
+      location:
+        one: Location
+        other: Locations
+      province:
+        one: Province
+        other: Provinces
       receipt: Receipt
       share: Share
       share_holder: Share Holder
@@ -49,11 +67,31 @@ en:
       share_operation: Shares Operation
       share_type: Share Type
       user: User
+
     attributes:
+      city:
+        province: Province
+      community:
+        district: District
       company:
         name: Name 
         last_share_issued: Last share issued
         share_type: Default Share Type
+      district:
+        city: City
+      location:
+        code: Code
+        name: Name
+        type: Type
+        parent: Belongs to
+        parent_id: Parent
+        city_id: City
+        community_id: Community
+        country_id: Country
+        district_id: District
+        province_id: Province
+      province:
+        country: Country
       receipt:
         number: Number
         type: Type
@@ -102,11 +140,44 @@ en:
         password: Password
         password_confirmation: Password confirmation
 
+  city:
+    created: City was successfully created.
+    destroyed: City was successfully destroyed.
+    editing: Editing City
+    listing: Listing Cities
+    new: New City
+    save_failed:
+      one: 'prohibited this city from being saved:'
+      other: 'prohibited this city from being saved:'
+    updated: City was successfully updated.
+
+  community:
+    created: Community was successfully created.
+    destroyed: Community was successfully destroyed.
+    editing: Editing Community
+    listing: Listing Communities
+    new: New Community
+    save_failed:
+      one: 'prohibited this community from being saved:'
+      other: 'prohibited this community from being saved:'
+    updated: Community was successfully updated.
+
   company:
     editing: Editing Credit Company
     prompt_share_type: Select Default Share Type
     save_failed: 'prohibited this credit company from being saved:'
     updated: Credit Company was successfully updated.
+
+  country:
+    created: Country was successfully created.
+    destroyed: Country was successfully destroyed.
+    editing: Editing Country
+    listing: Listing Countries
+    new: New Country
+    save_failed:
+      one: 'prohibited this country from being saved:'
+      other: 'prohibited this country from being saved:'
+    updated: Country was successfully updated.
 
   devise_views:
     email: Email
@@ -119,6 +190,17 @@ en:
     remember_me: Remember me
     registration: Sign up in the system
     sign_up: Sign up
+
+  district:
+    created: District was successfully created.
+    destroyed: District was successfully destroyed.
+    editing: Editing District
+    listing: Listing Districts
+    new: New District
+    save_failed:
+      one: 'prohibited this district from being saved:'
+      other: 'prohibited this district from being saved:'
+    updated: District was successfully updated.
 
   issuance:
     created: Shares were issued correctly.
@@ -140,23 +222,46 @@ en:
     search: Search for
 
   location:
-    index: Locations
+    created: Location was successfully created.
+    destroyed: Location was successfully destroyed.
+    editing: Editing Location
+    listing: Listing Locations
+    new: Location
+    prompt_parent: "Please, select"
+    prompt_type: "Location type"
+    save_failed:
+      one: 'prohibited this location from being saved:'
+      other: 'prohibited this location from being saved:'
+    updated: Location was successfully updated.
 
   menu:
     about: About
     company: Company
     home: Home
     issuance: Share Issuance
+    locations: Locations
     receipts: Receipts
     reference_entities: Reference Entities
     sale: Sale of Shares
     sales_done: Sales done
     shares: Shares
     share_holders: Share Holders
+    share_types: Share Types
     users: Users
 
   placeholder:
     password_minimum: "Password (minimum %{minimum_characters} characters)"
+
+  provinces:
+    created: Province was successfully created.
+    destroyed: Province was successfully destroyed.
+    editing: Editing Province
+    listing: Listing Provinces
+    new: New Province
+    save_failed:
+      one: 'prohibited this province from being saved:'
+      other: 'prohibited this province from being saved:'
+    updated: Province was successfully updated.
 
   receipt:
     listing: Listing Receipts
@@ -224,10 +329,13 @@ en:
     created: Share Type was successfully created.
     destroyed: Share Type was successfully destroyed.
     editing: Editing Share Type
+    header_info: Enter the share type to create
     index: Share Types
     listing: Listing Share Types
     new: New Share Type
-    save_failed: 'prohibited this share type from being saved:'
+    save_failed:
+      one: 'prohibited this share type from being saved:'
+      other: 'prohibited this share type from being saved:'
     updated: Share Type was successfully updated.
 
   user:

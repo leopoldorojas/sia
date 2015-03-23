@@ -41,7 +41,25 @@ es:
 
   activerecord:
     models:
+      city:
+        one: Cantón
+        other: Cantones
+      community:
+        one: Comunidad
+        other: Comunidades
       company: Empresa de Crédito
+      country:
+        one: País
+        other: Países
+      district:
+        one: Distrito
+        other: Distritos
+      location:
+        one: Ubicación
+        other: Ubicaciones
+      province:
+        one: Provincia
+        other: Provincias
       receipt: Recibo
       share: Acción
       share_holder: Socio
@@ -49,11 +67,31 @@ es:
       share_operation: Operación de Acciones
       share_type: Tipo de Acción
       user: Usuario
+
     attributes:
+      city:
+        province: Provincia
+      community:
+        district: Distrito
       company:
         name: Nombre
         last_share_issued: Última acción emitida
         share_type: Tipo de Acción de Default
+      district:
+        city: Ciudad
+      location:
+        code: Código
+        name: Nombre
+        type: Tipo
+        parent: Pertenece a
+        parent_id: Padre
+        city_id: Cantón
+        community_id: Comunidad
+        country_id: País
+        district_id: Distrito
+        province_id: Provincia
+      province:
+        country: País
       receipt:
         number: Número
         type: Tipo
@@ -102,11 +140,44 @@ es:
         password: Contraseña
         password_confirmation: Confirmación de Contraseña
 
+  city:
+    created: El Cantón fue creado exitosamente.
+    destroyed: El Cantón fue borrado exitosamente.
+    editing: Editando Cantón
+    listing: Listando Cantones
+    new: Nuevo Cantón
+    save_failed:
+      one: 'evitó que este cantón sea grabado:'
+      other: 'evitaron que este cantón sea grabado:'
+    updated: El Cantón fue actualizado exitosamente.
+
+  community:
+    created: La Comunidad fue creada exitosamente.
+    destroyed: La Comunidad fue borrada exitosamente.
+    editing: Editando Comunidad
+    listing: Listando Comunidades
+    new: Nueva Comunidad
+    save_failed:
+      one: 'evitó que esta comunidad sea grabada:'
+      other: 'evitaron que esta comunidad sea grabada:'
+    updated: La Comunidad fue actualizada exitosamente.
+
   company:
     editing: Editando Empresa de Crédito
     prompt_share_type: Seleccion Tipo de Acción
     save_failed: 'evitó que esta empresa de crédito sea grabada:'
     updated: La Empresa de Crédito fue actualizada exitosamente.
+
+  country:
+    created: El País fue creado exitosamente.
+    destroyed: El País fue borrado exitosamente.
+    editing: Editando País
+    listing: Listando Países
+    new: Nuevo País
+    save_failed:
+      one: 'evitó que este país sea grabado:'
+      other: 'evitaron que este país sea grabado:'
+    updated: El País fue actualizado exitosamente.
 
   devise_views:
     email: Correo Electrónico
@@ -119,6 +190,17 @@ es:
     remember_me: Recordar sesión
     registration: Registrarse en el Sistema de Indicadores de Cartera
     sign_up: Registrarse
+
+  district:
+    created: El Distrito fue creado exitosamente.
+    destroyed: El Distrito fue borrado exitosamente.
+    editing: Editando Distrito
+    listing: Listando Distritos
+    new: Nuevo Distrito
+    save_failed:
+      one: 'evitó que este distrito sea grabado:'
+      other: 'evitaron que este distrito sea grabado:'
+    updated: El Distrito fue actualizado exitosamente.
 
   issuance:
     created: Las Acciones fueron emitidas correctamente.
@@ -140,23 +222,46 @@ es:
     see_all: Ver Emisiones realizadas
 
   location:
-    index: Ubicaciones
+    created: La ubicación fue creada exitosamente.
+    destroyed: La ubicación fue borrada exitosamente.
+    editing: Editando Ubicación
+    listing: Listando Ubicaciones
+    new: Nueva Ubicación
+    prompt_parent: "Por favor, seleccione"
+    prompt_type: "Seleccione el Tipo de Ubicación"
+    save_failed:
+      one: 'evitó que esta ubicación sea grabada:'
+      other: 'evitaron que esta ubicación sea grabada:'
+    updated: La ubicación fue actualizada exitosamente.
 
   menu:
     about: Acerca de
     company: Empresa
     home: Inicio
     issuance: Emisión de Acciones
+    locations: Ubicaciones
     receipts: Recibos
     reference_entities: Información de Referencia
     sale: Venta de Acciones
     sales_done: Ventas realizadas
     shares: Acciones
     share_holders: Socios
+    share_types: Tipos de Acciones
     users: Usuarios
 
   placeholder:
     password_minimum: "Contraseña (mínimo %{minimum_characters} caracteres)"
+
+  province:
+    created: La provincia fue creada exitosamente.
+    destroyed: La provincia fue borrada exitosamente.
+    editing: Editando Provincia
+    listing: Listando Provincias
+    new: Nueva Provincia
+    save_failed:
+      one: 'evitó que esta provincia sea grabada:'
+      other: 'evitaron que esta provincia sea grabada:'
+    updated: La Provincia fue actualizada exitosamente.
 
   receipt:
     listing: Listado de Recibos
@@ -224,10 +329,13 @@ es:
     created: El Tipo de Acción fue creado exitosamente.
     destroyed: El Tipo de Acción fue borrado exitosamente.
     editing: Editando Tipo de Acción
+    header_info: Registre el tipo de acción que desea crear
     index: Tipos de Acciones
     listing: Listado de los Tipos de Acciones
     new: Nuevo Tipo de Acción
-    save_failed: 'evitó que este tipo de acción sea grabado:'
+    save_failed:
+      one: 'evitó que este tipo de acción sea grabado:'
+      other: 'evitaron que este tipo de acción sea grabado:'
     updated: El Tipo de Acción fue actualizado exitosamente.
 
   user:

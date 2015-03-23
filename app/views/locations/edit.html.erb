@@ -1,6 +1,6 @@
-<h1>Editing location</h1>
+<h1><%= t("#{@type.underscore}.editing") %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>
+<%= link_to t('show'), sti_location_path(@location.type, @location) %> |
+<%= link_to t('back'), sti_location_path(@type) %>
