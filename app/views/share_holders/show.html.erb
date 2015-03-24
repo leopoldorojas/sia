@@ -47,6 +47,15 @@
 
 <div class="row info-row">
   <div class="small-4 columns">
+    <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
+  </div>
+  <div class="small-3 columns end">
+    <%= @share_holder.location %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('equity') %>:</strong>
   </div>
   <div class="small-3 columns end">

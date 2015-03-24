@@ -1,4 +1,5 @@
 <%= form_for(@location) do |f| %>
+  <%= f.hidden_field :type, { value: @type.camelcase } %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= "#{@location.errors.count} #{t('error', count: @location.errors.count)} #{t(@type.downcase+'.save_failed', count: @location.errors.count)}" %></h2>
@@ -18,19 +19,8 @@
         <%= f.text_field :name %>
       </div>
 
-      <% if @type != "Location" %>
-        <%= f.hidden_field :type, { value: @type.camelcase } %>
-        <div class="small-4 columns">
-        </div>
-      <% else %>
-        <div class="small-4 columns">
-          <%= f.label :type %>
-          <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, prompt: t('location.prompt_type') %>
-        </div>
-      <% end %>
-
       <% if @location.parent_model %>
-        <div class="small-4 columns">
+        <div class="small-4 columns end">
           <%= f.label "#{@location.parent_model.underscore}_id".to_sym %>
           <%= f.collection_select :parent_id, "#{@location.parent_model}".constantize.all, :id, :name, prompt: t('location.prompt_parent') %>
         </div>

@@ -139,6 +139,7 @@ es:
         name: Nombre
         password: Contraseña
         password_confirmation: Confirmación de Contraseña
+        role: Rol
 
   city:
     created: El Cantón fue creado exitosamente.
@@ -312,6 +313,7 @@ es:
     listing: Listado de Socios
     new: Crear Socio
     prompt_location: Seleccione la Ubicación
+    prompt_by_location: Ubicación
     query:
       name: Nombre del Socio
     save_failed: 'evitó que este socio sea grabado:'

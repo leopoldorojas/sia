@@ -9,6 +9,10 @@
           <input id="name" ng-model="query.name" type="text", placeholder="<%= t('share_holder.query.name') %>" >
         </div>
 
+        <div class="small-4 columns">
+          <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name), prompt: t('share_holder.prompt_by_location'), ng_model: "query.location_id" ) %>
+        </div>
+
         <div class="small-4 columns end">
           <div class="actions">
             <%= submit_tag t('share_holder.do_query'), class: "button small radius", ng_disabled: "loading" %>

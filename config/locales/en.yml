@@ -139,6 +139,7 @@ en:
         name: Name
         password: Password
         password_confirmation: Password confirmation
+        role: Role
 
   city:
     created: City was successfully created.
@@ -312,6 +313,7 @@ en:
     listing: Listing Share Holders
     new: New Share Holder
     prompt_location: Select the Location
+    prompt_by_location: Location
     query:
       name: Share Holder Name
     save_failed: 'prohibited this share holder from being saved:'

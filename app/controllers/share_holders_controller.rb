@@ -4,6 +4,7 @@ class ShareHoldersController < ApplicationController
   def search
     @share_holders = ShareHolder.all
     @share_holders = @share_holders.where("name LIKE (?)", "%#{params[:name]}%" ) if params[:name].present?
+    @share_holders = @share_holders.location_in(params[:location_id]) if params[:location_id].present?
     respond_to :json
   end
 
