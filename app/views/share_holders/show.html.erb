@@ -83,69 +83,36 @@
 
 <br/>
 
-<!--
-<div class="row info-row">
-  <div class="small-3 columns">
-    <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
-  </div>
-  <div class="small-3 columns end">
-    <%= @share_holder.location.try(:name) %>
-  </div>
-</div>
+<strong><%= t('sale.listing') %>:</strong>
 
-<div class="row info-row">
-  <div class="small-3 columns">
-    <strong><%= "Numero de Acciones" %>:</strong>
-  </div>
-  <div class="small-3 columns end">
-    <%= @shares.size %>
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th><%= ShareOperation.human_attribute_name('operation_date') %></th>
+      <th><%= ShareOperation.human_attribute_name('shares_assigned') %></th>
+      <th><%= ShareOperation.human_attribute_name('cash') %></th>
+      <th><%= ShareOperation.human_attribute_name('dividends') %></th>
+      <th><%= ShareOperation.human_attribute_name('adjustment') %></th>
+      <th><%= ShareOperation.human_attribute_name('receipt') %></th>
+    </tr>
+  </thead>
 
-<div class="row info-row">
-  <div class="small-3 columns">
-    <strong><%= "Valor Total" %>:</strong>
-  </div>
-  <div class="small-3 columns end">
-    <%= @total_owned %>
-  </div>
-</div>
-
-<% unless @shares.empty? %>
-  <div class="row">
-    <div class="small-9 small-centered columns">
-      Tabla de resultados
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-9 columns">
-        <table>
-          <thead>
-            <tr>
-              <th><%= Share.human_attribute_name('number') %></th>
-              <th><%= ShareType.human_attribute_name('name') %></th>
-              <th><%= Share.human_attribute_name('share_issue') %></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @shares.each do |share| %>
-              <tr>
-                <td><%= share.identifier %></td>
-                <td><%= share.share_type.identifier %></td>
-                <td><%= share.share_issue.id %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-    </div>
-  </div>
-<% end %>
--->
+  <tbody>
+    <% @share_operations.each do |share_operation| %>
+      <tr>
+        <td><%= l share_operation.operation_date %></td>
+        <td><%= share_operation.shares_assigned %></td>
+        <td><%= share_operation.cash %></td>
+        <td><%= share_operation.dividends %></td>
+        <td><%= share_operation.adjustment %></td>
+        <td><%= share_operation.receipt %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <div class="row">
   <div class="small-9 columns">
     <%= link_to t('edit'), edit_share_holder_path(@share_holder) %> |
-    <%= link_to t('back'), share_holders_path %>
   </div>
 </div>

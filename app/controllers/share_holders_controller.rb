@@ -17,8 +17,7 @@ class ShareHoldersController < ApplicationController
   # GET /share_holders/1
   # GET /share_holders/1.json
   def show
-    @shares = @share_holder.shares
-    @total_owned = @share_holder.total_owned
+    @share_operations = ShareOperation.share_holder_is @share_holder
   end
 
   # GET /share_holders/new

@@ -120,6 +120,7 @@ en:
         cash: Cash
         dividends: Dividends
         operation_date: Operation Date
+        receipt: Receipt
         share_holder: Share Holder
         shares_assigned: Shares Assigned
         shares_required: Shares Required

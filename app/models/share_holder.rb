@@ -6,6 +6,7 @@ class ShareHolder < ActiveRecord::Base
   validates :name, presence: true
   default_scope { order(:name) }
 
+  # This method could be deprected because the total_owned need to take into account the balanca of the initial load
   def total_owned
     self.shares.map{ |share| share.value }.inject(:+)
   end

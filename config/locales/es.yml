@@ -120,6 +120,7 @@ es:
         cash: Efectivo
         dividends: Dividendos
         operation_date: Fecha de Operación
+        receipt: Recibo
         share_holder: Socio
         shares_assigned: Número de Acciones
         shares_required: Número de Acciones
