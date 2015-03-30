@@ -3,8 +3,8 @@ class SharesController < ApplicationController
 
   def search
     @shares = Share.all
-    @shares = @shares.where("identifier >= (?)", "#{params[:first_identifier]}" ) if params[:first_identifier].present?
-    @shares = @shares.where("identifier <= (?)", "#{params[:last_identifier]}" ) if params[:last_identifier].present?
+    @shares = @shares.where("shares.identifier >= (?)", "#{params[:first_identifier]}" ) if params[:first_identifier].present?
+    @shares = @shares.where("shares.identifier <= (?)", "#{params[:last_identifier]}" ) if params[:last_identifier].present?
     @shares = @shares.share_holder_is(params[:share_holder_id]) if params[:share_holder_id].present?
     @shares = @shares.operation_since(params[:start_date]) if params[:start_date].present?
     @shares = @shares.operation_until(params[:end_date]) if params[:end_date].present?
