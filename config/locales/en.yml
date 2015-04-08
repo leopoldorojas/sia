@@ -323,7 +323,9 @@ en:
 
   share_operation:
     invalid_amounts: Invalid Amounts
+    not_enough_earnings: Invalid Dividends. Share Holder does not have enough Earnings.
     not_enough_shares: There are not enough shares issued to sell
+    not_enough_stock_prepaid: Invalid Adjustment. Share Holder does not have enough Stock Prepaid.
     save_failed:
       one: 'prohibited this share operation from being saved:'
       other: 'prohibited this share operation from being saved:'

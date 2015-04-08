@@ -6,6 +6,8 @@ class ShareOperation < ActiveRecord::Base
 
   validates :share_holder, :shares_required, :share_type_id, presence: true
   validates :shares_required, :numericality => { :greater_than => 0 }
+  validate :enough_earnings?, if: :will_use_dividends?
+  validate :enough_stock_prepaid?, if: :will_use_adjustment?
   validate :enough_shares_in_stock?, :operation_consistent?
 
   before_save :assign_shares_to_share_holder
@@ -53,6 +55,24 @@ class ShareOperation < ActiveRecord::Base
 
   private
 
+    def will_use_dividends?
+      dividends.present?
+    end
+
+    def will_use_adjustment?
+      adjustment.present?
+    end
+
+    def enough_earnings?
+      return if errors.any?
+      errors[:base] << I18n.t('share_operation.not_enough_earnings') if new_share_holder_earnings < 0
+    end
+
+    def enough_stock_prepaid?
+      return if errors.any?
+      errors[:base] << I18n.t('share_operation.not_enough_stock_prepaid') if new_share_holder_stock_prepaid < 0
+    end
+
     def enough_shares_in_stock?
     	return if errors.any?
 
@@ -72,14 +92,25 @@ class ShareOperation < ActiveRecord::Base
 	  end
 
     def assign_shares_to_share_holder
-      #self.share_holder.shares += shares
       Share.assign_shares_to(share_holder, shares)
     end
 
+    def new_share_holder_equity
+      share_holder.equity.respond_to?(:+) ? share_holder.equity + total_value : total_value
+    end
+
+    def new_share_holder_earnings
+      share_holder.earnings.respond_to?(:-) ? share_holder.earnings - dividends : -dividends
+    end
+
+    def new_share_holder_stock_prepaid
+      share_holder.stock_prepaid.respond_to?(:-) ? share_holder.stock_prepaid - adjustment : -adjustment
+    end
+
     def update_share_holder
-      self.share_holder.equity = share_holder.equity.respond_to?(:+) ? share_holder.equity + total_value : total_value
-      self.share_holder.earnings = share_holder.earnings.respond_to?(:-) ? share_holder.earnings - dividends : -dividends
-      self.share_holder.stock_prepaid = share_holder.stock_prepaid.respond_to?(:-) ? share_holder.stock_prepaid - adjustment : -adjustment
+      self.share_holder.equity = new_share_holder_equity
+      self.share_holder.earnings = new_share_holder_earnings
+      self.share_holder.stock_prepaid = new_share_holder_stock_prepaid
       self.share_holder.save
     end
 end
