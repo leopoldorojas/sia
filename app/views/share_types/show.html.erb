@@ -7,7 +7,7 @@
 
 <p>
   <strong><%= ShareType.human_attribute_name('value') %>:</strong>
-  <%= @share_type.value %>
+  <%= as_money @share_type.value %>
 </p>
 
 <%= link_to t('edit'), edit_share_type_path(@share_type) %> |

@@ -3,7 +3,7 @@ class ShareHoldersController < ApplicationController
 
   def search
     @share_holders = ShareHolder.all
-    @share_holders = @share_holders.where("name LIKE (?)", "%#{params[:name]}%" ) if params[:name].present?
+    @share_holders = @share_holders.where("upper(name) LIKE upper(?)", "%#{params[:name]}%" ) if params[:name].present?
     @share_holders = @share_holders.location_in(params[:location_id]) if params[:location_id].present?
     respond_to :json
   end
@@ -27,6 +27,8 @@ class ShareHoldersController < ApplicationController
 
   # GET /share_holders/1/edit
   def edit
+    authorize @share_holder
+    @readonly = policy(@share_holder).block_allowed_fields?
   end
 
   # POST /share_holders

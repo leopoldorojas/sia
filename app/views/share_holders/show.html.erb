@@ -59,7 +59,7 @@
     <strong><%= ShareHolder.human_attribute_name('equity') %>:</strong>
   </div>
   <div class="small-3 columns end">
-    <%= @share_holder.equity %>
+    <%= as_money @share_holder.equity %>
   </div>
 </div>
 
@@ -68,7 +68,7 @@
     <strong><%= ShareHolder.human_attribute_name('earnings') %>:</strong>
   </div>
   <div class="small-3 columns end">
-    <%= @share_holder.earnings %>
+    <%= as_money @share_holder.earnings %>
   </div>
 </div>
 
@@ -77,7 +77,7 @@
     <strong><%= ShareHolder.human_attribute_name('stock_prepaid') %>:</strong>
   </div>
   <div class="small-3 columns end">
-    <%= @share_holder.stock_prepaid %>
+    <%= as_money @share_holder.stock_prepaid %>
   </div>
 </div>
 
@@ -101,10 +101,10 @@
     <% @share_operations.each do |share_operation| %>
       <tr>
         <td><%= l share_operation.operation_date %></td>
-        <td><%= share_operation.shares_assigned %></td>
-        <td><%= share_operation.cash %></td>
-        <td><%= share_operation.dividends %></td>
-        <td><%= share_operation.adjustment %></td>
+        <td><%= as_integer share_operation.shares_assigned %></td>
+        <td><%= as_money share_operation.cash %></td>
+        <td><%= as_money share_operation.dividends %></td>
+        <td><%= as_money share_operation.adjustment %></td>
         <td><%= share_operation.receipt %></td>
       </tr>
     <% end %>

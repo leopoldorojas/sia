@@ -50,17 +50,17 @@
       <div class="row">
         <div class="small-4 columns">
           <%= f.label :equity %>
-          <%= f.text_field :equity %>
+          <%= f.text_field :equity, readonly: @readonly %>
         </div>
 
         <div class="small-4 columns">
           <%= f.label :earnings %>
-          <%= f.text_field :earnings %>
+          <%= f.text_field :earnings, readonly: @readonly %>
         </div>
 
         <div class="small-4 columns">
           <%= f.label :stock_prepaid %>
-          <%= f.text_field :stock_prepaid %>
+          <%= f.text_field :stock_prepaid, readonly: @readonly %>
         </div>
       </div>
     </fieldset>
