@@ -1,5 +1,6 @@
 class IssuancesController < ApplicationController
   before_action :set_initial_share
+  before_action :authorize_for_managing, except: [:index, :search, :show]
 
   def search
     @share_issues = ShareIssue.all
@@ -17,27 +18,29 @@ class IssuancesController < ApplicationController
   def create
     @share_issue = ShareIssue.new(share_issue_params)
     @share_issue.initial_share = initial_share
+    maximum = Rails.application.config.maximum_shares_to_issue_at_once
 
     if @share_issue.initial_share > @share_issue.final_share
       @share_issue.errors[:base] << t('issuance.invalid_share_range')
-
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render json: @share_issue.errors, status: :unprocessable_entity }
-      end
+    elsif @share_issue.final_share - @share_issue.initial_share > maximum
+      @share_issue.errors[:base] << t('issuance.a_lot_of_shares_to_issue', maximum: maximum)
     else
       @share_issue.initial_share.upto(@share_issue.final_share) { |identifier| @share_issue.shares.build(identifier: identifier) }
 
-      respond_to do |format|
-        if @share_issue.save
-        	current_company.issued_shares_upto @share_issue.final_share
+      if @share_issue.save
+        current_company.issued_shares_upto @share_issue.final_share
 
+        respond_to do |format|
           format.html { redirect_to @share_issue, notice: t('issuance.created') }
           format.json { render :show, status: :created, location: @share_issue }
-        else
-          format.html { render :new }
-          format.json { render json: @share_issue.errors, status: :unprocessable_entity }
         end
+      end
+    end
+
+    unless @share_issue.errors.size == 0
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: @share_issue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,4 +60,7 @@ class IssuancesController < ApplicationController
       params.require(:share_issue).permit(:issue_date, :initial_share, :final_share, :share_type_id)
     end
 
+    def authorize_for_managing
+     authorize ShareIssue, :manage?
+    end
 end

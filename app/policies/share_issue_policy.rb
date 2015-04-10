@@ -1,4 +1,4 @@
-class LocationPolicy < ApplicationPolicy
+class ShareIssuePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope

@@ -205,9 +205,10 @@ en:
     updated: District was successfully updated.
 
   issuance:
+    a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"
     created: Shares were issued correctly.
     do_query: Search
-    indications_use_grid: 'Click in any row to see issuance details:'
+    indications_use_grid: 'Issuances found:'
     information: Information on new Shares Issuance
     invalid_share_range: Invalid Share Range
     listing: Listing Share Issues

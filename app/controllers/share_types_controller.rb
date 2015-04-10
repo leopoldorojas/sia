@@ -1,5 +1,6 @@
 class ShareTypesController < ApplicationController
   before_action :set_share_type, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_for_managing, except: [:index, :show]
 
   # GET /share_types
   # GET /share_types.json
@@ -73,5 +74,9 @@ class ShareTypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_type_params
       params.require(:share_type).permit(:identifier, :value)
+    end
+
+    def authorize_for_managing
+     authorize ShareType, :manage?
     end
 end

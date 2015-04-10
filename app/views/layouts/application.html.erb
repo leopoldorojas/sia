@@ -34,16 +34,15 @@
      
     <div class="large-3 pull-9 columns">    
       <ul class="side-nav">
+        <% menu_issuance_path = policy(ShareIssue).manage? ? new_issuance_path : issuances_path  %>
         <li><%= link_to t('menu.sale'), new_sale_path %></a></li>
         <li><%= link_to t('menu.sales_done'), sales_path %></a></li>
         <li><%= link_to t('menu.share_holders'), share_holders_path %></li>
-        <% if policy(User).supermanage? %>
-          <li><%= link_to t('menu.shares'), shares_path %></li>
-          <li><%= link_to t('menu.issuance'), new_issuance_path %></li>
-          <li><%= link_to t('menu.share_types'), share_types_path %></li>
-          <li><%= link_to t('menu.locations'), locations_path %></li>
-          <li><%= link_to t('menu.company'), edit_company_path(current_company) %></li>
-        <% end %>
+        <li><%= link_to t('menu.shares'), shares_path %></li>
+        <li><%= link_to t('menu.issuance'), menu_issuance_path %></li>
+        <li><%= link_to t('menu.share_types'), share_types_path %></li>
+        <li><%= link_to t('menu.locations'), locations_path %></li>
+        <li><%= link_to t('menu.company'), edit_company_path(current_company) if policy(Company).manage? %></li>
         <li><%= link_to t('menu.users'), users_path if policy(User).manage? %></li>
       </ul>
  

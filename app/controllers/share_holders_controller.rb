@@ -23,6 +23,7 @@ class ShareHoldersController < ApplicationController
   # GET /share_holders/new
   def new
     @share_holder = ShareHolder.new
+    authorize @share_holder
   end
 
   # GET /share_holders/1/edit
@@ -35,6 +36,7 @@ class ShareHoldersController < ApplicationController
   # POST /share_holders.json
   def create
     @share_holder = ShareHolder.new(share_holder_params)
+    authorize @share_holder
 
     respond_to do |format|
       if @share_holder.save

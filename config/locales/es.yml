@@ -205,9 +205,10 @@ es:
     updated: El Distrito fue actualizado exitosamente.
 
   issuance:
+    a_lot_of_shares_to_issue: "El máximo número de acciones a emitir en una sola emisión es de %{maximum}"
     created: Las Acciones fueron emitidas correctamente.
     do_query: Buscar
-    indications_use_grid: 'Dé click en cualquier línea para ver el detalle de la emisión:'
+    indications_use_grid: 'Emisiones encontradas:'
     information: Información de la nueva Emisión de Acciones
     invalid_share_range: Número inicial de acción no puede ser mayor al número final de acción a emitir. Favor corregir.
     listing: Emisiones de acciones realizadas

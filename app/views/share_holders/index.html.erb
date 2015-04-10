@@ -29,7 +29,7 @@
       <%=  t('share_holder.indications_use_grid') %>
     </div>
     <div class="small-4 columns">
-      <%= link_to t('share_holder.new'), new_share_holder_path, class: "button tiny radius right" %>
+      <%= link_to t('share_holder.new'), new_share_holder_path, class: "button tiny radius right" if policy(ShareHolder).create? %>
     </div>
   </div>
 
@@ -72,4 +72,4 @@
 
 <br>
 
-<%= link_to t('share_holder.new'), new_share_holder_path, class: "button small radius" %>
+<%= link_to t('share_holder.new'), new_share_holder_path, class: "button small radius" if policy(ShareHolder).create? %>

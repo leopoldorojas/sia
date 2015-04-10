@@ -19,7 +19,7 @@ class ShareHolderPolicy < ApplicationPolicy
   end
 
   def block_allowed_fields?
-    user.is_at_least? :admin
+    user.is_at_most? :company_admin
   end
 
   def destroy?

@@ -113,6 +113,6 @@
 
 <div class="row">
   <div class="small-9 columns">
-    <%= link_to t('edit'), edit_share_holder_path(@share_holder) %> |
+    <%= link_to t('edit'), edit_share_holder_path(@share_holder) if policy(@share_holder).edit? %>
   </div>
 </div>

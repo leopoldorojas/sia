@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_for_managing
 
   # GET /companies
   # GET /companies.json
@@ -71,4 +72,9 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(:name, :last_share_issued)
     end
+
+    def authorize_for_managing
+     authorize Company, :manage?
+    end
+
 end

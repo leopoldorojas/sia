@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :set_type
-  before_action :authorize_for_managing
+  before_action :authorize_for_managing, except: [:index, :show]
 
   # GET /locations
   # GET /locations.json

@@ -16,7 +16,9 @@
       <th><%= Location.human_attribute_name('name') %></th>
       <th><%= Location.human_attribute_name('type') %></th>
       <th><%= Location.human_attribute_name('parent') %></th>
-      <th colspan="2"></th>
+      <% if policy(Location).manage? %>
+        <th colspan="2"></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -26,8 +28,11 @@
         <td><%= location.name %></td>
         <td><%= location.type.constantize.model_name.human %></td>
         <td><%= Location.find_by_id(location.parent_id).try(:name) || "" %></td>
-        <td><%= link_to t('edit'), sti_location_path(location.type, location, :edit) %></td>
-        <td><%= link_to t('destroy'), sti_location_path(location.type, location), method: :delete, data: { confirm: t('are_you_sure') } %></td>
+
+        <% if policy(Location).manage? %>
+          <td><%= link_to t('edit'), sti_location_path(location.type, location, :edit) %></td>
+          <td><%= link_to t('destroy'), sti_location_path(location.type, location), method: :delete, data: { confirm: t('are_you_sure') } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +41,5 @@
 <br>
 
 <% if @type != "Location" %>
-  <%= link_to t("#{@type.underscore}.new"), sti_location_path(@type, nil, :new), class: "button small radius" %>
+  <%= link_to t("#{@type.underscore}.new"), sti_location_path(@type, nil, :new), class: "button small radius" if policy(Location).manage? %>
 <% end %>

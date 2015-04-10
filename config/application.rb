@@ -38,5 +38,7 @@ module Sia
       company_admin: { privilege: 50 },
       company_user: { privilege: 25 }
     }
+
+    config.maximum_shares_to_issue_at_once = 1000
   end
 end
