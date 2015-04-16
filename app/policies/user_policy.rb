@@ -1,15 +1,11 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.is?(:superadmin)
-        scope.all
-      else
-        scope.where.not(role: 'superadmin')
-      end
+      scope.max_privilege user.role
     end
   end
 
   def manage?
-    user.is_at_least? :admin
+    user.is_at_least? :company_admin
   end
 end

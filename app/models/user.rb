@@ -12,6 +12,18 @@ class User < ActiveRecord::Base
 
   scope :find_all_by_approved, ->(status) { where approved: status }
 
+  def self.max_privilege maximum_role
+    users = []
+
+    Rails.application.config.user_roles.each do |role, privilege|
+      unless privilege[:privilege] > Rails.application.config.user_roles[maximum_role.to_sym][:privilege]
+        users += User.where(role: role).ids
+      end
+    end
+
+    scope_users = User.where(id: [users])
+  end
+
   def to_s
     name
   end

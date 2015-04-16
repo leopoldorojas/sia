@@ -42,8 +42,7 @@ class UsersController < ApplicationController
     end
 
     def roles
-      user_roles = current_user.is?(:superadmin) ? Rails.application.config.user_roles : Rails.application.config.user_roles.reject {|key, value| key == :superadmin }
-      user_roles.keys.map { |role| [t("user.roles.#{role}"), role] }
+      Rails.application.config.user_roles.reject {|key, value| value[:privilege] > Rails.application.config.user_roles[current_user.role.to_sym][:privilege] }.keys.map { |role| [t("user.roles.#{role}"), role] }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
