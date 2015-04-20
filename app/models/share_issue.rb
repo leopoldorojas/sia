@@ -5,6 +5,8 @@ class ShareIssue < ActiveRecord::Base
 
   validates :share_type_id, presence: true
 
+  default_scope { order issue_date: :desc }
+
   class << self
     def since this_date
       where("issue_date >= ?", this_date)
