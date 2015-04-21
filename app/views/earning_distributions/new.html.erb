@@ -1,0 +1,35 @@
+<h3><%= t('earning_distribution.new') %></h3>
+
+<%= form_for @earning_distribution do |f| %>
+  <div class="row">
+    <fieldset class="small-12 columns">
+      <legend><%= t('earning_distribution.legend_indication') %></legend>
+      <div class="small-4 columns">
+        <%= f.label :amount_to_distribute %>
+        <%= f.text_field :amount_to_distribute, { value: @earning_distribution.amount_to_distribute } %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :initial_month %>
+        <%= f.number_field :initial_month, { value: @earning_distribution.initial_month } %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :end_month %>
+        <%= f.number_field :end_month, { value: @earning_distribution.end_month } %>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('do_earning_distribution'), class: "button small radius" %>
+  </div>
+<% end %>
+
+<% if @earning_distribution.results.present? %>
+  <p id='result_start'><b><%= t('earning_distribution.results') %></b></p>
+
+  <% @earning_distribution.results.each do |share_holder| %>
+    <p><%= "#{share_holder[:name]}" %></p>
+  <% end %>
+<% end %>

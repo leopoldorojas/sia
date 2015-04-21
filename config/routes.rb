@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     post :search, :on => :collection
   end
 
+  resources :earning_distributions, only: [:new, :create]
+
   resources :locations
   resources :countries, controller: 'locations', type: 'Country' 
   resources :provinces, controller: 'locations', type: 'Province'

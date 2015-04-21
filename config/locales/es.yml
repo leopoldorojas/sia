@@ -26,6 +26,7 @@ es:
   are_you_sure: ¿Está seguro?
   back: Regresar
   destroy: Borrar
+  do_earning_distribution: Generar Distribución de Dividendos
   edit: Editar
   error:
     one: error
@@ -38,6 +39,15 @@ es:
   sign_out: Salir
   TrueClass: "Sí"
   unauthorized: "Error de Autorización: Usted no tiene acceso a esta sección."
+
+  activemodel:
+    models:
+      earning_distribution: Distribución de Dividendos
+    attributes:
+      earning_distribution:
+        amount_to_distribute: Monto a distribuir
+        end_month: Mes Final
+        initial_month: Mes Inicial
 
   activerecord:
     models:
@@ -204,6 +214,11 @@ es:
       other: 'evitaron que este distrito sea grabado:'
     updated: El Distrito fue actualizado exitosamente.
 
+  earning_distribution:
+    legend_indication: Datos requeridos
+    new: Generación de Distribución de Dividendos
+    results: "La distribución de dividendos es:"
+
   issuance:
     a_lot_of_shares_to_issue: "El máximo número de acciones a emitir en una sola emisión es de %{maximum}"
     created: Las Acciones fueron emitidas correctamente.
@@ -240,6 +255,7 @@ es:
   menu:
     about: Acerca de
     company: Empresa
+    earning_distribution: Distribución de Dividendos
     home: Inicio
     issuance: Emisión de Acciones
     locations: Ubicaciones

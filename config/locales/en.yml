@@ -26,6 +26,7 @@ en:
   are_you_sure: Are you sure?
   back: Back
   destroy: Destroy
+  do_earning_distribution: Do Earning Distribution
   edit: Edit
   error:
     one: error
@@ -38,6 +39,15 @@ en:
   sign_out: Sign Out
   TrueClass: "Yes"
   unauthorized: "You don't have access to this section."
+
+  activemodel:
+    models:
+      earning_distribution: Earning Distribution
+    attributes:
+      earning_distribution:
+        amount_to_distribute: Amount to Distribute
+        end_month: End Month
+        initial_month: Initial Month
 
   activerecord:
     models:
@@ -204,6 +214,11 @@ en:
       other: 'prohibited this district from being saved:'
     updated: District was successfully updated.
 
+  earning_distribution:
+    legend_indication: Data to generate
+    new: New Earning Distribution
+    results: "Earning Distribution Results are:"
+
   issuance:
     a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"
     created: Shares were issued correctly.
@@ -240,6 +255,7 @@ en:
   menu:
     about: About
     company: Company
+    earning_distribution: Earning Distribution
     home: Home
     issuance: Share Issuance
     locations: Locations
