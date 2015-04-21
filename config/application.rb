@@ -31,14 +31,5 @@ module Sia
       Devise::SessionsController.layout "sign_in_layout" 
       Devise::RegistrationsController.layout "sign_in_layout"
     end
-
-    config.user_roles = {
-      superadmin: { privilege: 99 },
-      admin: { privilege: 75 }, 
-      company_admin: { privilege: 50 },
-      company_user: { privilege: 25 }
-    }
-
-    config.maximum_shares_to_issue_at_once = 1000
   end
 end
