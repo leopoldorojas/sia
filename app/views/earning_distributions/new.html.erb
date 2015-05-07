@@ -10,13 +10,13 @@
       </div>
 
       <div class="small-4 columns">
-        <%= f.label :initial_month %>
-        <%= f.number_field :initial_month, { value: @earning_distribution.initial_month } %>
+        <%= f.label :initial_date %>
+        <%= f.date_select :initial_date, { discard_day: true }, { value: @earning_distribution.initial_date, class: 'date' } %>
       </div>
 
       <div class="small-4 columns">
-        <%= f.label :end_month %>
-        <%= f.number_field :end_month, { value: @earning_distribution.end_month } %>
+        <%= f.label :number_of_months %>
+        <%= f.number_field :number_of_months, { value: @earning_distribution.number_of_months } %>
       </div>
     </fieldset>
   </div>

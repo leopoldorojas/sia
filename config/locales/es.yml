@@ -46,8 +46,8 @@ es:
     attributes:
       earning_distribution:
         amount_to_distribute: Monto a distribuir
-        end_month: Mes Final
-        initial_month: Mes Inicial
+        number_of_months: Número de Meses
+        initial_date: Mes Inicial
 
   activerecord:
     models:
