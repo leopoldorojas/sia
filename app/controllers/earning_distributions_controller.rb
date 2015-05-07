@@ -1,4 +1,5 @@
 class EarningDistributionsController < ApplicationController
+  before_action :authorize_for_managing
   
   def new
     initial_date = Rails.application.config.distribution_initial_date
@@ -30,6 +31,10 @@ class EarningDistributionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
       params.require(:earning_distribution).permit(:amount_to_distribute, :initial_date, :number_of_months)
+    end
+
+    def authorize_for_managing
+     authorize EarningDistribution, :manage?
     end
 
 end
