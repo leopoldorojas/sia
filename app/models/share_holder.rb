@@ -15,6 +15,11 @@ class ShareHolder < ActiveRecord::Base
   	name
   end
 
+  # Calculate how many shares the share holder had in an initial date plus a number specific of months
+  def shares_in this_date
+    rand(12)
+  end 
+
   def self.location_in this_location_id
     share_holders_ids = []
     Location.find(this_location_id).location_and_descendants.each { |l| share_holders_ids.concat Location.find(l).share_holders.ids }

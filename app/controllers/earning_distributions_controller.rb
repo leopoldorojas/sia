@@ -18,11 +18,9 @@ class EarningDistributionsController < ApplicationController
       number_of_months: query['number_of_months']
     })
 
-    @earning_distribution.run
-
     respond_to do |format|
       format.html { render :new }
-      format.json { render json: @earning_distribution }
+      format.json { render json: @earning_distribution.matrix }
     end
   end
 

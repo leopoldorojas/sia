@@ -26,10 +26,13 @@
   </div>
 <% end %>
 
-<% if @earning_distribution.results.present? %>
+<% if @earning_distribution.amount_to_distribute.to_i > 0 %>
   <p id='result_start'><b><%= t('earning_distribution.results') %></b></p>
 
-  <% @earning_distribution.results.each do |share_holder| %>
-    <p><%= "#{share_holder[:name]}" %></p>
+  <% number_of_shares = @earning_distribution.matrix %>
+  <% 0.upto(number_of_shares.size - 1) do |month| %>
+    <% 0.upto(month.size - 1) do |share_holder| %>
+      <p><%= "Information for month #{month} and share holder #{share_holder} is #{number_of_shares[month][share_holder]}" %></p>
+    <% end %>
   <% end %>
 <% end %>
