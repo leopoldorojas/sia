@@ -20,7 +20,8 @@ class EarningDistributionsController < ApplicationController
 
     respond_to do |format|
       format.html { render :new }
-      format.json { render json: @earning_distribution.matrix }
+      format.xls { render :new }
+      format.json { render json: @share_holder_earnings.matrix }
     end
   end
 

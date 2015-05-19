@@ -63,10 +63,22 @@ class EarningDistribution
 
     last_index = earnings_distribution_matrix[actual_number_of_months + 1].length - 1
     earnings_distribution_matrix[actual_number_of_months + 1][last_index] = amount_to_distribute.to_d
-  	earnings_distribution_matrix
+  	matrix_by_share_holder earnings_distribution_matrix
   end
 
   private
+
+    def matrix_by_share_holder matrix
+      new_matrix = []
+      number_of_share_holders = matrix[0].length - 1
+      0.upto(number_of_share_holders) do |share_holder_index|
+        new_matrix[share_holder_index] = []
+        0.upto(actual_number_of_months) do |month_index|
+          new_matrix[share_holder_index][month_index] = matrix[month_index][share_holder_index].is_a?(Array) ? matrix[month_index][share_holder_index][1] : matrix[month_index][share_holder_index]
+        end
+      end
+      new_matrix
+    end
 
     def calculate_factor matrix, row
       total = 0.0

@@ -1,6 +1,6 @@
 <h3><%= t('earning_distribution.new') %></h3>
 
-<%= form_for @earning_distribution do |f| %>
+<%= form_for @earning_distribution, :format => :xls do |f| %>
   <div class="row">
     <fieldset class="small-12 columns">
       <legend><%= t('earning_distribution.legend_indication') %></legend>
@@ -23,6 +23,7 @@
 
   <div class="actions">
     <%= f.submit t('do_earning_distribution'), class: "button small radius" %>
+    <%= f.submit t('do_earning_distribution_as_excel'), class: "button small radius" %>
   </div>
 <% end %>
 
@@ -31,27 +32,37 @@
 
   <% if number_of_shares = @earning_distribution.matrix %>
     <table>
-    <% 0.upto(number_of_shares.length - 2) do |month| %>
-      <% 0.upto(number_of_shares[month].length - 1) do |share_holder| %>
-
-        <% if share_holder == 0 %>
-          <th>
-            <% if month > 0 %>
-              <%= month %>
-            <% end %>
-          </th>
-        <% else %>
-          <tr>
-            <% if month == 0 %>
-              <%= number_of_shares[month][share_holder] %>
+      <% totals = [] %>
+      <% 0.upto(number_of_shares.length - 1) do |share_holder_index| %>
+        <% share_holder_total = 0 %>
+        <tr>
+          <% 0.upto(number_of_shares[share_holder_index].length - 1) do |month_index| %>
+            <td>
+              <%= number_of_shares[share_holder_index][month_index].is_a?(String) ? number_of_shares[share_holder_index][month_index] : as_integer(number_of_shares[share_holder_index][month_index]) %>
+              <% share_holder_total += number_of_shares[share_holder_index][month_index].to_i %>
+              <% if month_index > 0 %>
+                <% totals[month_index] = (totals[month_index] || 0) + number_of_shares[share_holder_index][month_index].to_i %>
+              <% end %>
+            </td>
+          <% end %>
+          <td>
+            <% if share_holder_index != 0 %>
+              <%= as_integer share_holder_total %>
             <% else %>
-              <%= number_of_shares[month][share_holder][1] %>
+              <%= t('earning_distribution.total') %>
             <% end %>
-          </tr>
-        <% end %>
-        
+          </td>
+        </tr>
       <% end %>
-    <% end %>
+      <tr>
+        <td><%= t('earning_distribution.total') %></td>
+        <% total_total = 0 %>
+        <% 1.upto(totals.length - 1) do |total| %>
+          <% total_total += totals[total] %>
+          <td><%= as_integer totals[total] %></td>
+        <% end %>
+        <td><%= as_integer total_total %></td>
+      </tr>
     </table>
   <% end %>
 <% end %>

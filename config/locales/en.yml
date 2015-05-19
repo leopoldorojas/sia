@@ -27,6 +27,7 @@ en:
   back: Back
   destroy: Destroy
   do_earning_distribution: Do Earning Distribution
+  do_earning_distribution_as_excel: Download as Excel
   edit: Edit
   error:
     one: error
@@ -218,6 +219,8 @@ en:
     legend_indication: Data to generate
     new: New Earning Distribution
     results: "Earning Distribution Results are:"
+    total: Total
+    xls_sheet_name: Earning Distribution
 
   issuance:
     a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"

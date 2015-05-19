@@ -27,6 +27,7 @@ es:
   back: Regresar
   destroy: Borrar
   do_earning_distribution: Generar Distribución de Dividendos
+  do_earning_distribution_as_excel: Generar en Excel
   edit: Editar
   error:
     one: error
@@ -218,6 +219,8 @@ es:
     legend_indication: Datos requeridos
     new: Generación de Distribución de Dividendos
     results: "La distribución de dividendos es:"
+    total: Total
+    xls_sheet_name: Distribución de Dividendos
 
   issuance:
     a_lot_of_shares_to_issue: "El máximo número de acciones a emitir en una sola emisión es de %{maximum}"
