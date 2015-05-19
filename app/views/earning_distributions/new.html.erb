@@ -29,12 +29,29 @@
 <% if @earning_distribution.amount_to_distribute.to_i > 0 %>
   <p id='result_start'><b><%= t('earning_distribution.results') %></b></p>
 
-  <% number_of_shares = @earning_distribution.matrix %>
-  <% 0.upto(number_of_shares.length - 2) do |month| %>
-    <% 0.upto(number_of_shares[month].length - 1) do |share_holder| %>
-      <% info = number_of_shares[month][share_holder].is_a?(Array) ? number_of_shares[month][share_holder][0] : number_of_shares[month][share_holder] %>
-      <% info2 = number_of_shares[month][share_holder].is_a?(Array) ? number_of_shares[month][share_holder][1] : number_of_shares[month][share_holder] %>
-      <p><%= "Information for month #{month} and share holder #{share_holder} is #{info} e #{info2}" %></p>
+  <% if number_of_shares = @earning_distribution.matrix %>
+    <table>
+    <% 0.upto(number_of_shares.length - 2) do |month| %>
+      <% 0.upto(number_of_shares[month].length - 1) do |share_holder| %>
+
+        <% if share_holder == 0 %>
+          <th>
+            <% if month > 0 %>
+              <%= month %>
+            <% end %>
+          </th>
+        <% else %>
+          <tr>
+            <% if month == 0 %>
+              <%= number_of_shares[month][share_holder] %>
+            <% else %>
+              <%= number_of_shares[month][share_holder][1] %>
+            <% end %>
+          </tr>
+        <% end %>
+        
+      <% end %>
     <% end %>
+    </table>
   <% end %>
 <% end %>

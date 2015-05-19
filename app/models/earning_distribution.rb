@@ -6,10 +6,12 @@ class EarningDistribution
 
   def matrix
   	# Each cell must contain: ShareHolder´s Number of Shares in that date / Total number of shares in that date / Number of months to calculate
+    return false if amount_to_distribute.to_d <=0
   	earnings_distribution_matrix = []
   	earnings_distribution_matrix[0] = []
     list_of_dates = dates 
     self.actual_number_of_months = list_of_dates.length
+    return false if actual_number_of_months <= 0    
 
   	1.upto(actual_number_of_months + 2) do |month|
   		earnings_distribution_matrix[month] = []
@@ -28,6 +30,7 @@ class EarningDistribution
             last_row = earnings_distribution_matrix[previous_month].length - 1
             shares_of_share_holder_in_previous_month = earnings_distribution_matrix[previous_month][share_holder_index][0]
             total_shares_in_previous_month = earnings_distribution_matrix[previous_month][last_row][0]
+            return false if total_shares_in_previous_month <= 0
             earnings_for_share_holder_factor = shares_of_share_holder_in_previous_month.to_f / total_shares_in_previous_month.to_f
           end
 

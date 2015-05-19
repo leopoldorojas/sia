@@ -15,6 +15,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'csv'
+@share_value = 50000.00
 
 company = Company.create do |c|
 	c.name = "EDESA"
@@ -22,7 +23,7 @@ end
 
 ShareType.create do |st|
 	st.identifier="A"
-	st.value = 50000.00
+	st.value = @share_value
 	st.company = company
 end
 
@@ -42,5 +43,6 @@ CSV.foreach(Rails.root.join("db/control_de_socios_seed.csv")) do |share_holder|
   	sh.equity = equity.is_a?(String) ? equity.gsub(',','').to_f : equity
   	sh.earnings = earnings.is_a?(String) ? earnings.gsub(',','').to_f : earnings
   	sh.stock_prepaid = stock_prepaid.is_a?(String) ? stock_prepaid.gsub(',','').to_f : stock_prepaid
+    sh.initial_number_of_shares = sh.equity / @share_value
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127195314) do
+ActiveRecord::Schema.define(version: 20150518233051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150127195314) do
     t.decimal  "equity"
     t.decimal  "earnings"
     t.decimal  "stock_prepaid"
+    t.integer  "initial_number_of_shares"
   end
 
   add_index "share_holders", ["location_id"], name: "index_share_holders_on_location_id", using: :btree

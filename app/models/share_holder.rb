@@ -17,8 +17,18 @@ class ShareHolder < ActiveRecord::Base
 
   # Calculate how many shares the share holder had in an initial date plus a number specific of months
   def shares_in this_date
-    rand(12)
+    (initial_number_of_shares || 0) + shares.size - shares_acquired_since(this_date) + shares_left_since(this_date)
   end 
+
+  def shares_left_since this_date
+    0
+  end
+
+  def shares_acquired_since this_date
+    total_shares = 0
+    ShareOperation.share_holder_is(id).since(this_date).find_each { |share_operation| total_shares += share_operation.shares.size }
+    total_shares
+  end
 
   def self.location_in this_location_id
     share_holders_ids = []
