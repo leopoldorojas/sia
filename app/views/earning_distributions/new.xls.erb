@@ -14,17 +14,19 @@
         <% 0.upto(number_of_shares.length - 1) do |share_holder_index| %>
           <% share_holder_total = 0 %>
           <Row>
-
             <% 0.upto(number_of_shares[share_holder_index].length - 1) do |month_index| %>
               <Cell>
-                <Data ss:Type="<%= number_of_shares[share_holder_index][month_index].is_a?(String) ? 'String' : 'Number' %>"><%= number_of_shares[share_holder_index][month_index] %></Data>
-                <% share_holder_total += number_of_shares[share_holder_index][month_index].to_i %>
-                <% if month_index > 0 %>
-                  <% totals[month_index] = (totals[month_index] || 0) + number_of_shares[share_holder_index][month_index].to_i %>
+                <% if share_holder_index == 0 && month_index == 0 %>
+                  <Data ss:Type="String"></Data>
+                <% else %>
+                  <Data ss:Type="<%= number_of_shares[share_holder_index][month_index].is_a?(String) ? 'String' : 'Number' %>"><%= number_of_shares[share_holder_index][month_index] %></Data>
+                  <% share_holder_total += number_of_shares[share_holder_index][month_index].to_i %>
+                  <% if month_index > 0 %>
+                    <% totals[month_index] = (totals[month_index] || 0) + number_of_shares[share_holder_index][month_index].to_i %>
+                  <% end %>
                 <% end %>
               </Cell>
             <% end %>
-
             <Cell>
               <% if share_holder_index != 0 %>
                 <Data ss:Type="Number"><%= share_holder_total %></Data>

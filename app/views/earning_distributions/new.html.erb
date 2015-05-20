@@ -1,6 +1,6 @@
 <h3><%= t('earning_distribution.new') %></h3>
 
-<%= form_for @earning_distribution, :format => :xls do |f| %>
+<%= form_for @earning_distribution, :format => :html do |f| %>
   <div class="row">
     <fieldset class="small-12 columns">
       <legend><%= t('earning_distribution.legend_indication') %></legend>
@@ -23,12 +23,21 @@
 
   <div class="actions">
     <%= f.submit t('do_earning_distribution'), class: "button small radius" %>
-    <%= f.submit t('do_earning_distribution_as_excel'), class: "button small radius" %>
   </div>
 <% end %>
 
 <% if @earning_distribution.amount_to_distribute.to_i > 0 %>
-  <p id='result_start'><b><%= t('earning_distribution.results') %></b></p>
+  <hr/>
+  <hr/>
+  <div class="row">
+    <div class="small-4 columns"><b><%= t('earning_distribution.results') %></b></div>
+    <%= form_for @earning_distribution, :format => :xls do |f| %>
+      <%= f.hidden_field :amount_to_distribute, { value: @earning_distribution.amount_to_distribute } %>
+      <%= f.hidden_field :initial_date, { value: @earning_distribution.initial_date } %>
+      <%= f.hidden_field :number_of_months, { value: @earning_distribution.number_of_months } %>
+      <div class="small-3 columns right end"><%= f.submit t('do_earning_distribution_as_excel'), class: "button tiny radius" %></div>
+    <% end %>
+  </div>
 
   <% if number_of_shares = @earning_distribution.matrix %>
     <table>

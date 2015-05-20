@@ -27,7 +27,7 @@ es:
   back: Regresar
   destroy: Borrar
   do_earning_distribution: Generar Distribución de Dividendos
-  do_earning_distribution_as_excel: Generar en Excel
+  do_earning_distribution_as_excel: Descargar como Excel
   edit: Editar
   error:
     one: error
