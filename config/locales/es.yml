@@ -219,6 +219,7 @@ es:
     legend_indication: Datos requeridos
     new: Generación de Distribución de Dividendos
     results: "La distribución de dividendos es:"
+    share_holder_header: Socio
     total: Total
     xls_sheet_name: Distribución de Dividendos
 

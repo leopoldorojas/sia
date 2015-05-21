@@ -6,7 +6,7 @@ class EarningDistribution
 
   def matrix
   	# Each cell must contain: ShareHolder´s Number of Shares in that date / Total number of shares in that date / Number of months to calculate
-    return false if amount_to_distribute.to_d <=0
+    return false if amount_to_distribute.to_d <= 0
   	earnings_distribution_matrix = []
   	earnings_distribution_matrix[0] = []
     list_of_dates = dates 

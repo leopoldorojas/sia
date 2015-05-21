@@ -219,6 +219,7 @@ en:
     legend_indication: Data to generate
     new: New Earning Distribution
     results: "Earning Distribution Results are:"
+    share_holder_header: Share Holder
     total: Total
     xls_sheet_name: Earning Distribution
 

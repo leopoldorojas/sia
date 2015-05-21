@@ -48,10 +48,16 @@
         <tr>
           <% 0.upto(number_of_shares[share_holder_index].length - 1) do |month_index| %>
             <td>
-              <%= number_of_shares[share_holder_index][month_index].is_a?(String) ? number_of_shares[share_holder_index][month_index] : as_integer(number_of_shares[share_holder_index][month_index]) %>
-              <% share_holder_total += number_of_shares[share_holder_index][month_index].to_i %>
-              <% if month_index > 0 %>
-                <% totals[month_index] = (totals[month_index] || 0) + number_of_shares[share_holder_index][month_index].to_i %>
+              <% if share_holder_index == 0 && month_index == 0 %>
+                <%= t('earning_distribution.share_holder_header') %>
+              <% else %>
+                <% if month_index > 0 && share_holder_index > 0 %>
+                  <%= as_integer(number_of_shares[share_holder_index][month_index]) %>
+                  <% share_holder_total += number_of_shares[share_holder_index][month_index] %>
+                  <% totals[month_index] = (totals[month_index] || 0) + number_of_shares[share_holder_index][month_index] %>
+                <% else %>
+                  <%= number_of_shares[share_holder_index][month_index] %>
+                <% end %>
               <% end %>
             </td>
           <% end %>
