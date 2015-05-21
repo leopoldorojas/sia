@@ -1,6 +1,6 @@
 <h3><%= t('earning_distribution.new') %></h3>
 
-<%= form_for @earning_distribution do |f| %>
+<%= form_for @earning_distribution, html: { onsubmit: "generate_distribution.disabled = true; return true;" } do |f| %>
   <div class="row">
     <fieldset class="small-12 columns">
       <legend><%= t('earning_distribution.legend_indication') %></legend>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('do_earning_distribution'), class: "button small radius" %>
+    <%= f.submit t('do_earning_distribution'), class: "button small radius", name: "generate_distribution" %>
   </div>
 <% end %>
 
@@ -31,12 +31,14 @@
   <hr/>
   <div class="row">
     <div class="small-4 columns"><b><%= t('earning_distribution.results') %></b></div>
-    <%= form_for @earning_distribution, :format => :xls do |f| %>
+    <%= form_for @earning_distribution, :format => :xls, html: { onsubmit: "generate_excel.disabled = true; return true;" } do |f| %>
       <%= f.hidden_field :amount_to_distribute, { value: @earning_distribution.amount_to_distribute } %>
       <%= f.hidden_field "initial_date(1i)".to_sym, { value: @earning_distribution.initial_date.year } %>
       <%= f.hidden_field "initial_date(2i)".to_sym, { value: @earning_distribution.initial_date.month } %>
       <%= f.hidden_field :number_of_months, { value: @earning_distribution.number_of_months } %>
-      <div class="small-3 columns right end"><%= f.submit t('do_earning_distribution_as_excel'), class: "button tiny radius" %></div>
+      <div class="small-3 columns right end">
+        <%= f.submit t('do_earning_distribution_as_excel'), class: "button tiny radius", name: "generate_excel" %>
+      </div>
     <% end %>
   </div>
 
