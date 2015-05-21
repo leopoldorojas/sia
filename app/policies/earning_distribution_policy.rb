@@ -6,7 +6,7 @@ class EarningDistributionPolicy < ApplicationPolicy
   end
 
   def manage?
-    user.is_at_least? :superadmin
+    user.is_at_least? :admin
   end
 
 end
