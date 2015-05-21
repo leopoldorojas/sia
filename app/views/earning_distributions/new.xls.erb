@@ -17,7 +17,7 @@
             <% 0.upto(number_of_shares[share_holder_index].length - 1) do |month_index| %>
               <Cell>
                 <% if share_holder_index == 0 && month_index == 0 %>
-                  <Data ss:Type="String"></Data>
+                  <Data ss:Type="String">Socio</Data>
                 <% else %>
                   <Data ss:Type="<%= number_of_shares[share_holder_index][month_index].is_a?(String) ? 'String' : 'Number' %>"><%= number_of_shares[share_holder_index][month_index] %></Data>
                   <% share_holder_total += number_of_shares[share_holder_index][month_index].to_i %>
