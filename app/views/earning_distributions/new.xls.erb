@@ -6,7 +6,7 @@
   xmlns:html="http://www.w3.org/TR/REC-html40">
   <Worksheet ss:Name="<%= t('earning_distribution.xls_sheet_name') %>">
 
-  <% if @earning_distribution.amount_to_distribute.to_i > 0 %>
+  <% if @earning_distribution.amount_to_distribute.to_i > 0 || @earning_distribution.by_shares %>
 
     <% if number_of_shares = @earning_distribution.matrix %>
       <Table>
@@ -29,13 +29,15 @@
                 <% end %>
               </Cell>
             <% end %>
-            <Cell>
-              <% if share_holder_index != 0 %>
-                <Data ss:Type="Number"><%= share_holder_total %></Data>
-              <% else %>
-                <Data ss:Type="String"><%= t('earning_distribution.total') %></Data>
-              <% end %>
-            </Cell>
+            <% unless @earning_distribution.by_shares %>
+              <Cell>
+                <% if share_holder_index != 0 %>
+                  <Data ss:Type="Number"><%= share_holder_total %></Data>
+                <% else %>
+                  <Data ss:Type="String"><%= t('earning_distribution.total') %></Data>
+                <% end %>
+              </Cell>
+            <% end %>
           </Row>
         <% end %>
         <Row>
@@ -45,7 +47,9 @@
             <% total_total += totals[total] %>
             <Cell><Data ss:Type="Number"><%= totals[total] %></Data></Cell>
           <% end %>
-          <Cell><Data ss:Type="Number"><%= total_total %></Data></Cell>
+          <% unless @earning_distribution.by_shares %>
+            <Cell><Data ss:Type="Number"><%= total_total %></Data></Cell>
+          <% end %>
         </Row>
       </Table>
     <% end %>

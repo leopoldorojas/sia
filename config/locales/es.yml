@@ -28,6 +28,7 @@ es:
   destroy: Borrar
   do_earning_distribution: Generar Distribución de Dividendos
   do_earning_distribution_as_excel: Descargar como Excel
+  do_shares_by_share_holder: Distribución de Acciones por Socio
   edit: Editar
   error:
     one: error
@@ -216,6 +217,7 @@ es:
     updated: El Distrito fue actualizado exitosamente.
 
   earning_distribution:
+    amount_placeholder: Sólo para distribuir dividendos
     legend_indication: Datos requeridos
     new: Generación de Distribución de Dividendos
     results: "La distribución de dividendos es:"
@@ -259,7 +261,7 @@ es:
   menu:
     about: Acerca de
     company: Empresa
-    earning_distribution: Distribución de Dividendos
+    earning_distribution: Acciones y Dividendos
     home: Inicio
     issuance: Emisión de Acciones
     locations: Ubicaciones

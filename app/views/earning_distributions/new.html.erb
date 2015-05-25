@@ -1,14 +1,9 @@
 <h3><%= t('earning_distribution.new') %></h3>
 
-<%= form_for @earning_distribution, html: { onsubmit: "generate_distribution.disabled = true; return true;" } do |f| %>
+<%= form_for @earning_distribution, html: { onsubmit: "generate_distribution.disabled = true; generate_distribution_by_share.disabled = true; return true;" } do |f| %>
   <div class="row">
     <fieldset class="small-12 columns">
       <legend><%= t('earning_distribution.legend_indication') %></legend>
-      <div class="small-4 columns">
-        <%= f.label :amount_to_distribute %>
-        <%= f.text_field :amount_to_distribute, { value: @earning_distribution.amount_to_distribute } %>
-      </div>
-
       <div class="small-4 columns">
         <%= f.label :initial_date %>
         <%= f.date_select :initial_date, { discard_day: true }, { value: @earning_distribution.initial_date, class: 'date' } %>
@@ -18,15 +13,23 @@
         <%= f.label :number_of_months %>
         <%= f.number_field :number_of_months, { value: @earning_distribution.number_of_months } %>
       </div>
+
+      <div class="small-4 columns">
+        <%= f.label :amount_to_distribute %>
+        <%= f.text_field :amount_to_distribute, { value: @earning_distribution.amount_to_distribute, placeholder: t('earning_distribution.amount_placeholder') } %>
+      </div>
     </fieldset>
   </div>
 
   <div class="actions">
-    <%= f.submit t('do_earning_distribution'), class: "button small radius", name: "generate_distribution" %>
+    <%= f.hidden_field :by_shares, { value: "true", id: "by_shares" } %>
+    <%= f.hidden_field :by_earnings, { value: "true", id: "by_earnings" } %>
+    <%= f.submit t('do_shares_by_share_holder'), class: "button small radius", name: "generate_distribution_by_share", onclick: "by_earnings.disabled = true" %>
+    <%= f.submit t('do_earning_distribution'), class: "button small radius", name: "generate_distribution", onclick: "by_shares.disabled = true" %>
   </div>
 <% end %>
 
-<% if @earning_distribution.amount_to_distribute.to_i > 0 %>
+<% if @earning_distribution.amount_to_distribute.to_i > 0 || @earning_distribution.by_shares %>
   <hr/>
   <hr/>
   <div class="row">
@@ -36,6 +39,8 @@
       <%= f.hidden_field "initial_date(1i)".to_sym, { value: @earning_distribution.initial_date.year } %>
       <%= f.hidden_field "initial_date(2i)".to_sym, { value: @earning_distribution.initial_date.month } %>
       <%= f.hidden_field :number_of_months, { value: @earning_distribution.number_of_months } %>
+      <%= f.hidden_field :by_shares, { value: (@earning_distribution.by_shares ? "true" : "false") } %>  
+      <%= f.hidden_field :by_earnings, { value: (@earning_distribution.by_shares ? "false" : "true") } %>  
       <div class="small-3 columns right end">
         <%= f.submit t('do_earning_distribution_as_excel'), class: "button tiny radius", name: "generate_excel" %>
       </div>
@@ -63,13 +68,15 @@
               <% end %>
             </td>
           <% end %>
-          <td>
-            <% if share_holder_index != 0 %>
-              <%= as_integer share_holder_total %>
-            <% else %>
-              <%= t('earning_distribution.total') %>
-            <% end %>
-          </td>
+          <% unless @earning_distribution.by_shares %>
+            <td>
+              <% if share_holder_index != 0 %>
+                <%= as_integer share_holder_total %>
+              <% else %>
+                <%= t('earning_distribution.total') %>
+              <% end %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
       <tr>
@@ -79,7 +86,9 @@
           <% total_total += totals[total] %>
           <td><%= as_integer totals[total] %></td>
         <% end %>
-        <td><%= as_integer total_total %></td>
+        <% unless @earning_distribution.by_shares %>
+          <td><%= as_integer total_total %></td>
+        <% end %>
       </tr>
     </table>
   <% end %>

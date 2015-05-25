@@ -28,6 +28,7 @@ en:
   destroy: Destroy
   do_earning_distribution: Do Earning Distribution
   do_earning_distribution_as_excel: Download as Excel
+  do_shares_by_share_holder: Do Share Distribution
   edit: Edit
   error:
     one: error
@@ -216,6 +217,7 @@ en:
     updated: District was successfully updated.
 
   earning_distribution:
+    amount_placeholder: Only for earning distribution
     legend_indication: Data to generate
     new: New Earning Distribution
     results: "Earning Distribution Results are:"
@@ -259,7 +261,7 @@ en:
   menu:
     about: About
     company: Company
-    earning_distribution: Earning Distribution
+    earning_distribution: Shares and Dividends
     home: Home
     issuance: Share Issuance
     locations: Locations
