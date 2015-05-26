@@ -53,6 +53,9 @@ en:
 
   activerecord:
     models:
+      certificate:
+        one: Share Certificate
+        other: Share Certificates
       city:
         one: City
         other: Cities
@@ -81,6 +84,11 @@ en:
       user: User
 
     attributes:
+      certificate:
+        certificate_date: Certificate Date
+        identifier: Identifier
+        shares_info: Shares included
+        share_holder: Share Holder
       city:
         province: Province
       community:
@@ -153,6 +161,19 @@ en:
         password: Password
         password_confirmation: Password confirmation
         role: Role
+
+  certificate:
+    created: Certificate successfully created.
+    do_certificate: Print certificate
+    header_info: 'Throughout this transaction, you can print Certificate of Shares.'
+    indications_use_grid: 'Click in any row to see certificate details:'
+    information: Certificate Information
+    listing: Certificate listing
+    new: Print Certificate of Shares
+    save_failed:
+      one: 'prohibited this certificate from being processed:'
+      other: 'prohibited this certificate from being processes:'
+    share_info_invalid: "is not valid. Only is allowed comma separated numbers, or share ranges identified by numbers with dashes in the middle."
 
   city:
     created: City was successfully created.
@@ -260,6 +281,7 @@ en:
 
   menu:
     about: About
+    certificates: Print Certificates
     company: Company
     earning_distribution: Shares and Dividends
     home: Home

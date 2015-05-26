@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @certificate.identifier %>
+</p>
+
+<p>
+  <strong>Shares info:</strong>
+  <%= @certificate.shares_info %>
+</p>
+
+<p>
+  <strong>Share holder:</strong>
+  <%= @certificate.share_holder %>
+</p>
+
+<p>
+  <strong>Certificate date:</strong>
+  <%= @certificate.certificate_date %>
+</p>
+
+<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
+<%= link_to 'Back', certificates_path %>

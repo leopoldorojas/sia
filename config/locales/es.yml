@@ -53,6 +53,9 @@ es:
 
   activerecord:
     models:
+      certificate:
+        one: Certificado de Acciones
+        other: Certificados de Acciones
       city:
         one: Cantón
         other: Cantones
@@ -81,6 +84,11 @@ es:
       user: Usuario
 
     attributes:
+      certificate:
+        certificate_date: Fecha del Certificado
+        identifier: Número de Certificado
+        shares_info: Acciones incluidas
+        share_holder: Socio
       city:
         province: Provincia
       community:
@@ -153,6 +161,20 @@ es:
         password: Contraseña
         password_confirmation: Confirmación de Contraseña
         role: Rol
+
+  certificate:
+    created: Certificado creado exitosamente.
+    do_certificate: Imprimir certificado
+    header_info: 'Mediante esta pantalla, usted puede realizar la impresión de Certificados de Acciones.'
+    indications_use_grid: 'Dé click en cualquier línea para ver el detalle del certificado:'
+    information: Información del Certificado
+    listing: Impresiones de Certificados realizadas
+    new: Impresión de Certificado de Acciones
+    placeholder_shares_info: "Separadas por coma. Guiones para rangos. Ej: 2349, 3721, 4561-4565"
+    save_failed:
+      one: 'evitó que este certificado sea procesado:'
+      other: 'evitaron que este certificado sea procesado:'
+    share_info_invalid: "no es válido. Solo se permiten números separados por coma, o rangos de acciones identificados por números con guión intermedio."
 
   city:
     created: El Cantón fue creado exitosamente.
@@ -260,6 +282,7 @@ es:
 
   menu:
     about: Acerca de
+    certificates: Impresión de Certificados
     company: Empresa
     earning_distribution: Acciones y Dividendos
     home: Inicio

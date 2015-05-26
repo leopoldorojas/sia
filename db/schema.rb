@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518233051) do
+ActiveRecord::Schema.define(version: 20150526175645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "certificates", force: true do |t|
+    t.string   "identifier"
+    t.string   "shares_info"
+    t.integer  "share_holder_id"
+    t.date     "certificate_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "certificates", ["share_holder_id"], name: "index_certificates_on_share_holder_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "name"

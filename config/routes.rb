@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :certificates
+
   get 'users/index'
 
   get 'users/edit'
