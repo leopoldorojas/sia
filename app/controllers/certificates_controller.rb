@@ -9,11 +9,16 @@ class CertificatesController < ApplicationController
   end
 
   def show
-    respond_with(@certificate)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name", :template => 'certificates/show.html.erb'
+      end
+    end
   end
 
   def new
-    @certificate = Certificate.new
+    @certificate = Certificate.new certificate_date: Time.zone.now
     respond_with(@certificate)
   end
 
@@ -22,12 +27,12 @@ class CertificatesController < ApplicationController
 
   def create
     @certificate = Certificate.new(certificate_params)
-    flash[:notice] = 'Certificate was successfully created.' if @certificate.save
+    flash[:notice] = t('certificate.created') if @certificate.save
     respond_with(@certificate)
   end
 
   def update
-    flash[:notice] = 'Certificate was successfully updated.' if @certificate.update(certificate_params)
+    flash[:notice] = t('certificate.updated') if @certificate.update(certificate_params)
     respond_with(@certificate)
   end
 

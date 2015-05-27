@@ -45,3 +45,6 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'pundit'
 gem 'angular_rails_csrf'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+

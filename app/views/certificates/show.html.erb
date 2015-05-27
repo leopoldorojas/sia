@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Identifier:</strong>
+  <strong><%= Certificate.human_attribute_name('identifier') %>:</strong>
   <%= @certificate.identifier %>
 </p>
 
 <p>
-  <strong>Shares info:</strong>
+  <strong><%= Certificate.human_attribute_name('shares_info') %>:</strong>
   <%= @certificate.shares_info %>
 </p>
 
 <p>
-  <strong>Share holder:</strong>
+  <strong><%= Certificate.human_attribute_name('share_holder') %>:</strong>
   <%= @certificate.share_holder %>
 </p>
 
 <p>
-  <strong>Certificate date:</strong>
+  <strong><%= Certificate.human_attribute_name('certificate_date') %>:</strong>
   <%= @certificate.certificate_date %>
 </p>
 
-<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
-<%= link_to 'Back', certificates_path %>
+<%= link_to t('edit'), edit_certificate_path(@certificate) %> |
+<%= link_to t('back'), certificates_path %>

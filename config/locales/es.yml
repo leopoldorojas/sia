@@ -87,7 +87,7 @@ es:
       certificate:
         certificate_date: Fecha del Certificado
         identifier: Número de Certificado
-        shares_info: Acciones incluidas
+        shares_info: Acciones incluidas en el Certificado
         share_holder: Socio
       city:
         province: Provincia
@@ -170,11 +170,13 @@ es:
     information: Información del Certificado
     listing: Impresiones de Certificados realizadas
     new: Impresión de Certificado de Acciones
+    only_one_share_holder_required: no pueden pertenecer a más de un socio.
     placeholder_shares_info: "Separadas por coma. Guiones para rangos. Ej: 2349, 3721, 4561-4565"
     save_failed:
       one: 'evitó que este certificado sea procesado:'
       other: 'evitaron que este certificado sea procesado:'
     share_info_invalid: "no es válido. Solo se permiten números separados por coma, o rangos de acciones identificados por números con guión intermedio."
+    updated: Certificado actualizado exitosamente.
 
   city:
     created: El Cantón fue creado exitosamente.

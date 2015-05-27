@@ -170,10 +170,13 @@ en:
     information: Certificate Information
     listing: Certificate listing
     new: Print Certificate of Shares
+    only_one_share_holder_required: cannot belong to more than one share holder.
+    placeholder_shares_info: "Comma separated. Dashes for Ranges. Ej: 2349, 3721, 4561-4565"
     save_failed:
       one: 'prohibited this certificate from being processed:'
       other: 'prohibited this certificate from being processes:'
     share_info_invalid: "is not valid. Only is allowed comma separated numbers, or share ranges identified by numbers with dashes in the middle."
+    updated: Certificate successfully updated.
 
   city:
     created: City was successfully created.
