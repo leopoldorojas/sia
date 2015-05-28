@@ -1,3 +1,5 @@
+<%= wicked_pdf_image_tag 'Logo_Edesa.png' %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,10 +7,12 @@
   <%= @certificate.identifier %>
 </p>
 
-<p>
+<p style='page-break-after:always;'>
   <strong><%= Certificate.human_attribute_name('shares_info') %>:</strong>
   <%= @certificate.shares_info %>
 </p>
+
+<%= wicked_pdf_image_tag 'Logo_Edesa.png' %>
 
 <p>
   <strong><%= Certificate.human_attribute_name('share_holder') %>:</strong>
@@ -19,6 +23,3 @@
   <strong><%= Certificate.human_attribute_name('certificate_date') %>:</strong>
   <%= @certificate.certificate_date %>
 </p>
-
-<%= link_to t('edit'), edit_certificate_path(@certificate) %> |
-<%= link_to t('back'), certificates_path %>

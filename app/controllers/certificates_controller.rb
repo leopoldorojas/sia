@@ -8,11 +8,18 @@ class CertificatesController < ApplicationController
     respond_with(@certificates)
   end
 
+  def show_original
+    respond_with(@certificate)
+  end
+
   def show
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name", :template => 'certificates/show.html.erb'
+        render  pdf: "file_name",
+                template: 'certificates/show.html.erb',
+                disposition: 'attachment',
+                encoding: "UTF-8"
       end
     end
   end
@@ -28,7 +35,9 @@ class CertificatesController < ApplicationController
   def create
     @certificate = Certificate.new(certificate_params)
     flash[:notice] = t('certificate.created') if @certificate.save
-    respond_with(@certificate)
+    respond_with(@certificate) do |format|
+      format.html { redirect_to certificate_path(@certificate, format: :pdf) }
+    end
   end
 
   def update
