@@ -19,6 +19,7 @@ class CertificatesController < ApplicationController
         render  pdf: "file_name",
                 template: 'certificates/show.html.erb',
                 disposition: 'attachment',
+                layout: 'certificate',
                 encoding: "UTF-8"
       end
     end

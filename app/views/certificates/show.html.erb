@@ -1,5 +1,3 @@
-<%= wicked_pdf_image_tag 'Logo_Edesa.png' %>
-
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,14 +10,12 @@
   <%= @certificate.shares_info %>
 </p>
 
-<%= wicked_pdf_image_tag 'Logo_Edesa.png' %>
-
 <p>
   <strong><%= Certificate.human_attribute_name('share_holder') %>:</strong>
   <%= @certificate.share_holder %>
 </p>
 
-<p>
+<p class="leobg-green">
   <strong><%= Certificate.human_attribute_name('certificate_date') %>:</strong>
   <%= @certificate.certificate_date %>
 </p>

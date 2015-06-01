@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body>
+    <div>
+      <%= wicked_pdf_image_tag 'Logo_Edesa.png' %>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
