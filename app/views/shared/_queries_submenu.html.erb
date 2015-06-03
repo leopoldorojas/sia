@@ -1,0 +1,13 @@
+<dl id="queries-sub-nav" class="sub-nav">
+  <dt><%= t('menu.queries') %>:</dt>    
+  <dd <%= "class=active" if controller_name == 'share_holders' %>><%= link_to t('menu.share_holders'), share_holders_path %></dd>
+  <dd <%= "class=active" if controller_name == 'shares' %>><%= link_to t('menu.shares'), shares_path %></dd>
+  <% if policy(EarningDistribution).manage? %>
+    <dd <%= "class=active" if controller_name == 'earning_distributions' %>>
+    	<%= link_to t('menu.earning_distribution'), new_earning_distribution_path %>
+    </dd>
+  <% end %>
+  </dd>
+  <dd <%= "class=active" if controller_name == 'sales' %>><%= link_to t('menu.sales_done'), sales_path %></dd>
+  <dd <%= "class=active" if controller_name == 'endorsements' %>><%= link_to t('menu.endorsements'), endorsements_path %></dd>
+</dl>

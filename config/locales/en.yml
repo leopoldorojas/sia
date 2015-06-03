@@ -287,9 +287,12 @@ en:
     certificates: Print Certificates
     company: Company
     earning_distribution: Shares and Dividends
+    endorsements: Endorsements
     home: Home
     issuance: Share Issuance
     locations: Locations
+    management: General Management
+    queries: Queries
     receipts: Receipts
     reference_entities: Reference Entities
     sale: Sale of Shares

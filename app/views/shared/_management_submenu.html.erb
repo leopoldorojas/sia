@@ -1,0 +1,11 @@
+<dl id="management-sub-nav" class="sub-nav">
+  <dt><%= t('menu.management') %>:</dt>    
+  <dd <%= "class=active" if controller_name == 'share_types' %>><%= link_to t('menu.share_types'), share_types_path %></dd>
+  <dd <%= "class=active" if controller_name == 'locations' %>><%= link_to t('menu.locations'), locations_path %></dd>
+  <% if policy(User).manage? %>
+    <dd <%= "class=active" if controller_name == 'users' %>><%= link_to t('menu.users'), users_path %></dd>
+  <% end %>
+  <% if policy(Company).manage? %>
+    <dd <%= "class=active" if controller_name == 'companies' %>><%= link_to t('menu.company'), edit_company_path(current_company) %></dd>
+  <% end %>
+</dl>

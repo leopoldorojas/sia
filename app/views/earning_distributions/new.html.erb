@@ -1,3 +1,5 @@
+<%= render 'shared/queries_submenu' %>
+
 <h3><%= t('earning_distribution.new') %></h3>
 
 <%= form_for @earning_distribution, html: { onsubmit: "generate_distribution.disabled = true; generate_distribution_by_share.disabled = true; return true;" } do |f| %>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :endorsements, only: [:index, :new, :create] do
+    post :search, :on => :collection
+  end
+
   resources :certificates
 
   get 'users/index'

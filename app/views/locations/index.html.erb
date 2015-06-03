@@ -1,3 +1,5 @@
+<%= render 'shared/management_submenu' %>
+
 <dl id="locations-sub-nav" class="sub-nav">
   <dt><%= Location.model_name.human(count: :many) %>:</dt>    
   <dd <%= "class=active" if @type == 'Location' %>><%= link_to t('all.feminine'), sti_location_path('Location') %></dd>
