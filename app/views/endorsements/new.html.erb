@@ -1,2 +1,71 @@
-<h1>Endorsements#new</h1>
-<p>Find me in app/views/endorsements/new.html.erb</p>
+<%= render 'submenu' %>
+
+<h4><%= t('endorsement.new') %></h4>
+<p><%= t('endorsement.header_info') %></p>
+
+<%= form_for @share_operation, url: endorsements_path do |f| %>
+  <% if @share_operation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{@share_operation.errors.count} #{t('error', count: @share_operation.errors.count)} #{t('share_operation.save_failed', count: @share_operation.errors.count)}" %></h2>
+
+      <ul>
+      <% @share_operation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="small-12 columns">
+    <legend><%= t('endorsement.information') %></legend>
+    <div class="row">
+
+      <div class="small-4 columns">
+        <%= f.label :operation_date %>
+        <%= f.date_field :operation_date %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= label_tag t('endorsement.share_holder_from') %>
+        <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= label_tag t('endorsement.share_holder_to') %>
+        <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="small-4 columns">
+        <%= f.label :cash %>
+        <%= f.text_field :cash %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :dividends %>
+        <%= f.text_field :dividends %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :adjustment %>
+         <%= f.text_field :adjustment %>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns end">
+        <%= f.label :shares_required %>
+        <%= f.number_field :shares_required %>
+      </div>
+    </div>
+
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit t('endorsement.do_endorsement'), class: "button small radius" %>
+  </div>
+<% end %>

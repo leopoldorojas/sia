@@ -1,4 +1,40 @@
-<%= render 'shared/queries_submenu' %>
+<%= render 'submenu' %>
 
-<h1>Endorsements#index</h1>
-<p>Find me in app/views/endorsements/index.html.erb</p>
+<h4><%= t('endorsement.listing') %></h4>
+
+<div ng-controller="endorsementsCtrl">
+  <form ng-submit="doQuery()">
+    <fieldset class="small-12 columns">
+      <legend><%= t('endorsement.search') %></legend>
+      <div class="row">
+        <div class="small-4 columns">
+          <%= label_tag t('endorsement.query.since') %>
+          <input id="start_date" ng-model="query.start_date" type="date">
+        </div>
+
+        <div class="small-4 columns end">
+          <%= label_tag t('endorsement.query.until') %>
+          <input id="end_date" ng-model="query.end_date" type="date">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-4 columns">
+          <%= select_tag(:share_holder_id, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('endorsement.prompt_share_holder'), ng_model: "query.share_holder_id" ) %>
+        </div>
+
+        <div class="small-4 columns end">
+          <div class="actions">
+            <%= submit_tag t('endorsement.do_query'), class: "button small radius", ng_disabled: "loading" %>
+            &nbsp;
+            <%= image_tag "spinner.gif", ng_show: "loading", width: "30px" %>
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <p><%=  t('endorsement.indications_use_grid') %></p>
+  <div id="endorsements_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
+</div>

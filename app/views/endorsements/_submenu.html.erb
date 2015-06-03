@@ -1,0 +1,4 @@
+<dl id="endorsements-sub-nav" class="sub-nav">
+  <dd <%= "class=active" if action_name == 'index' %>><%= link_to t('menu.endorsements_done'), endorsements_path %></dd>
+  <dd <%= "class=active" if action_name == 'new' %>><%= link_to t('menu.endorsement'), new_endorsement_path %></dd>
+</dl>

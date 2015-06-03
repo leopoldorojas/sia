@@ -249,6 +249,23 @@ es:
     total: Total
     xls_sheet_name: Distribución de Dividendos
 
+  endorsement:
+    created: Endoso de Acciones fue realizado exitosamente.
+    do_endorsement: Realizar endoso
+    do_query: Buscar
+    header_info: 'Mediante esta pantalla, usted puede realizar la transacción de endoso de acciones entre socios.'
+    indications_use_grid: 'Dé click en cualquier línea para ver el detalle y saldos del socio que realizó la operación:'
+    information: Información de la Operación de Endoso
+    listing: Endosos de acciones realizados
+    new: Endoso de Acciones
+    prompt_share_holder: Seleccione el Socio
+    query:
+      since: A partir de
+      until: Hasta
+    search: Buscar por
+    share_holder_from: Socio que endosa las acciones
+    share_holder_to: Socio al que se le endosan
+
   issuance:
     a_lot_of_shares_to_issue: "El máximo número de acciones a emitir en una sola emisión es de %{maximum}"
     created: Las Acciones fueron emitidas correctamente.
@@ -287,7 +304,9 @@ es:
     certificates: Impresión de Certificados
     company: Empresa
     earning_distribution: Acciones y Dividendos
+    endorsement: Realizar Endoso
     endorsements: Endosos
+    endorsements_done: Endosos
     home: Inicio
     issuance: Emisión de Acciones
     locations: Ubicaciones

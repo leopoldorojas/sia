@@ -249,6 +249,21 @@ en:
     total: Total
     xls_sheet_name: Earning Distribution
 
+  endorsement:
+    created: Endorsement was successfully created.
+    do_endorsement: Do endorsement
+    do_query: Search
+    header_info: 'Throughout this transaction, you can endorse shares from a share holder to another one.'
+    indications_use_grid: 'Click in any row to see share holder details:'
+    information: Information for the Endorsement of Shares
+    listing: Listing Endorsements
+    new: New Endorsement
+    prompt_share_holder: Select the Share Holder
+    query:
+      since: Since
+      until: Until
+    search: Search for
+
   issuance:
     a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"
     created: Shares were issued correctly.
@@ -287,7 +302,9 @@ en:
     certificates: Print Certificates
     company: Company
     earning_distribution: Shares and Dividends
+    endorsement: Do an endorsement
     endorsements: Endorsements
+    endorsements_done: Endorsements
     home: Home
     issuance: Share Issuance
     locations: Locations
