@@ -1,8 +1,8 @@
-json.array!(@share_operations) do |share_operation|
-  json.extract! share_operation, :id, :operation_date, :share_holder, :shares_assigned, :share_type
-  json.cash share_operation.cash.to_f
-  json.dividends share_operation.dividends.to_f
-  json.adjustment share_operation.adjustment.to_f
-  json.receipt share_operation.receipt.to_s
-  json.url share_operation_url(share_operation, format: :json)
+json.array!(@sales) do |sale|
+  json.extract! sale, :id, :operation_date, :share_holder, :shares_assigned, :share_type
+  json.cash sale.cash.to_f
+  json.dividends sale.dividends.to_f
+  json.adjustment sale.adjustment.to_f
+  json.receipt sale.receipt.to_s
+  json.url sale_url(sale, format: :json)
 end

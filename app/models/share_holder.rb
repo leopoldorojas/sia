@@ -26,7 +26,7 @@ class ShareHolder < ActiveRecord::Base
 
   def shares_acquired_since this_date
     total_shares = 0
-    ShareOperation.share_holder_is(id).since(this_date).find_each { |share_operation| total_shares += share_operation.shares.size }
+    Sale.share_holder_is(id).since(this_date).find_each { |sale| total_shares += sale.shares.size }
     total_shares
   end
 

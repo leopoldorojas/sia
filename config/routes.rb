@@ -1,21 +1,13 @@
 Rails.application.routes.draw do
-  resources :endorsements, only: [:index, :new, :create] do
+  resources :endorsements do
     post :search, :on => :collection
   end
 
   resources :certificates
-
-  get 'users/index'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/destroy'
-
   devise_for :users
   resources :users, except: [:new, :create, :show]
-  resources :sales, only: [:index, :new, :create] do
+
+  resources :sales do
     post :search, :on => :collection
   end
 
@@ -24,25 +16,19 @@ Rails.application.routes.draw do
   end
 
   resources :companies
-
   resources :share_issues
-
   resources :share_types
-
   resources :receipts
 
   resources :shares do
     post :search, :on => :collection
   end
 
-  resources :share_operations
-
   resources :share_holders do
     post :search, :on => :collection
   end
 
   resources :earning_distributions, only: [:new, :create]
-
   resources :locations
   resources :countries, controller: 'locations', type: 'Country' 
   resources :provinces, controller: 'locations', type: 'Province'

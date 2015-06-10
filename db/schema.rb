@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526175645) do
+ActiveRecord::Schema.define(version: 20150610205439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20150526175645) do
     t.decimal  "adjustment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "source_share_holder_id"
+    t.string   "type"
   end
 
   add_index "share_operations", ["share_holder_id"], name: "index_share_operations_on_share_holder_id", using: :btree

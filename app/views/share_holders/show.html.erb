@@ -88,24 +88,24 @@
 <table>
   <thead>
     <tr>
-      <th><%= ShareOperation.human_attribute_name('operation_date') %></th>
-      <th><%= ShareOperation.human_attribute_name('shares_assigned') %></th>
-      <th><%= ShareOperation.human_attribute_name('cash') %></th>
-      <th><%= ShareOperation.human_attribute_name('dividends') %></th>
-      <th><%= ShareOperation.human_attribute_name('adjustment') %></th>
-      <th><%= ShareOperation.human_attribute_name('receipt') %></th>
+      <th><%= Sale.human_attribute_name('operation_date') %></th>
+      <th><%= Sale.human_attribute_name('shares_assigned') %></th>
+      <th><%= Sale.human_attribute_name('cash') %></th>
+      <th><%= Sale.human_attribute_name('dividends') %></th>
+      <th><%= Sale.human_attribute_name('adjustment') %></th>
+      <th><%= Sale.human_attribute_name('receipt') %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @share_operations.each do |share_operation| %>
+    <% @sales.each do |sale| %>
       <tr>
-        <td><%= l share_operation.operation_date %></td>
-        <td><%= as_integer share_operation.shares_assigned %></td>
-        <td><%= as_money share_operation.cash %></td>
-        <td><%= as_money share_operation.dividends %></td>
-        <td><%= as_money share_operation.adjustment %></td>
-        <td><%= share_operation.receipt %></td>
+        <td><%= l sale.operation_date %></td>
+        <td><%= as_integer sale.shares_assigned %></td>
+        <td><%= as_money sale.cash %></td>
+        <td><%= as_money sale.dividends %></td>
+        <td><%= as_money sale.adjustment %></td>
+        <td><%= sale.receipt %></td>
       </tr>
     <% end %>
   </tbody>

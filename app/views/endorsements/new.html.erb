@@ -27,12 +27,12 @@
 
       <div class="small-4 columns">
         <%= label_tag t('endorsement.share_holder_from') %>
-        <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
+        <%= collection_select :source_share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
       </div>
 
       <div class="small-4 columns">
         <%= label_tag t('endorsement.share_holder_to') %>
-        <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
+        <%= collection_select :target_share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
       </div>
 
     </div>

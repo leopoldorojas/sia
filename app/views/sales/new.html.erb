@@ -1,13 +1,13 @@
 <h4><%= t('sale.new') %></h4>
 <p><%= t('sale.header_info') %></p>
 
-<%= form_for @share_operation, url: sales_path do |f| %>
-  <% if @share_operation.errors.any? %>
+<%= form_for @sale, url: sales_path do |f| %>
+  <% if @sale.errors.any? %>
     <div id="error_explanation">
-      <h2><%= "#{@share_operation.errors.count} #{t('error', count: @share_operation.errors.count)} #{t('share_operation.save_failed', count: @share_operation.errors.count)}" %></h2>
+      <h2><%= "#{@sale.errors.count} #{t('error', count: @sale.errors.count)} #{t('sale.save_failed', count: @sale.errors.count)}" %></h2>
 
       <ul>
-      <% @share_operation.errors.full_messages.each do |message| %>
+      <% @sale.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -63,7 +63,7 @@
 
       <div class="small-4 columns">
         <%= label_tag :receipt, t('sale.receipt') %>
-        <%= text_field_tag "share_operation[receipt]" %>
+        <%= text_field_tag "sale[receipt]" %>
       </div>
 
       <div class="small-4 columns">

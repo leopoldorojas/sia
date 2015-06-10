@@ -1,5 +1,5 @@
 class Share < ActiveRecord::Base
-  belongs_to :share_operation
+  belongs_to :sale, foreign_key: "share_operation_id"
   belongs_to :share_issue
   belongs_to :share_holder
   delegate :share_type, to: :share_issue
