@@ -36,8 +36,8 @@
         </div>
 
         <div class="small-4 columns">
-          <%= label_tag t('share.query.with_operation_or_not') %>
-          <%= select_tag(:with_operation_or_not, options_for_select([[t('share.with'), "sold"], [t('share.without'), "no_sold"]]), prompt: t('share.prompt_operation'), ng_model: "query.with_operation_or_not" ) %>
+          <%= label_tag t('share.query.sold_or_not') %>
+          <%= select_tag(:sold_or_not, options_for_select([[t('share.sold'), "sold"], [t('share.no_sold'), "no_sold"]]), prompt: t('share.prompt_operation'), ng_model: "query.sold_or_not" ) %>
         </div>
 
       </div>
@@ -58,29 +58,3 @@
   <p>&nbsp;</p>
   <div id="shares_grid" class="grid" ui-grid="gridOptions" ui-grid-selection></div>
 </div>
-
-<!--
-<table>
-  <thead>
-    <tr>
-      <th><%= Share.human_attribute_name('identifier') %></th>
-      <th><%= ShareType.human_attribute_name('identifier') %></th>
-      <th><%= Share.human_attribute_name('value') %></th>
-      <th><%= Share.human_attribute_name('share_issue') %></th>
-      <th><%= Share.human_attribute_name('share_operation') %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shares.each do |share| %>
-      <tr>
-        <td><%= share.identifier %></td>
-        <td><%= share.share_type.try(:identifier) %></td>
-        <td><%= share.value %></td>
-        <td><%= share.share_issue.id %></td>
-        <td><%= share.share_operation.try(:id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
--->

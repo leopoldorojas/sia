@@ -8,8 +8,8 @@ class SharesController < ApplicationController
     @shares = @shares.share_holder_is(params[:share_holder_id]) if params[:share_holder_id].present?
     @shares = @shares.operation_since(params[:start_date]) if params[:start_date].present?
     @shares = @shares.operation_until(params[:end_date]) if params[:end_date].present?
-    @shares = @shares.where.not(share_operation_id: [0, nil]) if params[:with_operation_or_not] == "sold"
-    @shares = @shares.where(share_operation_id: [0, nil]) if params[:with_operation_or_not] == "no_sold"
+    @shares = @shares.where.not(share_operation_id: [0, nil]) if params[:sold_or_not] == "sold"
+    @shares = @shares.where(share_operation_id: [0, nil]) if params[:sold_or_not] == "no_sold"
     respond_to :json
   end
 

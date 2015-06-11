@@ -21,11 +21,11 @@ class Share < ActiveRecord::Base
     end
 
     def operation_since this_date
-      joins(:share_operation).where("share_operations.operation_date >= (?)", this_date)
+      joins(:sale).where("share_operations.operation_date >= (?)", this_date)
     end
 
     def operation_until this_date
-      joins(:share_operation).where("share_operations.operation_date <= (?)", this_date)
+      joins(:sale).where("share_operations.operation_date <= (?)", this_date)
     end
 
     def share_holder_is this_share_holder_id

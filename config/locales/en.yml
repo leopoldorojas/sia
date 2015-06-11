@@ -263,6 +263,8 @@ en:
       since: Since
       until: Until
     search: Search for
+    share_holder_from: Share Holder doing the endorsement
+    share_holder_to: Share Holder receiving the endorsement
 
   issuance:
     a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"
@@ -367,10 +369,10 @@ en:
       share_holder: Share Holder
       since: Since
       until: Until
-      with_operation_or_not: With or without operation
+      sold_or_not: Sold or not sold
     search: Search for
-    with: With operations
-    without: Without operations
+    sold: Sold
+    no_sold: Not sold
 
   share_holder:
     created: Share Holder was successfully created.

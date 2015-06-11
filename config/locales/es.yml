@@ -369,10 +369,10 @@ es:
       share_holder: Socio
       since: Acciones vendidas partir de
       until: Vendidas hasta
-      with_operation_or_not: Vendidas o sin vender
+      sold_or_not: Vendidas o sin vender
     search: Buscar por
-    with: Vendidas
-    without: Sin Vender
+    sold: Vendidas
+    no_sold: Sin Vender
 
   share_holder:
     created: El Socio fue creado exitosamente.

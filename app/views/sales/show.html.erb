@@ -1,0 +1,58 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Sale.human_attribute_name('operation_date') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @sale.operation_date %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Sale.human_attribute_name('share_holder') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @sale.share_holder %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Sale.human_attribute_name('shares_assigned') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @sale.shares_assigned %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Sale.human_attribute_name('cash') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @sale.cash %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Sale.human_attribute_name('dividends') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @sale.dividends %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Sale.human_attribute_name('adjustment') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @sale.adjustment %>
+  </div>
+</div>
+
+<br/>
