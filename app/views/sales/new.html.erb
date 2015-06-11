@@ -1,7 +1,7 @@
 <h4><%= t('sale.new') %></h4>
 <p><%= t('sale.header_info') %></p>
 
-<%= form_for @sale, url: sales_path do |f| %>
+<%= form_for @sale do |f| %>
   <% if @sale.errors.any? %>
     <div id="error_explanation">
       <h2><%= "#{@sale.errors.count} #{t('error', count: @sale.errors.count)} #{t('sale.save_failed', count: @sale.errors.count)}" %></h2>

@@ -99,6 +99,9 @@ en:
         share_type: Default Share Type
       district:
         city: City
+      endorsement:
+        share_holder: Share Holder receiving endorsement
+        source_share_holder_id: Share Holder that endorse
       location:
         code: Code
         name: Name
@@ -118,6 +121,11 @@ en:
         receipt_date: Receipt Date
         description: Description
         share_operation: Share Operation
+      sale:
+        share_holder: Share Holder
+        shares_assigned: Shares Assigned
+        share_type: Share Type
+        share_type_id: Share Type
       share_holder:
         contact: Contact
         earnings: Earnings
@@ -141,11 +149,7 @@ en:
         dividends: Dividends
         operation_date: Operation Date
         receipt: Receipt
-        share_holder: Share Holder
-        shares_assigned: Shares Assigned
         shares_required: Shares Required
-        share_type: Share Type
-        share_type_id: Share Type
       share:
         identifier: Número
         share_operation: Operación
@@ -253,18 +257,21 @@ en:
     created: Endorsement was successfully created.
     do_endorsement: Do endorsement
     do_query: Search
-    header_info: 'Throughout this transaction, you can endorse shares from a share holder to another one.'
+    header_info: 'Throughout this transaction, you can endorse shares from a share holder to another.'
     indications_use_grid: 'Click in any row to see share holder details:'
     information: Information for the Endorsement of Shares
     listing: Listing Endorsements
     new: New Endorsement
     prompt_share_holder: Select the Share Holder
     query:
+      receipt: Receipt
       since: Since
       until: Until
+    receipt: Receipt
+    save_failed:
+      one: 'prohibited this endorsement from being saved:'
+      other: 'prohibited this endorsement from being saved:'
     search: Search for
-    share_holder_from: Share Holder doing the endorsement
-    share_holder_to: Share Holder receiving the endorsement
 
   issuance:
     a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"
@@ -354,6 +361,9 @@ en:
       since: Since
       until: Until
     receipt: Receipt
+    save_failed:
+      one: 'prohibited this sale from being saved:'
+      other: 'prohibited this sale from being saved:'
     search: Search for
     share_value: Share Value
     share_type: Share Type (value)
@@ -396,9 +406,6 @@ en:
     not_enough_earnings: Invalid Dividends. Share Holder does not have enough Earnings.
     not_enough_shares: There are not enough shares issued to sell
     not_enough_stock_prepaid: Invalid Adjustment. Share Holder does not have enough Stock Prepaid.
-    save_failed:
-      one: 'prohibited this share operation from being saved:'
-      other: 'prohibited this share operation from being saved:'
 
   share_type:
     created: Share Type was successfully created.

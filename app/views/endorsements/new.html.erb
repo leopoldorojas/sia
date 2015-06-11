@@ -3,13 +3,13 @@
 <h4><%= t('endorsement.new') %></h4>
 <p><%= t('endorsement.header_info') %></p>
 
-<%= form_for @share_operation, url: endorsements_path do |f| %>
-  <% if @share_operation.errors.any? %>
+<%= form_for @endorsement do |f| %>
+  <% if @endorsement.errors.any? %>
     <div id="error_explanation">
-      <h2><%= "#{@share_operation.errors.count} #{t('error', count: @share_operation.errors.count)} #{t('share_operation.save_failed', count: @share_operation.errors.count)}" %></h2>
+      <h2><%= "#{@endorsement.errors.count} #{t('error', count: @endorsement.errors.count)} #{t('endorsement.save_failed', count: @endorsement.errors.count)}" %></h2>
 
       <ul>
-      <% @share_operation.errors.full_messages.each do |message| %>
+      <% @endorsement.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -26,13 +26,13 @@
       </div>
 
       <div class="small-4 columns">
-        <%= label_tag t('endorsement.share_holder_from') %>
-        <%= collection_select :source_share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
+        <%= f.label :source_share_holder_id %>
+        <%= f.collection_select :source_share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
       </div>
 
       <div class="small-4 columns">
-        <%= label_tag t('endorsement.share_holder_to') %>
-        <%= collection_select :target_share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
+        <%= f.label :share_holder %>
+        <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
       </div>
 
     </div>
