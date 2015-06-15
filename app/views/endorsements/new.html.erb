@@ -57,12 +57,16 @@
     </div>
 
     <div class="row">
-      <div class="small-4 columns end">
+      <div class="small-4 columns">
         <%= f.label :shares_required %>
         <%= f.number_field :shares_required %>
       </div>
-    </div>
 
+      <div class="small-4 columns end">
+        <%= f.label t('sale.share_type') %>
+        <%= f.collection_select :share_type_id, ShareType.all, :id, :to_s, prompt: t('endorsement.prompt_share_type') %>
+      </div>
+    </div>
   </fieldset>
 
   <div class="actions">

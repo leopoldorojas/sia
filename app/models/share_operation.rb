@@ -1,7 +1,7 @@
 class ShareOperation < ActiveRecord::Base
-  attr_accessor :shares_required
+  attr_accessor :shares_required, :share_type_id, :shares_assigned
 
-  validates :share_holder, :shares_required, presence: true
+  validates :share_holder, :shares_required, :share_type_id, presence: true
   validates :shares_required, :numericality => { :greater_than => 0 }
   validate :enough_earnings?, if: :will_use_dividends?
   validate :enough_stock_prepaid?, if: :will_use_adjustment?
@@ -29,12 +29,20 @@ class ShareOperation < ActiveRecord::Base
      @shares_required.blank? || @shares_required.is_a?(Integer) ? @shares_required : (shares_required = @shares_required.to_i)
   end
 
+  def share_type_id
+     @share_type_id.blank? || @share_type_id.is_a?(Integer) ? @share_type_id : (share_type_id = @share_type_id.to_i)
+  end
+
   def share_type
     shares.try(:first).try(:share_type)
   end
 
   def total_value
-    shares_required * share_type.value
+    shares_required * (share_type.try(:value) || 0)
+  end
+
+  def shares_assigned
+    @shares_assigned || (self.shares_assigned = shares.size)
   end
 
   private
@@ -58,7 +66,8 @@ class ShareOperation < ActiveRecord::Base
     end
 
     def enough_shares?
-      please_raise error because must be implemented by a child
+      return if errors.any?
+      raise "An error ocurred: Method 'enough_shares?' must be implemented in a Share Operation subclass"
     end
 
     def new_share_holder_earnings

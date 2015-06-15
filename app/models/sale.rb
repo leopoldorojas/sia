@@ -1,8 +1,5 @@
 class Sale < ShareOperation
-	attr_accessor :shares_assigned, :share_type_id
   belongs_to :share_holder
-
-  validates :share_type_id, presence: true
 
   before_save :assign_shares_to_share_holder
   after_create :update_share_holder
@@ -13,22 +10,14 @@ class Sale < ShareOperation
     end
   end
 
-  def shares_assigned
-    @shares_assigned || (self.shares_assigned = shares.size)
-  end
-
-  def share_type_id
-     @share_type_id.blank? || @share_type_id.is_a?(Integer) ? @share_type_id : (share_type_id = @share_type_id.to_i)
-  end
-
   private
 
     def enough_shares?
-    	return if errors.any?
+      return if errors.any?
 
       # This can be optimized the same way that assign shares to share holder (see below) using an update_all strategy
-    	self.shares = Share.get_next_shares shares_required, share_type_id 
-    	errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required
+      self.shares = Share.get_next_shares shares_required, share_type_id 
+      errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required
     end
 
     def assign_shares_to_share_holder

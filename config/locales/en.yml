@@ -124,8 +124,6 @@ en:
       sale:
         share_holder: Share Holder
         shares_assigned: Shares Assigned
-        share_type: Share Type
-        share_type_id: Share Type
       share_holder:
         contact: Contact
         earnings: Earnings
@@ -150,6 +148,8 @@ en:
         operation_date: Operation Date
         receipt: Receipt
         shares_required: Shares Required
+        share_type: Share Type
+        share_type_id: Share Type
       share:
         identifier: Número
         share_operation: Operación
@@ -262,7 +262,9 @@ en:
     information: Information for the Endorsement of Shares
     listing: Listing Endorsements
     new: New Endorsement
+    not_enough_shares: The source share holder does not have enough shares to do this endorsement
     prompt_share_holder: Select the Share Holder
+    prompt_share_type: Select the Share Type
     query:
       receipt: Receipt
       since: Since

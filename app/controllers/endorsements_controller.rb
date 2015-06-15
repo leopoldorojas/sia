@@ -28,6 +28,6 @@ class EndorsementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def endorsement_params
-      params.require(:endorsement).permit(:operation_date, :share_holder_id, :source_share_holder_id, :shares_required, :cash, :dividends, :adjustment)
+      params.require(:endorsement).permit(:operation_date, :share_holder_id, :source_share_holder_id, :shares_required, :share_type_id, :cash, :dividends, :adjustment)
     end
 end
