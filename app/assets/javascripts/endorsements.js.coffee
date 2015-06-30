@@ -13,11 +13,9 @@ app.controller('endorsementsCtrl', ['$scope', '$http', 'uiGridConstants', 'dateF
     multiSelect: false,
     columnDefs: [
       { field: 'operation_date', displayName: "Fecha" },
-      { field: 'share_holder.name', displayName: "Socio", filter: {condition: uiGridConstants.filter.CONTAINS } },
-      { field: 'shares_assigned', displayName: "# de Acciones", cellFilter: 'number' },
-      { field: 'cash', displayName: "Efectivo", cellFilter: 'number', enableFiltering: false },
-      { field: 'dividends', displayName: "Dividendos", cellFilter: 'number', enableFiltering: false },
-      { field: 'adjustment', displayName: "Ajustes", cellFilter: 'number', enableFiltering: false}
+      { field: 'source_share_holder.name', displayName: "Socio que endosa", filter: {condition: uiGridConstants.filter.CONTAINS } },
+      { field: 'share_holder.name', displayName: "Socio que recibe endoso", filter: {condition: uiGridConstants.filter.CONTAINS } },
+      { field: 'shares_assigned', displayName: "# de Acciones", cellFilter: 'number' }
     ]
   }
 

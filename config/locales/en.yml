@@ -123,7 +123,6 @@ en:
         share_operation: Share Operation
       sale:
         share_holder: Share Holder
-        shares_assigned: Shares Assigned
       share_holder:
         contact: Contact
         earnings: Earnings
@@ -147,6 +146,7 @@ en:
         dividends: Dividends
         operation_date: Operation Date
         receipt: Receipt
+        shares_assigned: Shares Assigned
         shares_required: Shares Required
         share_type: Share Type
         share_type_id: Share Type
@@ -263,8 +263,10 @@ en:
     listing: Listing Endorsements
     new: New Endorsement
     not_enough_shares: The source share holder does not have enough shares to do this endorsement
+    prompt_source_share_holder: Source Share Holder
     prompt_share_holder: Select the Share Holder
     prompt_share_type: Select the Share Type
+    prompt_target_share_holder: Target Share Holder
     query:
       receipt: Receipt
       since: Since

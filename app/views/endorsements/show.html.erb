@@ -1,0 +1,41 @@
+
+<p id="notice"><%= notice %></p>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Endorsement.human_attribute_name('operation_date') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @endorsement.operation_date %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Endorsement.human_attribute_name('source_share_holder') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @endorsement.source_share_holder.name %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Endorsement.human_attribute_name('share_holder') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @endorsement.share_holder.name %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= Endorsement.human_attribute_name('shares_assigned') %>:</strong>
+  </div>
+  <div class="small-5 columns end">
+    <%= @endorsement.shares_assigned %>
+  </div>
+</div>
+
+
+<br/>

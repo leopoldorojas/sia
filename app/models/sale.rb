@@ -1,15 +1,10 @@
 class Sale < ShareOperation
   validates :receipt, presence: true
+  validate :operation_consistent?
   belongs_to :share_holder
 
   before_save :assign_shares_to_share_holder
   after_create :update_share_holder
-
-  class << self
-    def share_holder_is this_share_holder_id
-      joins(:share_holder).where(share_holders: {id: this_share_holder_id})
-    end
-  end
 
   private
 
@@ -26,5 +21,13 @@ class Sale < ShareOperation
       self.share_holder.earnings = new_share_holder_earnings
       self.share_holder.stock_prepaid = new_share_holder_stock_prepaid
       self.share_holder.save
+    end
+
+    def operation_consistent?
+      return if errors.any?
+      self.cash ||= 0
+      self.dividends ||= 0
+      self.adjustment ||= 0
+      errors[:base] << I18n.t('share_operation.invalid_amounts') unless total_value == cash + dividends + adjustment
     end
 end

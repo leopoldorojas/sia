@@ -5,7 +5,7 @@ class ShareOperation < ActiveRecord::Base
   validates :shares_required, :numericality => { :greater_than => 0 }
   validate :enough_earnings?, if: :will_use_dividends?
   validate :enough_stock_prepaid?, if: :will_use_adjustment?
-  validate :enough_shares?, :operation_consistent?
+  validate :enough_shares?
 
   has_one :receipt
   has_many :shares
@@ -23,6 +23,15 @@ class ShareOperation < ActiveRecord::Base
     def receipt_like this_receipt
       joins(:receipt).where("upper(receipts.number) LIKE upper(?)", "%#{this_receipt}%")
     end
+
+    def share_holder_is this_share_holder_id
+      where("share_holder_id = ?", this_share_holder_id)
+    end
+
+    def source_share_holder_is this_share_holder_id
+      where("source_share_holder_id = ?", this_share_holder_id)
+    end
+
   end
 
   def shares_required
@@ -84,13 +93,5 @@ class ShareOperation < ActiveRecord::Base
 
     def new_share_holder_stock_prepaid
       share_holder.stock_prepaid.respond_to?(:-) ? share_holder.stock_prepaid - adjustment : -adjustment
-    end
-
-    def operation_consistent?
-      return if errors.any?
-      self.cash ||= 0
-      self.dividends ||= 0
-      self.adjustment ||= 0
-      errors[:base] << I18n.t('share_operation.invalid_amounts') unless total_value == cash + dividends + adjustment
     end
 end

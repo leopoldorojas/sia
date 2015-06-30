@@ -1,19 +1,26 @@
 class Endorsement < ShareOperation
-  attr_accessor :share_holder, :source_share_holder
-
-  before_validation :set_share_holders
-
   validates :source_share_holder, presence: true
 
   before_save :assign_shares_to_share_holder
   after_create :update_share_holders_equity
 
-  private
+  def share_holder= holder
+    @share_holder = holder
+  end
 
-    def set_share_holders
-      self.share_holder = ShareHolder.where(id: (share_holder_id.to_i || 0)).first
-      self.source_share_holder = ShareHolder.where(id: (source_share_holder_id.to_i || 0)).first
-    end
+  def share_holder
+    @share_holder ||= (share_holder = ShareHolder.where(id: (share_holder_id.to_i || 0)).try(:first))
+  end
+
+  def source_share_holder= holder
+    @source_share_holder = holder
+  end
+
+  def source_share_holder
+    @source_hare_holder ||= (source_share_holder = ShareHolder.where(id: (source_share_holder_id.to_i || 0)).try(:first))
+  end
+
+  private
 
     def enough_shares?
       return if errors.any?

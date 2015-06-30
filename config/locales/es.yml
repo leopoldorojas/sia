@@ -123,7 +123,6 @@ es:
         share_operation: Operación
       sale:
         share_holder: Socio
-        shares_assigned: Número de Acciones
       share_holder:
         contact: Contacto
         earnings: Utilidad
@@ -147,6 +146,7 @@ es:
         dividends: Dividendos
         operation_date: Fecha de Operación
         receipt: Número de Recibo
+        shares_assigned: Número de Acciones
         shares_required: Número de Acciones
         share_type: Tipo de Acción
         share_type_id: Tipo de Acción
@@ -263,8 +263,10 @@ es:
     listing: Endosos realizados
     new: Endoso de Acciones
     not_enough_shares: El socio que endosa no tiene suficientes acciones para realizar este endoso 
+    prompt_source_share_holder: Socio que endosó
     prompt_share_holder: Seleccione el Socio
     prompt_share_type: Seleccione Tipo de Acción
+    prompt_target_share_holder: Socio que recibió endoso
     query:
       receipt: Número de Recibo
       since: A partir de

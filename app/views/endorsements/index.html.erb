@@ -12,18 +12,27 @@
           <input id="start_date" ng-model="query.start_date" type="date">
         </div>
 
-        <div class="small-4 columns end">
+        <div class="small-4 columns">
           <%= label_tag t('endorsement.query.until') %>
           <input id="end_date" ng-model="query.end_date" type="date">
+        </div>
+
+        <div class="small-4 columns">
+          <%= label_tag t('endorsement.query.receipt') %>
+          <input id="receipt" ng-model="query.receipt" type="text">
         </div>
       </div>
 
       <div class="row">
         <div class="small-4 columns">
-          <%= select_tag(:share_holder_id, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('endorsement.prompt_share_holder'), ng_model: "query.share_holder_id" ) %>
+          <%= select_tag(:source_share_holder_id, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('endorsement.prompt_source_share_holder'), ng_model: "query.source_share_holder_id" ) %>
+        </div>
+        
+        <div class="small-4 columns">
+          <%= select_tag(:share_holder_id, options_from_collection_for_select(ShareHolder.all, :id, :name), prompt: t('endorsement.prompt_target_share_holder'), ng_model: "query.share_holder_id" ) %>
         </div>
 
-        <div class="small-4 columns end">
+        <div class="small-4 columns">
           <div class="actions">
             <%= submit_tag t('endorsement.do_query'), class: "button small radius", ng_disabled: "loading" %>
             &nbsp;

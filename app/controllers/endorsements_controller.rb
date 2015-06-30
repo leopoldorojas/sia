@@ -1,5 +1,12 @@
 class EndorsementsController < ApplicationController
   def search
+    @endorsements = Endorsement.all
+    @endorsements = @endorsements.since(params[:start_date]) if params[:start_date].present?
+    @endorsements = @endorsements.until(params[:end_date]) if params[:end_date].present?
+    @endorsements = @endorsements.receipt_like(params[:receipt]) if params[:receipt].present?
+    @endorsements = @endorsements.share_holder_is(params[:share_holder_id]) if params[:share_holder_id].present?
+    @endorsements = @endorsements.source_share_holder_is(params[:source_share_holder_id]) if params[:source_share_holder_id].present?
+    respond_to :json
   end
 
   def index
@@ -7,6 +14,10 @@ class EndorsementsController < ApplicationController
 
   def new
   	@endorsement = Endorsement.new(operation_date: Time.zone.now, shares_required: 0)
+  end
+
+  def show
+    @endorsement = Endorsement.find(params[:id])
   end
 
   def create
