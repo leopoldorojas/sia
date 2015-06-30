@@ -6,6 +6,6 @@ class ShareTypePolicy < ApplicationPolicy
   end
 
   def manage?
-    user.is_at_least? :company_admin
+    user.is_at_least? :admin
   end
 end
