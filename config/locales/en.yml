@@ -100,6 +100,7 @@ en:
       district:
         city: City
       endorsement:
+        receipt: Receipt
         share_holder: Share Holder receiving endorsement
         source_share_holder: Share Holder that endorse
       location:
@@ -122,6 +123,7 @@ en:
         description: Description
         share_operation: Share Operation
       sale:
+        receipt: Receipt
         share_holder: Share Holder
       share_holder:
         contact: Contact
@@ -145,7 +147,6 @@ en:
         cash: Cash
         dividends: Dividends
         operation_date: Operation Date
-        receipt: Receipt
         shares_assigned: Shares Assigned
         shares_required: Shares Required
         share_type: Share Type

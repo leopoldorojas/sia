@@ -100,6 +100,7 @@ es:
       district:
         city: Ciudad
       endorsement:
+        receipt: Número de Memo
         share_holder: Socio al que se endosa
         source_share_holder: Socio que endosa
       location:
@@ -122,6 +123,7 @@ es:
         description: Descripción
         share_operation: Operación
       sale:
+        receipt: Número de Recibo
         share_holder: Socio
       share_holder:
         contact: Contacto
@@ -145,7 +147,6 @@ es:
         cash: Efectivo
         dividends: Dividendos
         operation_date: Fecha de Operación
-        receipt: Número de Recibo
         shares_assigned: Número de Acciones
         shares_required: Número de Acciones
         share_type: Tipo de Acción
@@ -268,10 +269,10 @@ es:
     prompt_share_type: Seleccione Tipo de Acción
     prompt_target_share_holder: Socio que recibió endoso
     query:
-      receipt: Número de Recibo
+      receipt: Número de Memo
       since: A partir de
       until: Hasta
-    receipt: Número de Recibo
+    receipt: Número de Memo
     save_failed:
       one: 'evitó que esta operación sea grabada:'
       other: 'evitaron que esta operación sea grabada:'

@@ -1,7 +1,7 @@
 class ShareOperation < ActiveRecord::Base
   attr_accessor :shares_required, :share_type_id, :shares_assigned
 
-  validates :share_holder, :shares_required, :share_type_id, presence: true
+  validates :share_holder, :shares_required, :share_type_id, :receipt, presence: true
   validates :shares_required, :numericality => { :greater_than => 0 }
   validate :enough_earnings?, if: :will_use_dividends?
   validate :enough_stock_prepaid?, if: :will_use_adjustment?

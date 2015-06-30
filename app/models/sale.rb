@@ -1,5 +1,4 @@
 class Sale < ShareOperation
-  validates :receipt, presence: true
   validate :operation_consistent?
   belongs_to :share_holder
 
