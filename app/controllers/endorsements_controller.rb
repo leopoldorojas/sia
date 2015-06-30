@@ -6,12 +6,12 @@ class EndorsementsController < ApplicationController
   end
 
   def new
-  	@endorsement = Endorsement.new(operation_date: Time.zone.now, shares_required: 0, cash: 0, dividends: 0, adjustment: 0)
+  	@endorsement = Endorsement.new(operation_date: Time.zone.now, shares_required: 0)
   end
 
   def create
     @endorsement = Endorsement.new(endorsement_params)
-    @endorsement.build_receipt(number: params[:endorsement][:receipt], receipt_date: @endorsement.operation_date)
+    @endorsement.build_receipt(number: params[:endorsement][:receipt], receipt_date: @endorsement.operation_date) if params[:endorsement][:receipt].present?
 
     respond_to do |format|
       if @endorsement.save
@@ -28,6 +28,6 @@ class EndorsementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def endorsement_params
-      params.require(:endorsement).permit(:operation_date, :share_holder_id, :source_share_holder_id, :shares_required, :share_type_id, :cash, :dividends, :adjustment)
+      params.require(:endorsement).permit(:operation_date, :share_holder_id, :source_share_holder_id, :shares_required, :share_type_id)
     end
 end

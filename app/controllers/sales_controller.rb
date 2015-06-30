@@ -23,7 +23,7 @@ class SalesController < ApplicationController
 
   def create
     @sale = Sale.new(sale_params)
-    @sale.build_receipt(number: params[:sale][:receipt], receipt_date: @sale.operation_date)
+    @sale.build_receipt(number: params[:sale][:receipt], receipt_date: @sale.operation_date) if params[:sale][:receipt].present?
 
     respond_to do |format|
       if @sale.save

@@ -35,4 +35,14 @@ class ShareHolder < ActiveRecord::Base
     Location.find(this_location_id).location_and_descendants.each { |l| share_holders_ids.concat Location.find(l).share_holders.ids }
     where(id: share_holders_ids)
   end
+
+  def get_shares_to_endorse shares_required, share_type_id
+    shares_of_type = get_shares_of_type share_type_id
+    shares_required && shares_required > 0 ? shares_of_type.order(:identifier).limit(shares_required) : none
+  end
+
+  def get_shares_of_type share_type_id
+    shares.joins(:share_issue).where(share_issues: { share_type_id: share_type_id })
+  end
+
 end

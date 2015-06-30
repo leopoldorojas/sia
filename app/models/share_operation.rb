@@ -70,6 +70,14 @@ class ShareOperation < ActiveRecord::Base
       raise "An error ocurred: Method 'enough_shares?' must be implemented in a Share Operation subclass"
     end
 
+    def assign_shares_to_share_holder
+      Share.assign_shares_to share_holder, shares
+    end
+
+    def new_share_holder_equity
+      share_holder.equity.respond_to?(:+) ? share_holder.equity + total_value : total_value
+    end
+
     def new_share_holder_earnings
       share_holder.earnings.respond_to?(:-) ? share_holder.earnings - dividends : -dividends
     end

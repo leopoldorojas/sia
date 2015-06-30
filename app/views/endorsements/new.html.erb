@@ -26,32 +26,13 @@
       </div>
 
       <div class="small-4 columns">
-        <%= f.label :source_share_holder_id %>
+        <%= f.label :source_share_holder %>
         <%= f.collection_select :source_share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
       </div>
 
       <div class="small-4 columns">
         <%= f.label :share_holder %>
         <%= f.collection_select :share_holder_id, ShareHolder.all, :id, :name, prompt: t('endorsement.prompt_share_holder') %>
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="small-4 columns">
-        <%= f.label :cash %>
-        <%= f.text_field :cash %>
-      </div>
-
-      <div class="small-4 columns">
-        <%= f.label :dividends %>
-        <%= f.text_field :dividends %>
-      </div>
-
-      <div class="small-4 columns">
-        <%= f.label :adjustment %>
-         <%= f.text_field :adjustment %>
       </div>
 
     </div>

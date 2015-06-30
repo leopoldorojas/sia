@@ -101,7 +101,7 @@ es:
         city: Ciudad
       endorsement:
         share_holder: Socio al que se endosa
-        source_share_holder_id: Socio que endosa
+        source_share_holder: Socio que endosa
       location:
         code: Código
         name: Nombre
@@ -146,7 +146,7 @@ es:
         cash: Efectivo
         dividends: Dividendos
         operation_date: Fecha de Operación
-        receipt: Recibo
+        receipt: Número de Recibo
         shares_required: Número de Acciones
         share_type: Tipo de Acción
         share_type_id: Tipo de Acción
@@ -266,7 +266,7 @@ es:
     prompt_share_holder: Seleccione el Socio
     prompt_share_type: Seleccione Tipo de Acción
     query:
-      receipt: Recibo
+      receipt: Número de Recibo
       since: A partir de
       until: Hasta
     receipt: Número de Recibo

@@ -1,4 +1,5 @@
 class Sale < ShareOperation
+  validates :receipt, presence: true
   belongs_to :share_holder
 
   before_save :assign_shares_to_share_holder
@@ -18,14 +19,6 @@ class Sale < ShareOperation
       # This can be optimized the same way that assign shares to share holder (see below) using an update_all strategy
       self.shares = Share.get_next_shares shares_required, share_type_id 
       errors[:base] << I18n.t('share_operation.not_enough_shares') unless shares_assigned == shares_required
-    end
-
-    def assign_shares_to_share_holder
-      Share.assign_shares_to(share_holder, shares)
-    end
-
-    def new_share_holder_equity
-      share_holder.equity.respond_to?(:+) ? share_holder.equity + total_value : total_value
     end
 
     def update_share_holder

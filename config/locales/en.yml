@@ -101,7 +101,7 @@ en:
         city: City
       endorsement:
         share_holder: Share Holder receiving endorsement
-        source_share_holder_id: Share Holder that endorse
+        source_share_holder: Share Holder that endorse
       location:
         code: Code
         name: Name
