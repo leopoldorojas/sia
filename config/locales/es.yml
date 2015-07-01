@@ -140,7 +140,7 @@ es:
         final_share: Número Final de Acción
         initial_share: Número Inicial de Acción
         issue_date: Fecha
-        share_type: Tipo de Acción
+        share_type: Tipo de Acción (Valor)
         share_type_id: Tipo de Acción
       share_operation:
         adjustment: Ajuste
@@ -277,6 +277,7 @@ es:
       one: 'evitó que esta operación sea grabada:'
       other: 'evitaron que esta operación sea grabada:'
     search: Buscar por
+    to_same_share_holder_is_not_allowed: Endoso hacia sí mismo no es permitido
 
   issuance:
     a_lot_of_shares_to_issue: "El máximo número de acciones a emitir en una sola emisión es de %{maximum}"

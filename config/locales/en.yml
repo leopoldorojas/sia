@@ -140,7 +140,7 @@ en:
         final_share: Last share number
         initial_share: First share number
         issue_date: Date
-        share_type: Type
+        share_type: Type (Value)
         share_type_id: Type
       share_operation:
         adjustment: Adjustment
@@ -277,6 +277,7 @@ en:
       one: 'prohibited this endorsement from being saved:'
       other: 'prohibited this endorsement from being saved:'
     search: Search for
+    to_same_share_holder_is_not_allowed: Endorsement to same Share Holder is not allowed
 
   issuance:
     a_lot_of_shares_to_issue: "The maximum number of shares to issue at once is %{maximum}"

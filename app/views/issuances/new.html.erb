@@ -38,7 +38,7 @@
 
       <div class="small-4 columns">
         <%= f.label :share_type %>
-        <%= f.collection_select :share_type_id, ShareType.all, :id, :identifier, prompt: t('issuance.prompt_share_type') %>
+        <%= share_type_selector f, 'issuance' %>
       </div>
 
       <div class="small-8 columns">

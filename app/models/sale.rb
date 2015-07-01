@@ -2,7 +2,6 @@ class Sale < ShareOperation
   validate :operation_consistent?
   belongs_to :share_holder
 
-  before_save :assign_shares_to_share_holder
   after_create :update_share_holder
 
   private

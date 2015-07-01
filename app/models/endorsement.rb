@@ -1,7 +1,7 @@
 class Endorsement < ShareOperation
   validates :source_share_holder, presence: true
+  validate :different_share_holders?
 
-  before_save :assign_shares_to_share_holder
   after_create :update_share_holders_equity
 
   def share_holder= holder
@@ -21,6 +21,11 @@ class Endorsement < ShareOperation
   end
 
   private
+
+    def different_share_holders?
+      return if errors.any?
+      errors[:base] << I18n.t('endorsement.to_same_share_holder_is_not_allowed') if share_holder == source_share_holder
+    end
 
     def enough_shares?
       return if errors.any?

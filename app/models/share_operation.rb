@@ -7,6 +7,8 @@ class ShareOperation < ActiveRecord::Base
   validate :enough_stock_prepaid?, if: :will_use_adjustment?
   validate :enough_shares?
 
+  before_save :assign_shares_to_share_holder
+  
   has_one :receipt
   has_many :shares
   default_scope { order operation_date: :desc }
