@@ -4,6 +4,9 @@ class ShareIssue < ActiveRecord::Base
   delegate :company, to: :share_type
 
   validates :share_type_id, presence: true
+  validate :share_range, :maximum_shares_to_issue
+
+  before_save :create_shares
 
   default_scope { order issue_date: :desc }
 
@@ -29,4 +32,19 @@ class ShareIssue < ActiveRecord::Base
       where(query_string, {start: start, finish: finish})
     end
   end
+
+  private
+
+    def create_shares
+      initial_share.upto(final_share) { |identifier| shares.build(identifier: identifier) }    
+    end
+
+    def share_range
+      errors[:base] << t('issuance.invalid_share_range') if initial_share > final_share
+    end
+
+    def maximum_shares_to_issue
+      maximum = Rails.application.config.maximum_shares_to_issue_at_once
+      errors[:base] << t('issuance.a_lot_of_shares_to_issue', maximum: maximum) if final_share - initial_share > maximum
+    end
 end

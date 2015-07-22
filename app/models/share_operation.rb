@@ -45,7 +45,7 @@ class ShareOperation < ActiveRecord::Base
   end
 
   def share_type
-    shares.try(:first).try(:share_type)
+    ShareType.where(id: :share_type_id).first
   end
 
   def total_value
@@ -82,7 +82,7 @@ class ShareOperation < ActiveRecord::Base
     end
 
     def assign_shares_to_share_holder
-      Share.assign_shares_to share_holder, shares
+      Share.assign_shares_to share_holder, shares_finally_assigned
     end
 
     def new_share_holder_equity

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610205439) do
+ActiveRecord::Schema.define(version: 20150722225045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150610205439) do
     t.integer  "last_share_issued"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_share_issued_before_initial_load"
   end
 
   create_table "locations", force: true do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150610205439) do
     t.decimal  "earnings"
     t.decimal  "stock_prepaid"
     t.integer  "initial_number_of_shares"
+    t.integer  "shares_assigned_after_initial_load"
   end
 
   add_index "share_holders", ["location_id"], name: "index_share_holders_on_location_id", using: :btree
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150610205439) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "share_type_id"
+    t.string   "type"
   end
 
   add_index "share_issues", ["share_type_id"], name: "index_share_issues_on_share_type_id", using: :btree

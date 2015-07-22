@@ -1,0 +1,2 @@
+class RealIssue < ShareIssue
+end

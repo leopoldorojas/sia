@@ -6,6 +6,10 @@ class Sale < ShareOperation
 
   private
 
+    def shares_finally_assigned
+      shares
+    end
+
     def enough_shares?
       return if errors.any?
 
