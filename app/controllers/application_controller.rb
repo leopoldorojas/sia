@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   private 
 
 	  def set_current_company
-	  	@company = Company.first_or_create(name: "EDESA")
+	  	@company = Company.get
 	  end
 
     def configure_permitted_parameters

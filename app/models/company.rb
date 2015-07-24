@@ -8,7 +8,16 @@ class Company < ActiveRecord::Base
   	save
   end
 
+  def issued_shares_before_initial_load_add shares_to_add
+    self.issued_shares_before_initial_load_add += shares_to_add
+    save
+  end
+
   def to_s
   	name
+  end
+
+  def self.get
+    first_or_create(name: "EDESA")
   end
 end

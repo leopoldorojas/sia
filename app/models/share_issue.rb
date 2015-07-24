@@ -3,10 +3,11 @@ class ShareIssue < ActiveRecord::Base
   belongs_to :share_type
   delegate :company, to: :share_type
 
-  validates :share_type_id, presence: true
+  validates :issue_date, :final_share, :share_type_id, presence: true
   validate :share_range, :maximum_shares_to_issue
 
   before_save :create_shares
+  after_save :update_company
 
   default_scope { order issue_date: :desc }
 
@@ -35,16 +36,22 @@ class ShareIssue < ActiveRecord::Base
 
   private
 
+    def update_company
+      return true   # This method should be implemented as a child level: RealIssue or UtilityIssue
+    end
+
     def create_shares
       initial_share.upto(final_share) { |identifier| shares.build(identifier: identifier) }    
     end
 
     def share_range
-      errors[:base] << t('issuance.invalid_share_range') if initial_share > final_share
+      return if errors.any?
+      errors[:base] << I18n.t('issuance.invalid_share_range') if final_share.blank? || initial_share > final_share
     end
 
     def maximum_shares_to_issue
+      return if errors.any?
       maximum = Rails.application.config.maximum_shares_to_issue_at_once
-      errors[:base] << t('issuance.a_lot_of_shares_to_issue', maximum: maximum) if final_share - initial_share > maximum
+      errors[:base] << I18n.t('issuance.a_lot_of_shares_to_issue', maximum: maximum) if final_share - initial_share > maximum
     end
 end

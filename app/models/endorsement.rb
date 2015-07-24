@@ -25,7 +25,6 @@ class Endorsement < ShareOperation
     def shares_finally_assigned
       return shares if shares_assigned == shares_required
       :emitir_nuevas_como_nuevas
-      :setear_el_nuevo_numero_acciones_emitidas_desde_inicio_en_nuevo_numero_mas_nuevas
       shares + :nuevas
     end
 
