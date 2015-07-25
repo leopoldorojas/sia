@@ -82,7 +82,7 @@ class ShareOperation < ActiveRecord::Base
     end
 
     def assign_shares_to_share_holder
-      Share.assign_shares_to share_holder, shares_finally_assigned
+      Share.assign_shares_to share_holder, shares + UtilityIssue.emit(shares_required - shares_assigned, share_type)
     end
 
     def new_share_holder_equity

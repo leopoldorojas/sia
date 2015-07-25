@@ -22,12 +22,6 @@ class Endorsement < ShareOperation
 
   private
 
-    def shares_finally_assigned
-      return shares if shares_assigned == shares_required
-      :emitir_nuevas_como_nuevas
-      shares + :nuevas
-    end
-
     def new_shares_to_issue= number_of_shares
       @new_shares_to_issue = number_of_shares
     end
@@ -47,6 +41,7 @@ class Endorsement < ShareOperation
       # This can be optimized the same way that assign shares to share holder (see below) using an update_all strategy
       self.shares = source_share_holder.get_shares_to_endorse shares_required, share_type_id
       errors[:base] << I18n.t('endorsement.not_enough_shares') unless enough_equity?
+    end
 
     def enough_equity?
       shares_assigned == shares_required || source_share_holder.equity >= total_value

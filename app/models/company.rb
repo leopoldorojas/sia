@@ -8,8 +8,8 @@ class Company < ActiveRecord::Base
   	save
   end
 
-  def issued_shares_before_initial_load_add shares_to_add
-    self.issued_shares_before_initial_load_add += shares_to_add
+  def issued_shares_before_initial_load_upto final_share
+    self.issued_shares_before_initial_load_upto = final_share
     save
   end
 
