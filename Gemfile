@@ -48,3 +48,6 @@ gem 'angular_rails_csrf'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+group :development do
+	gem 'pry-byebug'
+end

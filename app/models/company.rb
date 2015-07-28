@@ -9,7 +9,7 @@ class Company < ActiveRecord::Base
   end
 
   def issued_shares_before_initial_load_upto final_share
-    self.issued_shares_before_initial_load_upto = final_share
+    self.last_share_issued_before_initial_load = final_share
     save
   end
 

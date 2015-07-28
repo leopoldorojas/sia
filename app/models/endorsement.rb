@@ -61,8 +61,9 @@ class Endorsement < ShareOperation
     end
 
     def update_source_share_holder
+      shares_after_initial_load = source_share_holder.shares_assigned_after_initial_load || 0
       self.source_share_holder.equity = new_source_share_holder_equity
-      self.source_share_holder.shares_assigned_after_initial_load += new_shares_to_issue
+      self.source_share_holder.shares_assigned_after_initial_load = shares_after_initial_load + new_shares_to_issue
       self.source_share_holder.save
     end
 

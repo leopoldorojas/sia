@@ -45,7 +45,7 @@ class ShareOperation < ActiveRecord::Base
   end
 
   def share_type
-    ShareType.where(id: :share_type_id).first
+    ShareType.where(id: share_type_id).first
   end
 
   def total_value
