@@ -15,7 +15,7 @@ app.controller('SharesCtrl', ['$scope', '$http', 'uiGridConstants', '$window', (
       { field: 'share_type_identifier', displayName: "Tipo", enableFiltering: false },
       { field: 'value', displayName: "Valor", cellFilter: 'number', enableFiltering: false },
       { field: 'share_holder_name', displayName: "Socio", filter: {condition: uiGridConstants.filter.CONTAINS } },
-      { field: 'sale_date', displayName: "Fecha de Operación" }
+      { field: 'share_operation_date', displayName: "Última Operación en" }
     ]
   }
 

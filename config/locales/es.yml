@@ -383,12 +383,12 @@ es:
       first_identifier: Número inicial
       last_identifier: Número final
       share_holder: Socio
-      since: Acciones vendidas partir de
-      until: Vendidas hasta
-      sold_or_not: Vendidas o sin vender
+      since: Con operaciones desde
+      until: Con operaciones hasta
+      sold_or_not: Con o sin socio propietario
     search: Buscar por
-    sold: Vendidas
-    no_sold: Sin Vender
+    sold: Con socio propietario
+    no_sold: Sin socio propietario
 
   share_holder:
     created: El Socio fue creado exitosamente.

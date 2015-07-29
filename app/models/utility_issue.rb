@@ -6,7 +6,7 @@ class UtilityIssue < ShareIssue
     utility_issue = create do |u|
       u.issue_date = Time.zone.now 
       u.initial_share = (Company.get.last_share_issued_before_initial_load || 0) + 1
-      u.final_share = u.initial_share + number_of_shares
+      u.final_share = u.initial_share + number_of_shares - 1
       u.share_type = share_type
     end
 

@@ -1,5 +1,6 @@
 class ShareOperation < ActiveRecord::Base
-  attr_accessor :shares_required, :share_type_id, :shares_assigned
+  attr_accessor :share_type_id, :shares_assigned
+  has_many :shares
 
   validates :share_holder, :shares_required, :share_type_id, :receipt, presence: true
   validates :shares_required, :numericality => { :greater_than => 0 }
@@ -10,7 +11,6 @@ class ShareOperation < ActiveRecord::Base
   before_save :assign_shares_to_share_holder
   
   has_one :receipt
-  has_many :shares
   default_scope { order operation_date: :desc }
 
   class << self
@@ -34,10 +34,6 @@ class ShareOperation < ActiveRecord::Base
       where("source_share_holder_id = ?", this_share_holder_id)
     end
 
-  end
-
-  def shares_required
-     @shares_required.blank? || @shares_required.is_a?(Integer) ? @shares_required : (shares_required = @shares_required.to_i)
   end
 
   def share_type_id

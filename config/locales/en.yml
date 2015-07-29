@@ -383,12 +383,12 @@ en:
       first_identifier: First Identifier
       last_identifier: Last Identifier
       share_holder: Share Holder
-      since: Since
-      until: Until
-      sold_or_not: Sold or not sold
+      since: With operations since
+      until: With operations until
+      sold_or_not: With or without share holder
     search: Search for
-    sold: Sold
-    no_sold: Not sold
+    sold: With share holder
+    no_sold: Without share holder
 
   share_holder:
     created: Share Holder was successfully created.
