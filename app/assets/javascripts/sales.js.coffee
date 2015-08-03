@@ -14,7 +14,7 @@ app.controller('SalesCtrl', ['$scope', '$http', 'uiGridConstants', 'dateFilter',
     columnDefs: [
       { field: 'operation_date', displayName: "Fecha" },
       { field: 'share_holder.name', displayName: "Socio", filter: {condition: uiGridConstants.filter.CONTAINS } },
-      { field: 'shares_assigned', displayName: "# de Acciones", cellFilter: 'number' },
+      { field: 'shares_required', displayName: "# de Acciones", cellFilter: 'number' },
       { field: 'cash', displayName: "Efectivo", cellFilter: 'number', enableFiltering: false },
       { field: 'dividends', displayName: "Dividendos", cellFilter: 'number', enableFiltering: false },
       { field: 'adjustment', displayName: "Ajustes", cellFilter: 'number', enableFiltering: false},

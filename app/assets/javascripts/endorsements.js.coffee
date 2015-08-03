@@ -15,7 +15,7 @@ app.controller('endorsementsCtrl', ['$scope', '$http', 'uiGridConstants', 'dateF
       { field: 'operation_date', displayName: "Fecha" },
       { field: 'source_share_holder.name', displayName: "Socio que endosa", filter: {condition: uiGridConstants.filter.CONTAINS } },
       { field: 'share_holder.name', displayName: "Socio que recibe endoso", filter: {condition: uiGridConstants.filter.CONTAINS } },
-      { field: 'shares_assigned', displayName: "# de Acciones", cellFilter: 'number' },
+      { field: 'shares_required', displayName: "# de Acciones", cellFilter: 'number' },
       { field: 'receipt', displayName: "Memo", filter: {condition: uiGridConstants.filter.CONTAINS }}
     ]
   }
