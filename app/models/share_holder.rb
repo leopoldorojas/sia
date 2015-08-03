@@ -17,16 +17,15 @@ class ShareHolder < ActiveRecord::Base
 
   # Calculate how many shares the share holder had in an initial date plus a number specific of months
   def shares_in this_date
-    (initial_number_of_shares || 0) + shares.size - shares_acquired_since(this_date) + shares_left_since(this_date)
+    (initial_number_of_shares || 0) + shares.size - shares_operated_since(this_date, "Acquired") + shares_operated_since(this_date, "Endorsed")
   end 
 
-  def shares_left_since this_date
-    0
-  end
-
-  def shares_acquired_since this_date
+  def shares_operated_since this_date, type
+    operation_share_holder = type == "Acquired" ? :share_holder_is : :source_share_holder_is
     total_shares = 0
-    Sale.share_holder_is(id).since(this_date).find_each { |sale| total_shares += sale.shares.size }
+    ShareOperation.send(operation_share_holder,id).since(this_date).find_each do |share_operation|
+      total_shares += (share_operation.shares_required || share_operation.shares_assigned)
+    end
     total_shares
   end
 

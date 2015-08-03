@@ -34,6 +34,10 @@ class ShareOperation < ActiveRecord::Base
       where("source_share_holder_id = ?", this_share_holder_id)
     end
 
+    def source_share_holder_is this_share_holder_id
+      where("source_share_holder_id = ?", this_share_holder_id)
+    end
+
   end
 
   def share_type_id
