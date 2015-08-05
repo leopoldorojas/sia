@@ -20,7 +20,8 @@ class CertificatesController < ApplicationController
                 template: 'certificates/show.html.erb',
                 disposition: 'attachment',
                 layout: 'certificate',
-                encoding: "UTF-8"
+                encoding: "UTF-8",
+                orientation: "Landscape"
       end
     end
   end

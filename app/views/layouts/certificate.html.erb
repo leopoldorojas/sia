@@ -4,11 +4,11 @@
     <meta charset='utf-8' />
     <%= wicked_pdf_stylesheet_link_tag 'application' %>
   </head>
-  <body>
-    <div>
-      <%= wicked_pdf_image_tag 'Logo_Edesa.png' %>
+  <body class="letter_landscape">
+    <div class="row">
+      <div class="right"><%= wicked_pdf_image_tag 'Logo_Edesa2.png' %></div>
     </div>
-    <div>
+    <div class="row">
       <%= yield %>
     </div>
   </body>

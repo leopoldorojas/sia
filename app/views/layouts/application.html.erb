@@ -40,6 +40,7 @@
         <li><%= link_to t('menu.endorsements'), endorsements_path %></a></li>
         <li><%= link_to t('menu.queries'), share_holders_path %></a></li>
         <li><%= link_to t('menu.earning_distribution'), new_earning_distribution_path if policy(EarningDistribution).manage? %></li>
+        <li><%= link_to t('menu.certificates'), new_certificate_path %></li>
         <li><%= link_to t('menu.issuance'), menu_issuance_path %></li>
         <li><%= link_to t('menu.management'), share_types_path %></li>
       </ul>
