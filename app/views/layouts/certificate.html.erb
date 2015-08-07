@@ -4,53 +4,56 @@
     <meta charset='utf-8' />
     <%= wicked_pdf_stylesheet_link_tag 'application' %>
   </head>
-  <body class="letter_landscape">
-    <div class="row">
-      <div class="right"><%= wicked_pdf_image_tag 'Logo_Edesa2.png' %></div>
-    </div>
-    <div class="row">
-      <br/>
-      <p class="certificate-title">Empresa para el Desarrollo EDESA S.A.</p>
-    </div>
-    <div class="row">
-      <br/>
-      <%= yield :value_legend %>
-    </div>
-    <div class="row">
-      <%= yield :constitution_text %>
-    </div>
-    <div class="row">
-      <br/>
-      <%= yield :stock_text %>
-    </div>
-    <div class="row">
-      <p class="certificate-text text-center">CERTIFICAMOS</p>
-    </div>
-    <div class="row">
-      <%= yield :company_info %>
-    </div>
-    <div class="row">
-      <%= yield :shares_info %>
-    </div>
-    <div class="row">
-      <br/>
-      <table id="certificate" width="100%">
-        <tr>
-          <td width="7%"></td>
-          <td>
-            ------------------------------------------------<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Presidente
-          </td>
-          <td width="25%"></td>
-          <td>
-            ------------------------------------------------<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Secretario
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="row">
-      <%= yield %>
-    </div>
+  <body>
+    <div id="certificate-wrapper1"><div id="certificate-wrapper2"><div id="certificate-wrapper3">
+      <div class="row">
+        <div class="right"><%= wicked_pdf_image_tag 'Logo_Edesa2.png' %></div>
+      </div>
+      <div class="row">
+        <br/>
+        <p class="certificate-title">Empresa para el Desarrollo EDESA S.A.</p>
+      </div>
+      <div class="row">
+        <br/>
+        <%= yield :value_legend %>
+      </div>
+      <div class="row">
+        <%= yield :constitution_text %>
+      </div>
+      <div class="row">
+        <br/>
+        <%= yield :stock_text %>
+      </div>
+      <div class="row">
+        <br/>      
+        <p class="certificate-text text-center">CERTIFICAMOS</p>
+      </div>
+      <div class="row">
+        <%= yield :company_info %>
+      </div>
+      <div class="row">
+        <%= yield :shares_info %>
+      </div>
+      <div class="row">
+        <br/><br/><br/>
+        <table id="certificate" width="100%">
+          <tr>
+            <td width="7%"></td>
+            <td>
+              ------------------------------------------------<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="certificate-text">Presidente</span>
+            </td>
+            <td width="25%"></td>
+            <td>
+              ------------------------------------------------<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="certificate-text">Secretario</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div></div></div>
   </body>
 </html>

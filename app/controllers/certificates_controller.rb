@@ -23,7 +23,7 @@ class CertificatesController < ApplicationController
                 encoding: 'UTF-8',
                 orientation: 'Landscape',
                 page_size: 'Letter',
-                margin: { top: 15, bottom: 30, left:25, right: 25 }
+                margin: { top: 7, bottom: 15, left:20, right: 20 }
 
       end
     end
