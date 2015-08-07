@@ -33,10 +33,21 @@
       <%= yield :shares_info %>
     </div>
     <div class="row">
-      <br/><br/>
-      <p class="certificate-small-text">---------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------------<br/>
-        &nbsp;&nbsp;&nbsp;Presidente&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Secretario</p>
-      </p>
+      <br/>
+      <table id="certificate" width="100%">
+        <tr>
+          <td width="7%"></td>
+          <td>
+            ------------------------------------------------<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Presidente
+          </td>
+          <td width="25%"></td>
+          <td>
+            ------------------------------------------------<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Secretario
+          </td>
+        </tr>
+      </table>
     </div>
     <div class="row">
       <%= yield %>
