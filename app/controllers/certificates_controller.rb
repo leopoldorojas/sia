@@ -16,12 +16,15 @@ class CertificatesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render  pdf: "file_name",
+        render  pdf: 'Certificate',
                 template: 'certificates/show.html.erb',
                 disposition: 'attachment',
                 layout: 'certificate',
-                encoding: "UTF-8",
-                orientation: "Landscape"
+                encoding: 'UTF-8',
+                orientation: 'Landscape',
+                page_size: 'Letter',
+                margin: { top: 15, bottom: 30, left:25, right: 25 }
+
       end
     end
   end

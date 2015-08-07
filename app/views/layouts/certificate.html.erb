@@ -9,6 +9,36 @@
       <div class="right"><%= wicked_pdf_image_tag 'Logo_Edesa2.png' %></div>
     </div>
     <div class="row">
+      <br/>
+      <p class="certificate-title">Empresa para el Desarrollo EDESA S.A.</p>
+    </div>
+    <div class="row">
+      <br/>
+      <%= yield :value_legend %>
+    </div>
+    <div class="row">
+      <%= yield :constitution_text %>
+    </div>
+    <div class="row">
+      <br/>
+      <%= yield :stock_text %>
+    </div>
+    <div class="row">
+      <p class="certificate-text text-center">CERTIFICAMOS</p>
+    </div>
+    <div class="row">
+      <%= yield :company_info %>
+    </div>
+    <div class="row">
+      <%= yield :shares_info %>
+    </div>
+    <div class="row">
+      <br/><br/>
+      <p class="certificate-small-text">---------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------------<br/>
+        &nbsp;&nbsp;&nbsp;Presidente&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Secretario</p>
+      </p>
+    </div>
+    <div class="row">
       <%= yield %>
     </div>
   </body>
