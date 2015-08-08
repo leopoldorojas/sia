@@ -7,14 +7,25 @@
 <% end %>
 
 <% content_for :stock_text do %>
-  <div id="certificate-wrapper-stock1"><div id="certificate-wrapper-stock2">
-	  <p class="certificate-text text-center">Capital Social de Quinientos noventa y tres millones cien mil colones con 0.00/100 céntimos.</p>
-	  <p class="certificate-text text-center">Representado por once mil ochocientas sesenta y dos acciones de cincuenta mil colones cada una.</p>
-  </div></div>
+  <table id="stock" width="100%">
+  	<tr>
+  		<td width="8%"></td>
+  		<td width="84%">
+  			<div id="certificate-wrapper-stock1"><div id="certificate-wrapper-stock2">
+	        <p class="certificate-text text-center">
+	        	Capital Social de Quinientos noventa y tres millones cien mil colones con 0.00/100 céntimos.
+	        <br/>
+	        	Representado por once mil ochocientas sesenta y dos acciones de cincuenta mil colones cada una.
+	        </p>
+        </div></div>
+      </td>
+  		<td width="8%"></td>
+    </tr>
+  </table>
 <% end %>
 
 <% content_for :company_info do %>
-  <p class="certificate-text">Que EMPRESA DE APOYO COMUNAL RÍO CAÑAS S.A., cédula No. 3101623693.</p>
+  <p class="certificate-text">Que <%= @certificate.share_holder.name %>, cédula No. <%= @certificate.share_holder.identifier %>.</p>
 <% end %>
 
 <% content_for :shares_info do %>
