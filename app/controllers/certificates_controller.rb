@@ -39,9 +39,13 @@ class CertificatesController < ApplicationController
 
   def create
     @certificate = Certificate.new(certificate_params)
-    flash[:notice] = t('certificate.created') if @certificate.save
-    respond_with(@certificate) do |format|
-      format.html { redirect_to certificate_path(@certificate, format: :pdf) }
+
+    respond_to do |format|
+      if @certificate.save
+        format.html { redirect_to certificate_path(@certificate, format: :pdf, notice: t('certificate.created')) }
+      else
+        format.html { render :new }
+      end
     end
   end
 

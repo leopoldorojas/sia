@@ -168,6 +168,7 @@ en:
         role: Role
 
   certificate:
+    at_least_one_share_not_found: At least one of the shares do not have share holder assigned.
     created: Certificate successfully created.
     do_certificate: Print certificate
     header_info: 'Throughout this transaction, you can print Certificate of Shares.'

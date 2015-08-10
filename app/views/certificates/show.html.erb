@@ -29,8 +29,8 @@
 <% end %>
 
 <% content_for :shares_info do %>
-  <p class="certificate-small-text">Es dueño de 1 acción(es) de cincuenta mil colones de la Sociedad Anónima Empresa para el Desarrollo EDESA S.A., que comprende:<br/>
-  de la acción No. 3519 hasta la No. 3519.</p>
+  <p class="certificate-small-text">Es dueño de <%= @certificate.shares.size %> acción(es) de cincuenta mil colones de la Sociedad Anónima Empresa para el Desarrollo EDESA S.A., que comprenden:<br/>
+  la(s) acción(es) <%= @certificate.shares_info_parsed %>.</p>
 <% end %>
 
 <!-- <p style='page-break-after:always;'>A nueva página</p>

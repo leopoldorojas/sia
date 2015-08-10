@@ -168,6 +168,7 @@ es:
         role: Rol
 
   certificate:
+    at_least_one_share_not_found: Al menos una de las acciones no tiene socio asignado.
     created: Certificado creado exitosamente.
     do_certificate: Imprimir certificado
     header_info: 'Mediante esta pantalla, usted puede realizar la impresión de Certificados de Acciones.'
