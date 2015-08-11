@@ -16,16 +16,16 @@ class Certificate < ActiveRecord::Base
 
   def shares_info_parsed
     shares_parsed = ""
-    shares_info.split(',').each_with_index do | share_item, index |
+    (share_info_splitted = shares_info.split(',')).each_with_index do | share_item, index |
       if index > 0
-        shares_parsed += ", "
+        shares_parsed += index == share_info_splitted.size - 1 ? " y " : ", "
       end
 
       share_item_splitted = share_item.split('-').map(&:strip)
       if share_item != share_item_splitted.first
         shares_parsed += "#{index > 0 ? 'd' : 'D'}e la acción No. #{share_item_splitted.first} hasta la No. #{share_item_splitted.last}"
       else 
-        shares_parsed += "No. #{share_item}"
+        shares_parsed += "#{'la(s) acción(es) ' if index == 0}No. #{share_item}"
       end
     end
 

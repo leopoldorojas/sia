@@ -39,6 +39,7 @@ class CertificatesController < ApplicationController
 
   def create
     @certificate = Certificate.new(certificate_params)
+    @certificate.certificate_date = Time.zone.now
 
     respond_to do |format|
       if @certificate.save
