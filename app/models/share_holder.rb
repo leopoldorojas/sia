@@ -44,4 +44,29 @@ class ShareHolder < ActiveRecord::Base
     shares.joins(:share_issue).where(share_issues: { share_type_id: share_type_id })
   end
 
+  def shares_info
+    shares_info_value = ""
+    lower_limit = 0
+    previous_identifier = nil
+
+    shares.order(:identifier).each_with_index do |share, index|
+      unless index == 0
+        if share.identifier != previous_identifier + 1
+          if lower_limit == 0
+            shares_info_value += "#{previous_identifier}, "
+          else
+            shares_info_value += "#{lower_limit}-#{previous_identifier}, "
+            lower_limit = 0
+          end
+        else
+          lower_limit = previous_identifier if lower_limit == 0
+        end
+      end
+
+      previous_identifier = share.identifier
+    end
+
+    shares_info_value += lower_limit == 0 ? "#{previous_identifier}" : "#{lower_limit}-#{previous_identifier}"
+  end
+
 end
