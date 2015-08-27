@@ -14,6 +14,12 @@ class Certificate < ActiveRecord::Base
     shares_set.uniq
   end
 
+  def value
+    shares_to_look_for = shares
+    first_share = Share.where(identifier: shares_to_look_for.first).first unless shares_to_look_for.first.nil?
+    first_share.nil? ? 0 : first_share.value * shares_to_look_for.size
+  end
+
   def shares_info_parsed
     shares_parsed = ""
     (share_info_splitted = shares_info.split(',')).each_with_index do | share_item, index |
