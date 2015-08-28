@@ -16,6 +16,19 @@ module ApplicationHelper
   	number_to_currency(number, unit: "", separator: ".", delimiter: ",")
   end
 
+  def as_money_secured number
+    upper_limit = 9999999999
+    lower_limit = number * 10
+    asterisk = ""
+
+    while upper_limit >= lower_limit
+      asterisk += "*"
+      upper_limit /= 10
+    end 
+    
+    asterisk + number_to_currency(number, unit: "", separator: ".", delimiter: ",")
+  end
+
   def as_percentage number
     number_to_percentage(number, precision: 2, separator: ".")
   end
@@ -30,6 +43,9 @@ module ApplicationHelper
     end
   end
 
+  # The following couple of methods to convert currency to spanish words were taken completely from:
+  # http://lobotuerto.com/blog/2009/06/19/convertir-un-numero-a-palabras-con-ruby/
+  # SIA thanks a lot to the author of those helpers for this valuable contribution
   def numero_a_palabras(numero)
     de_tres_en_tres = numero.to_i.to_s.reverse.scan(/\d{1,3}/).map{|n| n.reverse.to_i}
    

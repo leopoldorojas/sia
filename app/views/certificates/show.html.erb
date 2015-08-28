@@ -1,5 +1,5 @@
 <% content_for :value_legend do %>
-  <p class="certificate-text">VALOR:&#x20a1;&nbsp;&nbsp;&nbsp;*****<%= as_money @certificate.value %> (<%= numero_a_palabras(@certificate.value).upcase %>&nbsp;COLONES CON 00/100 CENTIMOS)</p>
+  <p class="certificate-text">VALOR:&#x20a1;&nbsp;&nbsp;&nbsp;<%= as_money_secured @certificate.value %> (<%= numero_a_palabras(@certificate.value).upcase %>&nbsp;COLONES CON 00/100 CENTIMOS)</p>
 <% end %>
 
 <% content_for :constitution_text do %>
