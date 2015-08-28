@@ -134,6 +134,7 @@ en:
         location: Location
         name: Name
         phone: Phone
+        shares_info: Shares reported in system
         stock_prepaid: Stock Prepaid
       share_issue:
         company: Credit Company

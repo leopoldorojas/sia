@@ -134,6 +134,7 @@ es:
         location: Ubicación
         name: Nombre
         phone: Teléfono
+        shares_info: Acciones reportadas en sistema
         stock_prepaid: Adelanto para Acciones
       share_issue:
         company: Empresa de Crédito

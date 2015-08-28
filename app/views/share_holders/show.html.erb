@@ -4,7 +4,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('name') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= @share_holder.name %>
   </div>
 </div>
@@ -13,7 +13,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('identifier') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= @share_holder.identifier %>
   </div>
 </div>
@@ -22,7 +22,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('contact') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= @share_holder.contact %>
   </div>
 </div>
@@ -31,7 +31,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('phone') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= @share_holder.phone %>
   </div>
 </div>
@@ -40,7 +40,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('email') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= @share_holder.email %>
   </div>
 </div>
@@ -49,7 +49,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('location') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= @share_holder.location %>
   </div>
 </div>
@@ -58,7 +58,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('equity') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= as_money @share_holder.equity %>
   </div>
 </div>
@@ -67,7 +67,7 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('earnings') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= as_money @share_holder.earnings %>
   </div>
 </div>
@@ -76,8 +76,17 @@
   <div class="small-4 columns">
     <strong><%= ShareHolder.human_attribute_name('stock_prepaid') %>:</strong>
   </div>
-  <div class="small-3 columns end">
+  <div class="small-8 columns end">
     <%= as_money @share_holder.stock_prepaid %>
+  </div>
+</div>
+
+<div class="row info-row">
+  <div class="small-4 columns">
+    <strong><%= ShareHolder.human_attribute_name('shares_info') %>:</strong>
+  </div>
+  <div class="small-8 columns end">
+    <%= @share_holder.shares_info %>
   </div>
 </div>
 
